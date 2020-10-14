@@ -2,7 +2,7 @@
   Huntington Angels Network 😇
 </h1>
 
-This site was created using [Next.js](https://nextjs.org/docs/getting-started), a React-based static-site generator and the [Prismic CMS](https://prismic.io/). To see other project dependencies, check out the project's `package.json` file.
+This site was created using [Gatsby](https://www.gatsbyjs.org/docs/), a React-based static-site generator and the [Contentful CMS](https://www.contentful.com/developers/docs/). To see other project dependencies, check out the project's `package.json` file.
 
 ## Getting Started
 
@@ -62,8 +62,6 @@ To update the site, it needs to be deployed to Netlify. This can happen in a num
 **Create a release in Contentful** Using the magic of webhooks, the site will automatically be deployed in Netlify whenever a new release is published in Contentful.
 
 **Merging a Pull Request** Whenever a PR is merged into the master branch, Netlify will automatically deploy to keep the site up-to-date. Note: Upon creating and updating any PR, a `deploy preview` can be accessed from the bottom of the page - this doesn't affect the live site, but is very helpful to view and share code changes in production.
-
-## 🧐 What's inside?
 
 ## 🧐 What's inside?
 
