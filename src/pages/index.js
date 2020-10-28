@@ -11,6 +11,7 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const potato = get(this, 'props.data.allContentfulTestimonial.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -19,6 +20,8 @@ class RootIndex extends React.Component {
           <Hero data={author.node} />
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
+            <h2 className="section-headline">{potato[0].node.name}</h2>
+            <h2 className="section-headline">{potato[1].node.name}</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
@@ -87,5 +90,13 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
+    allContentfulTestimonial {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+}
 `
