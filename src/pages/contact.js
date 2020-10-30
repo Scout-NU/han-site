@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-class AboutUsPage extends React.Component {
+class ContactPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
 
@@ -15,10 +15,10 @@ class AboutUsPage extends React.Component {
     }
 }
 
-export default AboutUsPage
+export default ContactPage
 
 export const pageQuery = graphql`
-  query AboutUsQuery {
+  query ContactPageQuery {
     site {
       siteMetadata {
         title

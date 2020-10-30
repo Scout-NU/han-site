@@ -25,9 +25,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Huntington Angels Network',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/han',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
