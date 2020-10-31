@@ -18,7 +18,7 @@ class PortfolioPage extends React.Component {
 export default PortfolioPage
 
 export const pageQuery = graphql`
-  query PortfolioPageuery {
+  query PortfolioPageQuery {
     site {
       siteMetadata {
         title

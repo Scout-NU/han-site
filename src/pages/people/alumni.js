@@ -24,5 +24,18 @@ export const pageQuery = graphql`
         title
       }
     }
+    allContentfulAlumni {
+        edges {
+          node {
+            name
+            linkedIn
+            profilePicture {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
   }
 `

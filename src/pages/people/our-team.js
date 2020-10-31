@@ -19,10 +19,38 @@ export default OurTeamPage
 
 export const pageQuery = graphql`
   query OurTeamQuery {
-    site {
-      siteMetadata {
-        title
+    allContentfulAdvisor {
+      edges {
+        node {
+          bio {
+            bio
+          }
+          name
+          linkedIn
+          profilePicture {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    allContentfulTeamMember {
+      edges {
+        node {
+          bio
+          email
+          name
+          linkedIn
+          profilePicture {
+            file {
+              url
+            }
+          }
+          title
+        }
       }
     }
   }
+  
 `
