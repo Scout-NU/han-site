@@ -24,5 +24,46 @@ export const pageQuery = graphql`
         title
       }
     }
+    contentfulExplorePage {
+        headline
+        newsletterSubheader
+        featuredNewsletter {
+          title
+          publicationDate
+          newsletterFile {
+            file {
+              url
+            }
+          }
+        }
+        venturesAndInvestorsHeader
+        venturesAndInvestorsSubheader
+        studentsHeader
+        studentsSubheader
+        blogButtonHeader
+        blogButtonLabel
+        noEventsMessage
+      }
+      allContentfulEvent(sort: {fields: date}) {
+        edges {
+          node {
+            title
+            description {
+              description
+            }
+            date
+            startTime
+            endTime
+            location
+            photo {
+              file {
+                url
+              }
+            }
+            hostName
+            registrationLink
+          }
+        }
+      }
   }
 `

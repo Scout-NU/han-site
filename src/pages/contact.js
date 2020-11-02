@@ -17,6 +17,7 @@ class ContactPage extends React.Component {
 
 export default ContactPage
 
+//TODO: Ask Angelina about getting contact block?
 export const pageQuery = graphql`
   query ContactPageQuery {
     site {
@@ -24,5 +25,54 @@ export const pageQuery = graphql`
         title
       }
     }
+    contentfulContactPage {
+        headline
+        tagline
+        emailHeader
+        emailDescription
+        emailIcon {
+          image {
+            file {
+              url
+            }
+          }
+        }
+        email {
+          value {
+            value
+          }
+        }
+        linkedInHeader
+        linkedInDescription
+        linkedInIcon {
+          image {
+            file {
+              url
+            }
+          }
+        }
+        linkedIn {
+          value {
+            value
+          }
+        }
+        newsletterHeader
+        newsletterDescription
+        newsletterIcon {
+          image {
+            file {
+              url
+            }
+          }
+        }
+        faqHeader
+        faqImage {
+          file {
+            url
+          }
+        }
+        socialMediaHeader
+        socialMediaDescription
+      }
   }
 `

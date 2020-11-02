@@ -24,5 +24,29 @@ export const pageQuery = graphql`
         title
       }
     }
+    contentfulFaqPage {
+        headline
+        category1Label
+        category1Questions {
+          question
+          answer {
+            answer
+          }
+        }
+        category2Label
+        category2Questions {
+          question
+          answer {
+            answer
+          }
+        }
+        category3Label
+        category3Questions {
+          question
+          answer {
+            answer
+          }
+        }
+      }
   }
 `
