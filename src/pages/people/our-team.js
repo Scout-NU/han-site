@@ -10,6 +10,9 @@ class OurTeamPage extends React.Component {
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
+              <div className="wrapper">
+                TEAM!
+              </div>
             </Layout>
         )
     }

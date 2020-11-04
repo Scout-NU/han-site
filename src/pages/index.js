@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
 import Testimonial from '../components/testimonial/testimonial.js'
+import 'bootstrap/dist/css/bootstrap.css';
 
 class RootIndex extends React.Component {
   render() {
@@ -105,7 +106,7 @@ export const pageQuery = graphql`
       tagline
       contentful_id
       headline
-      missionStatementHeader,
+      missionStatementHeader
       missionStatement {
         value {
           value
