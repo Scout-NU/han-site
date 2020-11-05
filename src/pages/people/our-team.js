@@ -28,8 +28,8 @@ export const pageQuery = graphql`
           name
           linkedIn
           profilePicture {
-            file {
-              url
+            fluid (maxWidth: 100, maxHeight: 100) {
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -43,8 +43,8 @@ export const pageQuery = graphql`
           name
           linkedIn
           profilePicture {
-            file {
-              url
+            fluid (maxWidth: 100, maxHeight: 100) {
+              ...GatsbyContentfulFluid
             }
           }
           title

@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 
 import styles from './venture.module.css'
 
@@ -8,6 +9,6 @@ export default ({ venture }) => (
         {venture.website},
         {venture.year},
         {venture.description.description}
-        <img src={venture.logo.file.url} />
+        <Img alt="" fluid={venture.logo.fluid} />
     </div>
 )

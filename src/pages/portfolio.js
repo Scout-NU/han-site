@@ -7,10 +7,12 @@ import Venture from '../components/venture/venture'
 class PortfolioPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const ventures = get(this, 'props.data.contentfulPortfolioPage.featuredVentures')
+        const featuredVentures = get(this, 'props.data.contentfulPortfolioPage.featuredVentures')
         const pageHeadline = get(this, 'props.data.contentfulPortfolioPage.headline')
         const featuredHeader = get(this, 'props.data.contentfulPortfolioPage.featuredSubheader')
         const pastVenturesHeader = get(this, 'props.data.contentfulPortfolioPage.pastVenturesSubheader')
+        const allVentures = get(this, 'props.data.allContentfulVenture.edges')
+
 
         return (
             <Layout location={this.props.location}>
@@ -19,9 +21,8 @@ class PortfolioPage extends React.Component {
                 <div className="wrapper">
                     <h2>{featuredHeader}</h2>
                     <div>Huh?</div>
-                    <h2>{pastVenturesHeader}</h2>
                     <ul>
-                        {ventures.map((venture) => {
+                        {featuredVentures.map((venture) => {
                             return (
                                 <li>
                                     <Venture venture={venture} />
@@ -29,6 +30,17 @@ class PortfolioPage extends React.Component {
                             )
                         })}
                     </ul>
+                    <h2>{pastVenturesHeader}</h2>
+                    <ul>
+                        {allVentures.map(({node})=> {
+                            return (
+                                <li>
+                                    <Venture venture={node} />
+                                </li>
+                            )
+                        })}
+                    </ul>
+
                 </div>
             </Layout>
         )
@@ -56,8 +68,25 @@ export const pageQuery = graphql`
             description
           }
           logo {
-            file {
-              url
+            fluid (maxWidth: 100, maxHeight: 100) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+      allContentfulVenture {
+        edges {
+          node {
+            name
+            website
+            year
+            description {
+              description
+            }
+            logo {
+              fluid (maxWidth: 100, maxHeight: 100) {
+                ...GatsbyContentfulFluid
+              }
             }
           }
         }
