@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { Event } from '../components/event/event'
+import Event from '../components/event/event'
+import Newsletter from '../components/newsletter/newsletter'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 class ExplorePage extends React.Component {
@@ -14,23 +15,23 @@ class ExplorePage extends React.Component {
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
               <h1>{explorePage.headline}</h1>
-              <div>{explorePage.newsletterSubheader}</div>
-              <div>{explorePage.featuredNewsletter}</div>
-              <div>{explorePage.venturesAndInvestorsHeader}</div>
+              <h2>{explorePage.newsletterSubheader}</h2>
+              <Newsletter newsletter={explorePage.featuredNewsletter}/>
+              <h2>{explorePage.venturesAndInvestorsHeader}</h2>
               <div>{explorePage.venturesAndInvestorsSubheader}</div>
-              <div>{explorePage.studentsHeader}</div>
+              <h2>{explorePage.studentsHeader}</h2>
               <div>{explorePage.studentsSubheader}</div>
               <div>{explorePage.blogButtonHeader}</div>
               <div>{explorePage.blogButtonLabel}</div>
               <div>{explorePage.noEventsMessage}</div>
               <ul>
-                  {events.map(({node})=> {
-                      return (
-                          <li>
-                              <Event event={node} />
-                          </li>
-                      )
-                  })}
+                {events.map(({ node }) => {
+                  return (
+                    <li>
+                      <Event event={node} />
+                    </li>
+                  )
+                })}
               </ul>
             </Layout>
 
