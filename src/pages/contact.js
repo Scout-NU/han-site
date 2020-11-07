@@ -7,46 +7,27 @@ import Img from 'gatsby-image'
 class ContactPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const pageTitle = get(this,  'props.data.contentfulContactPage.headline')
-        const pagesubtitle = get(this,  'props.data.contentfulContactPage.tagline')
-        const emailTitle = get(this,  'props.data.contentfulContactPage.emailHeader')
-        const emailSubtitle = get(this,  'props.data.contentfulContactPage.emailDescription')
-        const emailIcon = get(this,  'props.data.contentfulContactPage.emailIcon.image.fluid')
-        const emailValue = get(this,  'props.data.contentfulContactPage.email.value.value')
-        const linkedInTitle = get(this,  'props.data.contentfulContactPage.linkedInHeader')
-        const linkedInSubtitle = get(this,  'props.data.contentfulContactPage.linkedInDescription')
-        const linkedInIcon = get(this,  'props.data.contentfulContactPage.linkedInIcon.image.fluid')
-        const linkedInValue = get(this,  'props.data.contentfulContactPage.linkedIn.value.value')
-        const newsletterTitle = get(this,  'props.data.contentfulContactPage.newsletterHeader')
-        const newsletterSubtitle = get(this,  'props.data.contentfulContactPage.newsletterDescription')
-        const newsletterIcon = get(this,  'props.data.contentfulContactPage.newsletterIcon.image.fluid')
-        const faqTitle = get(this,  'props.data.contentfulContactPage.faqHeader')
-        const faqIcon = get(this,  'props.data.contentfulContactPage.faqImage.fluid')
-        const socialMediaTitle = get(this,  'props.data.contentfulContactPage.socialMediaHeader')
-        const socialMediaSubtitle = get(this,  'props.data.contentfulContactPage.socialMediaDescription')
-       
-
+        const contact = get(this,  'props.data.contentfulContactPage')
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
-                <div>{pageTitle}</div>
-                <div>{pagesubtitle}</div>
-                <div>{emailTitle}</div>
-                <div>{emailSubtitle}</div>
-                <Img fluid={emailIcon}/>
-                <div>{emailValue}</div>
-                <div>{linkedInTitle}</div>
-                <div>{linkedInSubtitle}</div>
-                <Img fluid={linkedInIcon}/>
-                <div>{linkedInValue}</div>
-                <div>{newsletterTitle}</div>
-                <div>{newsletterSubtitle}</div>
-                <Img fluid={newsletterIcon}/>
-                <div>{faqTitle}</div>
-                <Img fluid={faqIcon}/>
-                <div>{socialMediaTitle}</div>
-                <div>{socialMediaSubtitle}</div>
-
+                <div>{contact.headline}</div>
+                <div>{contact.tagline}</div>
+                <div>{contact.emailHeader}</div>
+                <div>{contact.emailDescription}</div>
+                <Img fluid={contact.emailIcon.image.fluid}/>
+                <div>{contact.email.value.value}</div>
+                <div>{contact.linkedInHeader}</div>
+                <div>{contact.linkedInDescription}</div>
+                <Img fluid={contact.linkedInIcon.image.fluid}/>
+                <div>{contact.linkedIn.value.value}</div>
+                <div>{contact.newsletterHeader}</div>
+                <div>{contact.newsletterDescription}</div>
+                <Img fluid={contact.newsletterIcon.image.fluid}/>
+                <div>{contact.faqHeader}</div>
+                <Img fluid={contact.faqImage.fluid}/>
+                <div>{contact.socialMediaHeader}</div>
+                <div>{contact.socialMediaDescription}</div>
             </Layout>
         )
     }
@@ -54,7 +35,6 @@ class ContactPage extends React.Component {
 
 export default ContactPage
 
-//TODO: Ask Angelina about getting contact block?
 export const pageQuery = graphql`
   query ContactPageQuery {
     site {
