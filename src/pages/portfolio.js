@@ -7,22 +7,19 @@ import Venture from '../components/venture/venture'
 class PortfolioPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const featuredVentures = get(this, 'props.data.contentfulPortfolioPage.featuredVentures')
-        const pageHeadline = get(this, 'props.data.contentfulPortfolioPage.headline')
-        const featuredHeader = get(this, 'props.data.contentfulPortfolioPage.featuredSubheader')
-        const pastVenturesHeader = get(this, 'props.data.contentfulPortfolioPage.pastVenturesSubheader')
+        const portfolioPage = get(this, 'props.data.contentfulPortfolioPage')
         const allVentures = get(this, 'props.data.allContentfulVenture.edges')
 
 
         return (
             <Layout location={this.props.location}>
                 <Helmet title={siteTitle} />
-                <div>{pageHeadline}</div>
+                <div>{portfolioPage.headline}</div>
                 <div className="wrapper">
-                    <h2>{featuredHeader}</h2>
+                    <h2>{portfolioPage.featuredSubheader}</h2>
                     <div>Huh?</div>
                     <ul>
-                        {featuredVentures.map((venture) => {
+                        {portfolioPage.featuredVentures.map((venture) => {
                             return (
                                 <li>
                                     <Venture venture={venture} />
@@ -30,7 +27,7 @@ class PortfolioPage extends React.Component {
                             )
                         })}
                     </ul>
-                    <h2>{pastVenturesHeader}</h2>
+                    <h2>{portfolioPage.pastVenturesSubheader}</h2>
                     <ul>
                         {allVentures.map(({node})=> {
                             return (

@@ -1,32 +1,39 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { Event } from '../components/event/event'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 class ExplorePage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const pageTitle = get(this,  'props.data.contentfulExplorePage.headline')
-        const newsletterSubheader = get(this,  'props.data.contentfulExplorePage.newsletterSubheader')
-        const featuredNewsletter = get(this,  'props.data.contentfulExplorePage.newsletterSubheader')
-
-        const venturesAndInvestorsHeader = get(this,  'props.data.contentfulExplorePage.venturesAndInvestorsHeader')
-        const venturesAndInvestorsSubheader = get(this,  'props.data.contentfulExplorePage.venturesAndInvestorsSubheader')
-        const studentsHeader = get(this,  'props.data.contentfulExplorePage.studentsHeader')
-        const studentsSubheader = get(this,  'props.data.contentfulExplorePage.studentsSubheader')
-        const blogButtonHeader = get(this,  'props.data.contentfulExplorePage.blogButtonHeader')
-        const blogButtonLabel = get(this,  'props.data.contentfulExplorePage.blogButtonLabel')
-        const noEventsMessage = get(this,  'props.data.contentfulExplorePage.noEventsMessage')
-
-        const events = get(this,  'props.data.allContentfulEvent.edges')
+        const explorePage = get(this,  'props.data.contentfulExplorePage')
+        const events = get(this, 'props.data.allContentfulEvent.edges')
 
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
-              <h1>{pageTitle}</h1>
-              <div>{studentsHeader}</div>
-              <div>{studentsSubheader}</div>
+              <h1>{explorePage.headline}</h1>
+              <div>{explorePage.newsletterSubheader}</div>
+              <div>{explorePage.featuredNewsletter}</div>
+              <div>{explorePage.venturesAndInvestorsHeader}</div>
+              <div>{explorePage.venturesAndInvestorsSubheader}</div>
+              <div>{explorePage.studentsHeader}</div>
+              <div>{explorePage.studentsSubheader}</div>
+              <div>{explorePage.blogButtonHeader}</div>
+              <div>{explorePage.blogButtonLabel}</div>
+              <div>{explorePage.noEventsMessage}</div>
+              <ul>
+                  {events.map(({node})=> {
+                      return (
+                          <li>
+                              <Event event={node} />
+                          </li>
+                      )
+                  })}
+              </ul>
             </Layout>
+
         )
     }
 }
