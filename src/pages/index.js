@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
 
-class RootIndex extends React.Component {
+class HomePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
@@ -50,7 +50,7 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default HomePage
 
 export const pageQuery = graphql`
   query HomeQuery {
