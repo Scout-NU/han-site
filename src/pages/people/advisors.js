@@ -3,56 +3,57 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-import Alumni from '../../components/alumni/alumni'
+import Advisor from '../../components/advisor/advisor'
 
-class AlumniPage extends React.Component {
+class AdvisorPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const alumniPage = get(this, 'props.data.contentfulAlumniPage')
-    const alumni = get(this, 'props.data.allContentfulAlumni.edges')
+    const advisorPage = get(this, 'props.data.contentfulAdvisorPage')
+    const advisors = get(this, 'props.data.allContentfulAdvisor.edges')
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <div>
-          Alumni
-          {
-            alumni.map(({node}) => 
-            <Alumni alumni={node}/>
-            )
-          }
+        <div className="wrapper">
+          <h1>{advisorPage.advisorHeadline}</h1>
+          <div>
+            {
+              advisors.map(({ node }) =>
+                <Advisor advisor={node} />
+              )
+            }
+          </div>
         </div>
-
       </Layout>
     )
   }
 }
 
-export default AlumniPage
+export default AdvisorPage
 
 export const pageQuery = graphql`
-  query AlumniQuery {
+  query AdvisorQuery {
     site {
       siteMetadata {
         title
       }
     }
-    contentfulAlumniPage {
-      alumniHeader
+    contentfulAdvisorPage {
+      advisorHeadline
     }
-    allContentfulAlumni (sort: {fields: yearInHan}) {
+    allContentfulAdvisor (sort: {fields: name, order: ASC}) {
       edges {
         node {
           name
           linkedIn
+          bio {
+            bio
+          }
           profilePicture {
             fluid {
               ...GatsbyContentfulFluid
             }
           }
-          currentCompany
-          currentCompanyLink
-          yearInHan
         }
       }
     }

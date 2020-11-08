@@ -4,13 +4,20 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview/article-preview'
+import Testimonial from '../components/testimonial/testimonial.js'
+import 'bootstrap/dist/css/bootstrap.css';
 
-class RootIndex extends React.Component {
+class HomePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const headline = get(this, 'props.data.contentfulHomePage.headline')
+    const tagline = get(this, 'props.data.contentfulHomePage.tagline')
+    const missionStatement = get(this, 'props.data.contentfulHomePage.missionStatement.value.value')
+    const stats = get(this, 'props.data.contentfulHomePage.stats')
+    const testimonials = get(this, 'props.data.contentfulHomePage.testimonials')
+    const statsHeader = get(this, 'props.data.contentfulHomePage.statisticsHeader')
 
     return (
       <Layout location={this.props.location}>
@@ -18,16 +25,24 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <h1>{headline}</h1>
+            <h2>{tagline}</h2>
+            <h1>{missionStatement}</h1>
+            <h2 className="section-headline">{statsHeader}</h2>
             <ul className="article-list">
-              {posts.map(({ node }) => {
+              {/* {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
                     <ArticlePreview article={node} />
                   </li>
                 )
-              })}
+              })} */}
+              {stats.map(stat =>
+                <p>{stat.number} {stat.description}</p>)}
             </ul>
+            {testimonials.map(t =>
+                <Testimonial testimonial={t}/>
+            )}
           </div>
         </div>
       </Layout>
@@ -35,7 +50,7 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default HomePage
 
 export const pageQuery = graphql`
   query HomeQuery {
@@ -85,6 +100,39 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    contentfulHomePage {
+      tagline
+      contentful_id
+      headline
+      missionStatementHeader
+      missionStatement {
+        value {
+          value
+        }
+      }
+      statisticsHeader
+      statisticsButtonLabel
+      stats {
+        number
+        description
+      }
+      eventHeader
+      event {
+        date
+        endTime
+        startTime
+        description {
+          description
+        }
+        registrationLink
+      }
+      testimonialsHeader
+      testimonials {
+        company
+        name
+        role
       }
     }
   }
