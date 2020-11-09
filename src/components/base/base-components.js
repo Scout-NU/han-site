@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { teal, navy, white } from "./colors"
+import ArrowIconSVG from '../../images/arrowIcon'
+import React from 'react';
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -11,7 +13,7 @@ export const Button = styled.button`
     text-transform: uppercase;
     padding: 10px 30px;
     letter-spacing: 1px;
-    transition: background-color 0.2s, color 0.2s;
+    transition: all 0.2s;
     &:hover {
         background-color: ${teal};
         color: ${white};
@@ -22,16 +24,8 @@ export const Button = styled.button`
     }
 `
 
-export const SecondaryButtonIcon = styled.img`
-    width: 25px;
-    height; 25px;
-    stroke: ${navy};
-    &:hover {
-        fill: ${teal};
-    }
-`
-export const SecondaryButton = styled.button`
-    background-style: none;
+export const ArrowButton = styled.button`
+    border: none;
     color: ${navy};
     background-color: ${white};
     font-family: sans-serif;
@@ -40,4 +34,28 @@ export const SecondaryButton = styled.button`
     text-transform: uppercase;
     padding: 10px 30px;
     letter-spacing: 1px;
+    svg {
+        margin-left: 5px;
+        margin-bottom: 2px;
+        width: 40px;
+        height: 40px;
+    }
+    svg path {
+        fill: ${white};
+        transition: all 0.2s;
+    }
+    &:hover svg path{
+        fill: ${teal};
+    }
 `
+
+export const SecondaryButton = (props) => {
+    const {text, children, ...rest } = props;
+    return (
+        <ArrowButton>
+          {text}{' '}
+          {children}
+            <ArrowIconSVG/>
+        </ArrowButton>
+    );
+  };

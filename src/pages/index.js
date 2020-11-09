@@ -6,7 +6,7 @@ import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
 import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import { Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
+import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
 
 class HomePage extends React.Component {
@@ -48,9 +48,9 @@ class HomePage extends React.Component {
             <Link to="/faq">
               <Button>click me</Button>
               <SecondaryButton>secondary Button
-                <SecondaryButtonIcon src={arrowIcon}></SecondaryButtonIcon>
               </SecondaryButton>
             </Link>
+            <SecondaryButton text="Helloooo"/>
           </div>
         </div>
       </Layout>
