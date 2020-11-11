@@ -1,11 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
 import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
+import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
+import * as arrowIcon from '../images/arrowIcon.svg'
 
 class HomePage extends React.Component {
   render() {
@@ -43,6 +45,12 @@ class HomePage extends React.Component {
             {testimonials.map(t =>
                 <Testimonial testimonial={t}/>
             )}
+            <Link to="/faq">
+              <Button>click me</Button>
+              <SecondaryButton>secondary Button
+              </SecondaryButton>
+            </Link>
+            <SecondaryButton text="Helloooo"/>
           </div>
         </div>
       </Layout>
