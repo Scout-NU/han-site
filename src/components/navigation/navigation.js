@@ -17,7 +17,7 @@ export const NavWrapper = styled.nav`
   align-items: center;
   height: auto;
   background-color: ${white};
-  box-shadow: 0px 2px 10px ${black};
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
   z-index: 9999;
   width: 100%;
   top: 0;

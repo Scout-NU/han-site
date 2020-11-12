@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
 import { teal, navy, white, lightGray } from "../base/colors"
+import ChevronDown from '../../images/chevron-down.svg';
 
 
 export const NavDropdownContainer = styled.div`
@@ -9,6 +10,15 @@ export const NavDropdownContainer = styled.div`
     cursor: pointer;
     z-index:10000;
     
+`
+
+export const NavDropdownIcon = styled.img`
+  display: inline;
+  width: inherit;
+  vertical-align: baseline;
+  margin-left: 3px;
+  transform: ${props => (props.isOpen ? 'rotate(180deg)': 'none')};
+  transition: all 0.2s;
 `
 
 export const NavMenu = styled.div`
@@ -27,11 +37,12 @@ transition: all 0.2s;
 export const DropdownListContainer = styled.div`
 position: absolute;
 background-color: ${lightGray};
-padding: 10px;
 overflow: auto;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 z-index: 1;
 transform: translate(-25px, 20px);
+max-height: ${props => (props.isOpen ? '200px': '0px')};
+transition: all 0.2s;
     
 `
 
@@ -42,7 +53,7 @@ font-size: 13px;
 text-transform: uppercase;
 display: block;
 text-align: center;
-padding: 10px;
+padding: 15px 20px;
 
 :hover {
   transition: all 0.2s;
@@ -70,17 +81,18 @@ const NavDropdown = ({menuName, listContents}) => {
       }, []);
 
     return <NavDropdownContainer ref={node}>
-        <NavMenu onClick={e => setOpen(!open)}>
-                {menuName}
-            </NavMenu>
-            {open && (
-            <DropdownListContainer>
-                {listContents.map((link) => {
-                return (
-                    <DropdownLink to={link[1]}>{link[0]}</DropdownLink>
-                )})}
-            </DropdownListContainer>)}
-    </NavDropdownContainer>  
+    <NavMenu onClick={e => setOpen(!open)}>
+            {menuName}
+            {' '}
+            <NavDropdownIcon src={ChevronDown} isOpen={open}/>
+        </NavMenu>
+        <DropdownListContainer isOpen={open}>
+            {listContents.map((link) => {
+            return (
+                <DropdownLink to={link[1]}>{link[0]}</DropdownLink>
+            )})}
+        </DropdownListContainer>
+</NavDropdownContainer>  
   }
 
 
