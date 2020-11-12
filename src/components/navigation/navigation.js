@@ -98,8 +98,8 @@ export default () => (
          <NavLink to="/portfolio">Explore</NavLink>
         {<NavDropdown menuName="People" 
                       listContents={[["Our Team", "/people/our-team"], 
-                      ["Alumni", "/people/our-team"], 
-                      ["Advisors", "/people/our-team"]]}/>}
+                      ["Alumni", "/people/alumni"], 
+                      ["Advisors", "/people/advisors"]]}/>}
          <NavLink to="/portfolio">Portfolio</NavLink>
          <NavLink to="/faq">FAQ</NavLink>
          <NavLink to="/contact">Contact</NavLink>
