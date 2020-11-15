@@ -25,6 +25,11 @@ export const NavWrapper = styled.nav`
 
 export const NavBrandWrapper = styled(Link)`
   margin-left: 50px;
+
+  @media (max-width: 680px) {
+     margin-left: 30px;
+  }
+
   :hover { 
     text-decoration: none;
   }
@@ -76,6 +81,11 @@ export const NavBrand = styled.span`
   margin-left: 20px;
   font-size: 16px;
   vertical-align: middle;
+
+  @media (max-width: 680px) {
+    display: none;
+ }
+
 `
 
 
@@ -95,7 +105,7 @@ export default () => (
                       ["Ventures", "/get-involved/for-ventures"], 
                       ["Investors", "/get-involved/for-investors"], 
                       ["Students", "/get-involved/for-students"]]}/>}
-         <NavLink to="/portfolio">Explore</NavLink>
+         <NavLink to="/explore">Explore</NavLink>
         {<NavDropdown menuName="People" 
                       listContents={[["Our Team", "/people/our-team"], 
                       ["Alumni", "/people/alumni"], 

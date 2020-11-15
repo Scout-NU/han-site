@@ -5,6 +5,7 @@ import { teal, navy, white, lightGray } from "../base/colors"
 import ChevronDown from '../../images/chevron-down.svg';
 
 
+
 export const NavDropdownContainer = styled.div`
     display: inline-block;
     cursor: pointer;
@@ -24,7 +25,7 @@ export const NavDropdownIcon = styled.img`
 export const NavMenu = styled.div`
 cursor: pointer;
 z-index: 10000; 
-color: ${navy};
+color: ${props => (props.isOpen ? teal : navy)};
 font-family: sans-serif;
 font-size: 13px;
 text-transform: uppercase;
@@ -58,7 +59,7 @@ padding: 15px 20px;
 :hover {
   transition: all 0.2s;
   color: ${navy};
-  text-decoration: none;
+  text-decoration: underline;
 } 
 `
 
@@ -81,7 +82,7 @@ const NavDropdown = ({menuName, listContents}) => {
       }, []);
 
     return <NavDropdownContainer ref={node}>
-    <NavMenu onClick={e => setOpen(!open)}>
+    <NavMenu isOpen={open} onClick={e => setOpen(!open)}>
             {menuName}
             {' '}
             <NavDropdownIcon src={ChevronDown} isOpen={open}/>

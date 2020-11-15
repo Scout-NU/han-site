@@ -3,6 +3,8 @@ import styled from "styled-components"
 import { Link } from 'gatsby'
 import { teal, navy, white, lightGray } from "../base/colors"
 import ChevronDown from '../../images/chevron-down.svg';
+import HamburgerIconPicture from "../../images/hamburger.svg"
+import CloseIconPicture from "../../images/close.svg"
 
 export const HamburgerContainer = styled.div`
     display: inline-block;
@@ -16,16 +18,6 @@ export const HamburgerMenu = styled.div`
     z-index: 10000;
     padding-right: 30px;
 `
-
-// export const MenuContainer = styled.div`
-//   display: none;
-//   height: 100%;
-//   @media (max-width: 975px) {
-//     display: flex;
-//   }
-// `
-
-
 export const MenuContentContainer = styled.div`
   display: flex;
   position:absolute;
@@ -49,8 +41,6 @@ export const MenuContentColumn = styled.div`
   width: inherit;
 `
 
-
-
 export const HamburgerIcon = styled.img`
   width: 30px;
   height: 30px;
@@ -67,7 +57,7 @@ export const HambLink = styled(Link)`
   transition: all 0.2s;
   
   :hover {
-    text-decoration: none;
+    color: ${teal}
   }
 `
 
@@ -82,6 +72,9 @@ export const HambDropdownLink = styled(HambLink)`
     color: ${teal};
     font-size: 13px;
     margin-left: 10px;
+    :hover {
+        color: ${navy}
+    }
 `
 //REFACTOR -> SAME AS NAVDROPDOWN
 export const HambDropdownIcon = styled.img`
@@ -93,7 +86,8 @@ export const HambDropdownIcon = styled.img`
   transition: all 0.2s;
 `
 
-export const HambMenu = styled(HambLink)`
+export const HambDropdownMenuLink = styled(HambLink)`
+  color: ${props => (props.isOpen ? teal : navy)};
 `
 
 
@@ -101,11 +95,11 @@ const HambDropdown = ({menuName, listContents}) => {
     const [open, setOpen] = React.useState(false);
     const toggle = () => setOpen(!open);
     return <div onClick={toggle}>
-                <HambMenu>
+                <HambDropdownMenuLink isOpen={open}>
                     {menuName}
                     {' '}
                     <HambDropdownIcon src={ChevronDown} isOpen={open}/>
-                </HambMenu>
+                </HambDropdownMenuLink>
                 <HambDropdownListContainer isOpen={open}>
                     {listContents.map((link) => {
                     return (
@@ -120,14 +114,10 @@ const Hamburger = () => {
     const toggle = () => setIsOpen(!open);
     return <HamburgerContainer>
         <HamburgerMenu>
-            <HamburgerIcon onClick={toggle}/>
+            <HamburgerIcon src={HamburgerIconPicture} onClick={toggle}/>
         </HamburgerMenu>
-        {/* <MenuContainer isOpen={open}> */}
-            {/* <HamburgerMenu>
-                <HamburgerIcon style={{position: "absolute", transform: "translate(0px, -30px)"}} onClick={toggle}/>
-            </HamburgerMenu> */}
             <MenuContentContainer isOpen={open}>
-            <HamburgerIcon style={{position: "absolute", right: "30px", top: "15px"}} onClick={toggle}/>
+            <HamburgerIcon src={CloseIconPicture} style={{position: "absolute", right: "30px", top: "15px"}} onClick={toggle}/>
                 <MenuContentColumn>
                     <HambDropdown menuName="Involved"
                       listContents={[["Overview", "/get-involved"], 
@@ -146,7 +136,6 @@ const Hamburger = () => {
                     <HambLink to="/faq">FAQ</HambLink>
                 </MenuContentColumn>
             </MenuContentContainer>
-        {/* </MenuContainer> */}
     </HamburgerContainer>  
 }
 
