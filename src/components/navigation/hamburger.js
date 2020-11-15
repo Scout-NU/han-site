@@ -5,6 +5,7 @@ import { teal, navy, white, lightGray } from "../base/colors"
 import ChevronDown from '../../images/chevron-down.svg';
 import HamburgerIconPicture from "../../images/hamburger.svg"
 import CloseIconPicture from "../../images/close.svg"
+import { device } from "../base/device"
 
 export const HamburgerContainer = styled.div`
     display: inline-block;
@@ -32,7 +33,7 @@ export const MenuContentContainer = styled.div`
   padding: ${ props => (props.isOpen ? '60px 10px': '0px 10px')};
   overflow: hidden;
 
-  @media (max-width: 680px) {
+  @media ${device.mobile} {
     width: 100%;
   }
 `

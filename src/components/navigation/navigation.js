@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { teal, navy, white, black, darkGray } from "../base/colors"
 import Hamburger from "./hamburger"
 import NavDropdown from "./navdropdown"
+import { device } from "../base/device"
 
 
 export const NavWrapper = styled.nav`
@@ -37,7 +38,7 @@ export const NavBrandWrapper = styled(Link)`
 
 export const HamburgerMenuContainer = styled.div`
   display: none;
-  @media (max-width: 975px) {
+  @media ${device.tablet} {
     display: flex;
   }
   
@@ -50,7 +51,7 @@ export const NavLinkGroup = styled.div`
   width: 50%;
   justify-content: space-between;
   margin-right: 50px;
-  @media (max-width: 975px) {
+  @media ${device.tablet} {
     display: none
   }
 
@@ -82,7 +83,7 @@ export const NavBrand = styled.span`
   font-size: 16px;
   vertical-align: middle;
 
-  @media (max-width: 680px) {
+  @media ${device.mobile} {
     display: none;
  }
 
