@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Merriweather';
+    src: url('Merriweather-Italic.woff') format('woff'),
+         url('Merriweather-Italic.woff2') format('woff2');
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: 'Merriweather';
+    src: url('Merriweather-BoldItalic.woff') format('woff'),
+         url('Merriweather-BoldItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: 'HK Grotesk';
+    src: url('HKGrotesk-Regular.woff') format('woff'),
+         url('HKGrotesk-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+
+  /** UNCOMMENT WHEN WE GET URW DIN **/
+  /**
+  @font-face {
+    font-family: 'URW DIN';
+    src: url(/fonts/URW-DIN-Medium.woff) format('woff'),
+         url(/fonts/URW-DIN-Medium.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: 'URW DIN';
+    src: url(/fonts/URW-DIN.woff) format('woff'),
+         url(/fonts/URW-DIN.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  **/
