@@ -22,10 +22,7 @@
   font-weight: 400;
 }
 
-
-
 body {
-  font-family: "Merriweather";
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
@@ -41,7 +38,7 @@ img {
 h1,
 h2,
 h3 {
-  font-family: "HK Grotesk";
+  font-family: "Merriweather"; 
   font-size: 2em;
   font-weight: normal;
 }
