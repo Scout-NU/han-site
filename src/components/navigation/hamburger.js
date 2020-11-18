@@ -77,7 +77,7 @@ export const HambDropdownLink = styled(HambLink)`
         color: ${navy}
     }
 `
-//REFACTOR -> SAME AS NAVDROPDOWN
+
 export const HambDropdownIcon = styled.img`
   display: inline;
   width: inherit;
