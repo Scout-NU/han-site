@@ -31,12 +31,12 @@ const Layout = ({location, children}) => {
       affiliationText
       damoreMcKimLogo {
         fluid {
-          ...GatsbyContentfulFluid
+          src
         }
       }
       mosaicLogo {
         fluid {
-          ...GatsbyContentfulFluid
+          src
         }
       }
     }
