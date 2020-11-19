@@ -4,15 +4,6 @@ import { Link } from 'gatsby'
 import { teal, navy, white, lightGray } from "../base/colors"
 import ChevronDown from '../../images/chevron-down.svg';
 
-
-
-export const NavDropdownContainer = styled.div`
-    display: inline-block;
-    cursor: pointer;
-    z-index:10000;
-    
-`
-
 export const NavDropdownIcon = styled.img`
   display: inline;
   width: inherit;
@@ -24,7 +15,6 @@ export const NavDropdownIcon = styled.img`
 
 export const NavMenu = styled.div`
 cursor: pointer;
-z-index: 10000; 
 color: ${props => (props.isOpen ? teal : navy)};
 font-family: sans-serif;
 font-size: 13px;
@@ -40,7 +30,6 @@ position: absolute;
 background-color: ${lightGray};
 overflow: auto;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-z-index: 1;
 transform: translate(-25px, 20px);
 max-height: ${props => (props.isOpen ? '200px': '0px')};
 transition: all 0.2s;
@@ -81,7 +70,7 @@ const NavDropdown = ({menuName, listContents}) => {
         };
       }, []);
 
-    return <NavDropdownContainer ref={node}>
+    return <div ref={node}>
     <NavMenu isOpen={open} onClick={e => setOpen(!open)}>
             {menuName}
             {' '}
@@ -93,7 +82,7 @@ const NavDropdown = ({menuName, listContents}) => {
                 <DropdownLink to={link[1]}>{link[0]}</DropdownLink>
             )})}
         </DropdownListContainer>
-</NavDropdownContainer>  
+</div>  
   }
 
 

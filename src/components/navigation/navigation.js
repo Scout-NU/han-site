@@ -6,6 +6,9 @@ import { teal, navy, white, black, darkGray } from "../base/colors"
 import Hamburger from "./hamburger"
 import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
+import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"
+import { MAX_Z_VALUE } from "../base/constants"
+
 
 
 export const NavWrapper = styled.nav`
@@ -19,7 +22,7 @@ export const NavWrapper = styled.nav`
   height: auto;
   background-color: ${white};
   box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-  z-index: 9999;
+  z-index: ${MAX_Z_VALUE};
   width: 100%;
   top: 0;
 `
@@ -102,15 +105,10 @@ export default () => (
       </HamburgerMenuContainer>
       <NavLinkGroup>
         {<NavDropdown menuName="Involved"
-                      listContents={[["Overview", "/get-involved"], 
-                      ["Ventures", "/get-involved/for-ventures"], 
-                      ["Investors", "/get-involved/for-investors"], 
-                      ["Students", "/get-involved/for-students"]]}/>}
+                      listContents={GET_INVOLVED_LINKS}/>}
          <NavLink to="/explore">Explore</NavLink>
         {<NavDropdown menuName="People" 
-                      listContents={[["Our Team", "/people/our-team"], 
-                      ["Alumni", "/people/alumni"], 
-                      ["Advisors", "/people/advisors"]]}/>}
+                      listContents={OUR_TEAM_LINKS}/>}
          <NavLink to="/portfolio">Portfolio</NavLink>
          <NavLink to="/faq">FAQ</NavLink>
          <NavLink to="/contact">Contact</NavLink>

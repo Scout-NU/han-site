@@ -6,26 +6,18 @@ import ChevronDown from '../../images/chevron-down.svg';
 import HamburgerIconPicture from "../../images/hamburger.svg"
 import CloseIconPicture from "../../images/close.svg"
 import { device } from "../base/device"
+import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"
 
-export const HamburgerContainer = styled.div`
-    display: inline-block;
-    cursor: pointer;
-    z-index:10000;
-    
-`
 export const HamburgerMenu = styled.div`
-    display: inline-block;
     cursor: pointer;
-    z-index: 10000;
     padding-right: 30px;
 `
 export const MenuContentContainer = styled.div`
   display: flex;
   position:absolute;
-  z-index: 9999;
   background-color: ${lightGray};
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   width: 45%;
   justify-content: center;
   transition: all 0.2s;
@@ -46,10 +38,9 @@ export const HamburgerIcon = styled.img`
   width: 30px;
   height: 30px;
   display: inline;
-  z-index: 1000000;
 `
 
-export const HambLink = styled(Link)`
+export const HamburgerLink = styled(Link)`
   text-decoration: none;
   display: block;
   color: ${navy};
@@ -62,14 +53,14 @@ export const HambLink = styled(Link)`
   }
 `
 
-export const HambDropdownListContainer = styled.div`
+export const HamburgerDropdownListContainer = styled.div`
   overflow: hidden;
   transition: all 0.2s;
   max-height: ${ props => (props.isOpen ? '300px': '0px')};
   
 `
 
-export const HambDropdownLink = styled(HambLink)`
+export const HamburgerDropdownLink = styled(HamburgerLink)`
     color: ${teal};
     font-size: 13px;
     margin-left: 10px;
@@ -78,7 +69,7 @@ export const HambDropdownLink = styled(HambLink)`
     }
 `
 
-export const HambDropdownIcon = styled.img`
+export const HamburgerDropdownIcon = styled.img`
   display: inline;
   width: inherit;
   vertical-align: baseline;
@@ -87,57 +78,51 @@ export const HambDropdownIcon = styled.img`
   transition: all 0.2s;
 `
 
-export const HambDropdownMenuLink = styled(HambLink)`
+export const HamburgerDropdownMenuLink = styled(HamburgerLink)`
   color: ${props => (props.isOpen ? teal : navy)};
 `
 
 
-const HambDropdown = ({menuName, listContents}) => {
+const HamburgerDropdown = ({menuName, listContents}) => {
     const [open, setOpen] = React.useState(false);
     const toggle = () => setOpen(!open);
     return <div onClick={toggle}>
-                <HambDropdownMenuLink isOpen={open}>
+                <HamburgerDropdownMenuLink isOpen={open}>
                     {menuName}
-                    {' '}
-                    <HambDropdownIcon src={ChevronDown} isOpen={open}/>
-                </HambDropdownMenuLink>
-                <HambDropdownListContainer isOpen={open}>
+                    <HamburgerDropdownIcon src={ChevronDown} isOpen={open}/>
+                </HamburgerDropdownMenuLink>
+                <HamburgerDropdownListContainer isOpen={open}>
                     {listContents.map((link) => {
                     return (
-                        <HambDropdownLink to={link[1]}>{link[0]}</HambDropdownLink>
+                        <HamburgerDropdownLink to={link[1]}>{link[0]}</HamburgerDropdownLink>
                     )})}
-                </HambDropdownListContainer>
+                </HamburgerDropdownListContainer>
             </div>  
 }
 
 const Hamburger = () => {
     const [open, setIsOpen] = React.useState(false);
     const toggle = () => setIsOpen(!open);
-    return <HamburgerContainer>
+    return <>
         <HamburgerMenu>
             <HamburgerIcon src={HamburgerIconPicture} onClick={toggle}/>
         </HamburgerMenu>
             <MenuContentContainer isOpen={open}>
             <HamburgerIcon src={CloseIconPicture} style={{position: "absolute", right: "30px", top: "15px"}} onClick={toggle}/>
                 <MenuContentColumn>
-                    <HambDropdown menuName="Involved"
-                      listContents={[["Overview", "/get-involved"], 
-                      ["Ventures", "/get-involved/for-ventures"], 
-                      ["Investors", "/get-involved/for-investors"], 
-                      ["Students", "/get-involved/for-students"]]}/>
-                    <HambLink to="/explore">Explore</HambLink>
-                    <HambLink to="/contact">Contact</HambLink>
+                    <HamburgerDropdown menuName="Involved"
+                      listContents={GET_INVOLVED_LINKS}/>
+                    <HamburgerLink to="/explore">Explore</HamburgerLink>
+                    <HamburgerLink to="/contact">Contact</HamburgerLink>
                 </MenuContentColumn>
                 <MenuContentColumn>
-                    <HambDropdown menuName="People" 
-                      listContents={[["Our Team", "/people/our-team"], 
-                      ["Alumni", "/people/alumni"], 
-                      ["Advisors", "/people/advisors"]]}/>
-                    <HambLink to="/portfolio">Portfolio</HambLink>
-                    <HambLink to="/faq">FAQ</HambLink>
+                    <HamburgerDropdown menuName="People" 
+                      listContents={OUR_TEAM_LINKS}/>
+                    <HamburgerLink to="/portfolio">Portfolio</HamburgerLink>
+                    <HamburgerLink to="/faq">FAQ</HamburgerLink>
                 </MenuContentColumn>
             </MenuContentContainer>
-    </HamburgerContainer>  
+    </>  
 }
 
 
