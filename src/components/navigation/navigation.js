@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styles from './navigation.module.css'
 import styled from "styled-components"
-import { teal, navy, white, black, darkGray } from "../base/colors"
+import { teal, navy, white, black, darkGray, lightGray } from "../base/colors"
 import Hamburger from "./hamburger"
 import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
@@ -55,7 +55,23 @@ export const NavLinkGroup = styled.div`
   justify-content: space-between;
   margin-right: 50px;
   @media ${device.tablet} {
-    display: none
+      margin-right: 0px;
+      position: absolute;
+      background-color: ${lightGray};
+      top: 0;
+      right: 0;
+      width: 45%;
+      justify-content: center;
+      transition: all 0.2s;
+      max-height: ${ props => (props.isOpen ? '500px': '0px')};
+      padding: ${ props => (props.isOpen ? '60px 10px': '0px 10px')};
+      overflow: hidden;
+      flex-wrap: wrap;
+      align-items: flex-start;
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
   }
 
 `
@@ -70,6 +86,20 @@ export const NavLink = styled(Link)`
     color: ${navy};
     text-decoration: none;
   }
+
+  @media ${device.tablet} {
+    width: 50%;
+    text-decoration: none;
+    display: block;
+    color: ${navy};
+    text-transform: uppercase;
+    padding: 15px;
+    transition: all 0.2s;
+    
+    :hover {
+      color: ${teal}
+    }
+ }
 `
 
 export const NavLogo = styled.img`
@@ -92,26 +122,30 @@ export const NavBrand = styled.span`
 
 `
 
+const Navigation = () => {
+  const [open, setIsOpen] = React.useState(true);
+  const toggle = () => setIsOpen(!open);
 
-export default () => (
-    <NavWrapper>
+  return <NavWrapper>
       <NavBrandWrapper to="/">
           <NavLogo src="https://i.pinimg.com/236x/71/b3/e4/71b3e4159892bb319292ab3b76900930.jpg" />
           {' '}
           <NavBrand>Huntington Angels Network</NavBrand>
       </NavBrandWrapper>
-      <HamburgerMenuContainer>
+      {/* <HamburgerMenuContainer>
         {<Hamburger/>}
-      </HamburgerMenuContainer>
-      <NavLinkGroup>
-        {<NavDropdown menuName="Involved"
-                      listContents={GET_INVOLVED_LINKS}/>}
+      </HamburgerMenuContainer> */}
+      <NavLinkGroup isOpen={open}>
+        <NavDropdown menuName="Involved"
+                      listContents={GET_INVOLVED_LINKS}/>
          <NavLink to="/explore">Explore</NavLink>
-        {<NavDropdown menuName="People" 
-                      listContents={OUR_TEAM_LINKS}/>}
+        <NavDropdown menuName="People" 
+                      listContents={OUR_TEAM_LINKS}/>
          <NavLink to="/portfolio">Portfolio</NavLink>
          <NavLink to="/faq">FAQ</NavLink>
          <NavLink to="/contact">Contact</NavLink>
       </NavLinkGroup>
     </NavWrapper>
-)
+}
+
+export default Navigation
