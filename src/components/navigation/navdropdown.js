@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray } from "../base/colors"
+import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device, size } from "../base/device"
 import ChevronDown from '../../images/chevron-down.svg';
 import NavLink from './navigation'
+import ChevronDownIconSVG from '../../images/chevron-down'
 
 export const NavWrapper = styled.div`
   @media ${device.tablet} {
@@ -13,13 +14,25 @@ export const NavWrapper = styled.div`
   }
 `
 
-export const NavDropdownIcon = styled.img`
+export const NavDropdownIcon = styled.div`
   display: inline;
   width: inherit;
   vertical-align: baseline;
   margin-left: 3px;
-  transform: ${props => (props.isOpen ? 'rotate(180deg)': 'none')};
   transition: all 0.2s;
+  svg {
+    vertical-align: baseline;
+    transition: all 0.2s;
+    transform: ${props => (props.isOpen ? 'rotate(180deg)' : 'none')};
+    path {
+      @media ${device.tablet} {
+        fill: ${yellow};
+        stroke: ${yellow};
+      }
+    }
+  }
+
+
 `
 
 export const NavMenu = styled.div`
@@ -36,13 +49,15 @@ transition: all 0.2s;
 @media ${device.tablet} {
   text-decoration: none;
   display: block;
-  color: ${navy};
+  color: ${white};
   text-transform: uppercase;
   padding: 15px;
+  font-size: 15px;
   transition: all 0.2s;
+  opacity:${props => (props.isOpen ? 0.4 : 1)};
   
   :hover {
-    color: ${teal}
+    color: ${white}
   }
 
 `
@@ -53,14 +68,15 @@ background-color: ${lightGray};
 overflow: hidden;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 transform: translate(-25px, 20px);
-max-height: ${props => (props.isOpen ? '200px': '0px')};
+max-height: ${props => (props.isOpen ? '200px' : '0px')};
 transition: all 0.3s;
 
 @media ${device.tablet} {
-  max-height: ${ props => (props.isOpen ? '200px': '0px')};
+  max-height: ${props => (props.isOpen ? '200px' : '0px')};
   position: inherit;
   box-shadow: none;
   transform: none;
+  background-color: unset;
 }
     
 `
@@ -82,18 +98,17 @@ padding: 15px 20px;
 
 @media ${device.tablet} {
   padding: 15px;
-  font-size: 13px;
   margin-left: 10px;
   text-decoration: none;
   display: block;
-  color: ${navy};
+  color: ${white};
   text-transform: uppercase;
   padding: 15px;
   transition: all 0.2s;
   text-align: left;
   
   :hover {
-    color: ${teal}
+    color: ${white}
   }
 }
 
@@ -101,49 +116,52 @@ padding: 15px 20px;
 
 `
 
-const NavDropdown = ({menuName, listContents}) => {
-    const node = React.useRef();
-    const [open, setOpen] = React.useState(false);
-    const [width, setWidth] = React.useState(window.innerWidth);
-    const handleClick = e => {
-        if (node.current.contains(e.target)) {
-          console.log("I'm big yoshi")
-          return;
-        }
-        setOpen(false);
-    }; 
+const NavDropdown = ({ menuName, listContents }) => {
+  const node = React.useRef();
+  const [open, setOpen] = React.useState(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const handleClick = e => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setOpen(false);
+  };
 
-    
-      React.useEffect(() => {
-        const handleWindowResize = () => setWidth(window.innerWidth)
-        window.addEventListener("resize", handleWindowResize);
-        console.log("nein bepis!!! 3:" + width)
 
-        if(width > size.tablet) {
-        document.addEventListener("mousedown", handleClick);
-        } else {
-          document.removeEventListener("mousedown", handleClick);
-        }
-        return () => {
-          document.removeEventListener("mousedown", handleClick);
-          window.removeEventListener("resize", handleWindowResize);
-        }
-      }, [width]);
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth)
+    window.addEventListener("resize", handleWindowResize);
 
-    return <NavWrapper ref={node}>
+    if (width > size.tablet) {
+      document.addEventListener("mousedown", handleClick);
+      setOpen(false);
+    } else {
+      document.removeEventListener("mousedown", handleClick);
+      setOpen(false);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      window.removeEventListener("resize", handleWindowResize);
+    }
+  }, [width]);
+
+  return <NavWrapper ref={node}>
     <NavMenu isOpen={open} onClick={e => setOpen(!open)}>
-            {menuName}
-            {' '}
-            <NavDropdownIcon src={ChevronDown} isOpen={open}/>
-        </NavMenu>
-        <DropdownListContainer isOpen={open}>
-            {listContents.map((link) => {
-            return (
-                <DropdownLink to={link[1]}>{link[0]}</DropdownLink>
-            )})}
-        </DropdownListContainer>
-</NavWrapper>  
-  }
+      {menuName}
+      {' '}
+      <NavDropdownIcon isOpen={open}>
+        <ChevronDownIconSVG />
+      </NavDropdownIcon>
+    </NavMenu>
+    <DropdownListContainer isOpen={open}>
+      {listContents.map((link) => {
+        return (
+          <DropdownLink to={link[1]}>{link[0]}</DropdownLink>
+        )
+      })}
+    </DropdownListContainer>
+  </NavWrapper>
+}
 
 
 export default NavDropdown

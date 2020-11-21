@@ -8,7 +8,8 @@ import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
 import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"
 import { MAX_Z_VALUE } from "../base/constants"
-
+import HamburgerIconPicture from "../../images/hamburger.svg"
+import CloseIconPicture from "../../images/close.svg"
 
 
 export const NavWrapper = styled.nav`
@@ -39,14 +40,6 @@ export const NavBrandWrapper = styled(Link)`
   }
 `
 
-export const HamburgerMenuContainer = styled.div`
-  display: none;
-  @media ${device.tablet} {
-    display: flex;
-  }
-  
-`
-
 
 export const NavLinkGroup = styled.div`
   display: flex;
@@ -57,14 +50,14 @@ export const NavLinkGroup = styled.div`
   @media ${device.tablet} {
       margin-right: 0px;
       position: absolute;
-      background-color: ${lightGray};
+      background-color: ${teal};
       top: 0;
       right: 0;
       width: 45%;
       justify-content: center;
       transition: all 0.2s;
       max-height: ${ props => (props.isOpen ? '500px': '0px')};
-      padding: ${ props => (props.isOpen ? '60px 10px': '0px 10px')};
+      padding: ${ props => (props.isOpen ? '60px 40px': '0px 40px')};
       overflow: hidden;
       flex-wrap: wrap;
       align-items: flex-start;
@@ -91,9 +84,10 @@ export const NavLink = styled(Link)`
     width: 50%;
     text-decoration: none;
     display: block;
-    color: ${navy};
+    color: ${white};
     text-transform: uppercase;
     padding: 15px;
+    font-size: 15px;
     transition: all 0.2s;
     
     :hover {
@@ -122,8 +116,26 @@ export const NavBrand = styled.span`
 
 `
 
+export const HamburgerIcon = styled.img`
+    width: 30px;
+    height: 30px;
+    display: inline;
+
+`
+
+export const HamburgerMenu = styled.div`
+  display: none;
+  @media ${device.tablet} {
+    display: flex;
+    cursor: pointer;
+    padding-right: 30px;
+  }
+  z-index: ${MAX_Z_VALUE};
+
+`
+
 const Navigation = () => {
-  const [open, setIsOpen] = React.useState(true);
+  const [open, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!open);
 
   return <NavWrapper>
@@ -132,9 +144,6 @@ const Navigation = () => {
           {' '}
           <NavBrand>Huntington Angels Network</NavBrand>
       </NavBrandWrapper>
-      {/* <HamburgerMenuContainer>
-        {<Hamburger/>}
-      </HamburgerMenuContainer> */}
       <NavLinkGroup isOpen={open}>
         <NavDropdown menuName="Involved"
                       listContents={GET_INVOLVED_LINKS}/>
@@ -145,6 +154,11 @@ const Navigation = () => {
          <NavLink to="/faq">FAQ</NavLink>
          <NavLink to="/contact">Contact</NavLink>
       </NavLinkGroup>
+      <HamburgerMenu>
+          {open ? <HamburgerIcon src={CloseIconPicture} onClick={toggle}/> 
+          : <HamburgerIcon src={HamburgerIconPicture} onClick={toggle}/>
+          }    
+       </HamburgerMenu>
     </NavWrapper>
 }
 
