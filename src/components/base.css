@@ -22,6 +22,22 @@
   font-weight: 400;
 }
 
+/** TODO import get DIN fonts from client **/
+
+/* @font-face {
+  font-family: 'URW DIN';
+  src: url('../../static/fonts/URWDIN-Medium.woff') format('woff'),
+       url('../../static/fonts/URWDIN-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'URW DIN';
+  src: url('../../static/fonts/URWDIN-Bold.woff') format('woff'),
+       url('../../static/fonts/URWDIN-Bold.woff2') format('woff2');
+  font-weight: 700;
+} */
+
 body {
   font-size: 1em;
   line-height: 1.65;
