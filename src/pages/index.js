@@ -8,6 +8,7 @@ import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
 import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
+import Carousel from '../components/carousel/carousel'
 
 class HomePage extends React.Component {
   render() {
@@ -45,6 +46,7 @@ class HomePage extends React.Component {
             {testimonials.map(t =>
                 <Testimonial testimonial={t}/>
             )}
+            <Carousel carousel={["mee bepis", "youu bepis", "nein mee bepis!!"]}/>
             <Link to="/faq">
               <Button>click me</Button>
               <SecondaryButton>secondary Button
