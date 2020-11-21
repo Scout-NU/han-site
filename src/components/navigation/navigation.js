@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './navigation.module.css'
 import styled from "styled-components"
 import { teal, navy, white, black, darkGray, lightGray } from "../base/colors"
-import Hamburger from "./hamburger"
 import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
 import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"

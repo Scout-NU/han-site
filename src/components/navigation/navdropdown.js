@@ -67,7 +67,7 @@ position: absolute;
 background-color: ${lightGray};
 overflow: hidden;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-transform: translate(-25px, 20px);
+transform: translate(-26%, 20px);
 max-height: ${props => (props.isOpen ? '200px' : '0px')};
 transition: all 0.3s;
 
@@ -88,7 +88,7 @@ font-size: 13px;
 text-transform: uppercase;
 display: block;
 text-align: center;
-padding: 15px 20px;
+padding: 15px 30px;
 
 :hover {
   transition: all 0.2s;
