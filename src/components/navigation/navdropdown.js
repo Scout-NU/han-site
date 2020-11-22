@@ -54,7 +54,6 @@ transition: all 0.2s;
   padding: 15px;
   font-size: 15px;
   transition: all 0.2s;
-  opacity:${props => (props.isOpen ? 0.4 : 1)};
   
   :hover {
     color: ${white}
@@ -66,7 +65,7 @@ export const DropdownListContainer = styled.div`
 position: absolute;
 background-color: ${lightGray};
 overflow: hidden;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
 transform: translate(-26%, 20px);
 max-height: ${props => (props.isOpen ? '200px' : '0px')};
 transition: all 0.3s;
@@ -82,7 +81,7 @@ transition: all 0.3s;
 `
 
 export const DropdownLink = styled(Link)`
-color: ${teal};
+color: ${navy};
 font-family: sans-serif;
 font-size: 13px;
 text-transform: uppercase;
@@ -92,7 +91,7 @@ padding: 15px 30px;
 
 :hover {
   transition: all 0.2s;
-  color: ${navy};
+  color: ${teal};
   text-decoration: underline;
 } 
 

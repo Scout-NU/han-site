@@ -59,6 +59,7 @@ export const NavLinkGroup = styled.div`
       overflow: hidden;
       flex-wrap: wrap;
       align-items: flex-start;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
   }
 
   @media ${device.mobile} {
@@ -68,14 +69,14 @@ export const NavLinkGroup = styled.div`
 `
 
 export const NavLink = styled(Link)`
-  color: ${teal};
+  color: ${navy};
   font-family: sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   :hover {
     transition: all 0.2s;
-    color: ${navy};
-    text-decoration: none;
+    color: ${teal};
+    text-decoration: underline;
   }
 
   @media ${device.tablet} {
@@ -89,7 +90,8 @@ export const NavLink = styled(Link)`
     transition: all 0.2s;
     
     :hover {
-      color: ${teal}
+      text-decoration: underline;
+      color: ${white}
     }
  }
 `
