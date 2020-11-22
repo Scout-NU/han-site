@@ -1,6 +1,23 @@
 import React from 'react'
 import styled from "styled-components"
 import { SecondaryButton } from '../base/base-components'
+import ChevronLeftIconSVG from '../../images/chevron-left'
+import ChevronRightIconSVG from '../../images/chevron-right'
+import CircleIconSVG from '../../images/circle'
+import { teal, lightGray } from "../base/colors"
+
+
+export const CarouselBox = styled.div`
+    background: ${lightGray};
+    display: flex;
+`
+
+export const DirectionWrapper = styled.div`
+    // width: 50%;
+    // display: flex;
+    // justify-content: flex-end;
+`
+
 
 export const CarouselHeader = styled.h1`
 
@@ -20,12 +37,50 @@ export const SpeakerImage = styled.img`
     width: 300px;
     height: 300px;
     object-fit: cover;
+    display: inline-block;
 `
 
-export const ArrowButtony = styled.div`
-    height: 30px;
-    background-color: ${props => (props.isActive ? 'green' : 'red')};
+export const CarouselArrow = styled.button` 
+    border: none;
+    background: none;
+    &:focus {
+        outline: none;
+    }
+    svg {
+        fill: transparent;
+        transition: all 0.2s;
+    }
+    &:hover svg {
+        fill: ${teal};
+    }
+
+`
+
+export const CarouselControl = styled.div`
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     
+`
+
+export const CarouselDot = styled.button`
+    padding: 10px;
+    border: none;
+    background: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    svg {
+        fill:  ${props => (props.isActive ? teal : 'transparent')};
+        transition: all 0.2s;
+    }
+
+    &:hover svg {
+        fill: ${teal};
+    }
 `
 
 //What components to consider?
@@ -57,43 +112,35 @@ const Carousel = ({ carousel }) => {
            setIndex(0);
        }
     }
-
-    const moveTo = (newIndex) => {
-        setIndex(newIndex);
-    }
-
-    const checker = (currIndex) => {
-        return false;
-    }
-
    
-   
-   return <>
+
+   return <CarouselBox>
+       <div>
     <CarouselHeader>Believe in HAN</CarouselHeader>
-    <SecondaryButton>LinkedIn</SecondaryButton>
-    <SpeakerName>Memes the Smeep</SpeakerName>
+    <SecondaryButton>LinkedIn Link</SecondaryButton>
+    <SpeakerName>Bunny the buny</SpeakerName>
     <CompanyName>Hibunny Daycare Inc.</CompanyName>
-    <TestimonialText>HI {carousel[index]}</TestimonialText>
+    <TestimonialText>{carousel[index]}</TestimonialText>
+    </div>
+    <div>
     <SpeakerImage src="https://cdn.discordapp.com/attachments/336008480022593536/775222795684282378/image0.jpg"/>
-    <div>Counter = {index}</div>
-
-
-    <ArrowButtony onClick={leftClick}>lefty</ArrowButtony>
-    <ArrowButtony onClick={rightClick}>right</ArrowButtony>
-
-    {/* Only need carosel here? Everything else use index to get info! */}
-    {carousel.map((currElement, currIndex) =>
-        <ArrowButtony onClick={() => moveTo(currIndex)} isActive={(currIndex == index)}>
-            {currElement}
-        </ArrowButtony>
-    )}
-
-
-
-
-    
-    <p>{carousel}</p>
-    </>
+    <CarouselControl>
+        <CarouselArrow onClick={leftClick}>
+            <ChevronLeftIconSVG/>
+        </CarouselArrow>
+        <div>
+        {carousel.map((currElement, currIndex) =>
+            <CarouselDot onClick={() => setIndex(currIndex)} isActive={(currIndex == index)}>
+                <CircleIconSVG/>
+            </CarouselDot>
+        )}
+        </div>
+            <CarouselArrow onClick={rightClick}>
+                <ChevronRightIconSVG/>
+            </CarouselArrow>
+    </CarouselControl>
+    </div>
+    </CarouselBox>
 }
 
 export default Carousel

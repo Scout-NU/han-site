@@ -6,7 +6,7 @@ import React from 'react';
 export const Button = styled.button`
     border: 2.5px solid ${teal};
     color: ${navy};
-    background-color: ${white};
+    background-color: transparent;
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;
@@ -27,7 +27,7 @@ export const Button = styled.button`
 export const ArrowButton = styled.button`
     border: none;
     color: ${navy};
-    background-color: ${white};
+    background-color: transparent;
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;

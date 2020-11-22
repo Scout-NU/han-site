@@ -46,7 +46,7 @@ class HomePage extends React.Component {
             {testimonials.map(t =>
                 <Testimonial testimonial={t}/>
             )}
-            <Carousel carousel={["mee bepis", "youu bepis", "nein mee bepis!!"]}/>
+            <Carousel carousel={["I am pink!", "I'm currently wearing cool shades", "Cool, cool bunny"]}/>
             <Link to="/faq">
               <Button>click me</Button>
               <SecondaryButton>secondary Button
