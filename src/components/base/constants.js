@@ -1,0 +1,1 @@
+export const MAX_Z_VALUE = 9999;

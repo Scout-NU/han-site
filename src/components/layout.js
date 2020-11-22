@@ -19,7 +19,9 @@ class LayoutTemplate extends React.Component {
     return (
       <Container>
         <Navigation />
+        <div style={{"margin-top": "60px"}}>
         {children}
+        </div>
         <Sock />
         <Footer />
       </Container>
