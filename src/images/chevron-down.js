@@ -1,0 +1,8 @@
+import React from 'react';
+const ChevronDownIconSVG = () => (
+    <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 1.82353L7.60656 8L1 1.61765L1.63934 1L7.60656 6.76471L13.3607 1.20588L14 1.82353Z" fill="#267993" stroke="#267993" stroke-width="0.5" />
+    </svg>
+);
+
+export default ChevronDownIconSVG
