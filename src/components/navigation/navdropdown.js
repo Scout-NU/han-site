@@ -118,7 +118,8 @@ padding: 15px 30px;
 const NavDropdown = ({ menuName, listContents }) => {
   const node = React.useRef();
   const [open, setOpen] = React.useState(false);
-  const [width, setWidth] = React.useState(window.innerWidth);
+  const windowSize = typeof window !== 'undefined' && window.innerWidth;
+  const [width, setWidth] = React.useState(windowSize);
   const handleClick = e => {
     if (node.current.contains(e.target)) {
       return;
