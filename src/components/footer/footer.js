@@ -27,7 +27,7 @@ const Footer = ({ contentfulFooter, contactInfo }) => (
     <FooterRowContainer>
       <FooterSubsectionContainer>
         <FooterLogo src={logoSrc} />
-        <FooterDescription>{contentfulFooter.descriptionAboutHan}more text just to see how long this thing actually is blah blah</FooterDescription>
+        <FooterDescription>{contentfulFooter.descriptionAboutHan}</FooterDescription>
       </FooterSubsectionContainer>
       <FooterSubsectionContainer>
         <FooterContactContainer>
