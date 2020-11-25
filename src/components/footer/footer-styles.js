@@ -114,7 +114,7 @@ export const AffiliationContainer = styled.div`
 export const AffiliationImg = styled.img`
     width: 30%;
     height: auto;
-    display: inline-block;
+    display: flex;
     padding: 5px;
     object-fit: contain;
 `
@@ -124,6 +124,7 @@ export const ItalicCaption = styled.p`
     font-size: 14px;
     color: ${darkGray};
     padding-right: 10%;
+    margin: 0px;
     @media ${device.smLaptop} {
     }
 `
