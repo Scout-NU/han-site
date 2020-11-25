@@ -15,17 +15,17 @@ class ContactPage extends React.Component {
                 <div>{contact.tagline}</div>
                 <div>{contact.emailHeader}</div>
                 <div>{contact.emailDescription}</div>
-                <Img fluid={contact.emailIcon.image.fluid}/>
+                {/* <Img fluid={contact.emailIcon.image.fluid}/> */}
                 <div>{contact.email.value.value}</div>
                 <div>{contact.linkedInHeader}</div>
                 <div>{contact.linkedInDescription}</div>
-                <Img fluid={contact.linkedInIcon.image.fluid}/>
+                {/* <Img fluid={contact.linkedInIcon.image.fluid}/> */}
                 <div>{contact.linkedIn.value.value}</div>
                 <div>{contact.newsletterHeader}</div>
                 <div>{contact.newsletterDescription}</div>
-                <Img fluid={contact.newsletterIcon.image.fluid}/>
+                {/* <Img fluid={contact.newsletterIcon.image.fluid}/> */}
                 <div>{contact.faqHeader}</div>
-                <Img fluid={contact.faqImage.fluid}/>
+                {/* <Img fluid={contact.faqImage.fluid}/> */}
                 <div>{contact.socialMediaHeader}</div>
                 <div>{contact.socialMediaDescription}</div>
             </Layout>
@@ -47,13 +47,6 @@ export const pageQuery = graphql`
         tagline
         emailHeader
         emailDescription
-        emailIcon {
-          image{
-            fluid (maxWidth: 100, maxHeight: 100) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
         email {
           value {
             value
@@ -61,13 +54,6 @@ export const pageQuery = graphql`
         }
         linkedInHeader
         linkedInDescription
-        linkedInIcon {
-          image{
-            fluid (maxWidth: 100, maxHeight: 100) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
         linkedIn {
           value {
             value
@@ -75,19 +61,7 @@ export const pageQuery = graphql`
         }
         newsletterHeader
         newsletterDescription
-        newsletterIcon {
-          image{
-            fluid (maxWidth: 100, maxHeight: 100) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
         faqHeader
-        faqImage {
-          fluid (maxWidth: 100, maxHeight: 100) {
-            ...GatsbyContentfulFluid
-          }
-        }
         socialMediaHeader
         socialMediaDescription
       }

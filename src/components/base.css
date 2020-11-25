@@ -1,13 +1,44 @@
 @font-face {
-  font-family: "Avenir";
-  font-weight: 400;
+  font-family: 'Merriweather';
+  src: url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff'),
+       url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff2');
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
-  font-display: swap;
+  font-weight: 400;
 }
 
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff'),
+       url('../../static/fonts/Merriweather-BoldItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('../../static/fonts/HKGrotesk-Regular.woff') format('woff'),
+       url('../../static/fonts/HKGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+/** TODO import get DIN fonts from client **/
+
+/* @font-face {
+  font-family: 'URW DIN';
+  src: url('../../static/fonts/URWDIN-Medium.woff') format('woff'),
+       url('../../static/fonts/URWDIN-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'URW DIN';
+  src: url('../../static/fonts/URWDIN-Bold.woff') format('woff'),
+       url('../../static/fonts/URWDIN-Bold.woff2') format('woff2');
+  font-weight: 700;
+} */
+
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
@@ -23,6 +54,7 @@ img {
 h1,
 h2,
 h3 {
+  font-family: "Merriweather"; 
   font-size: 2em;
   font-weight: normal;
 }

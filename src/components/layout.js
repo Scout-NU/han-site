@@ -58,7 +58,9 @@ const Layout = ({location, children}) => {
     return (
       <Container>
         <Navigation />
+        <div style={{"margin-top": "60px"}}>
         {children}
+        </div>
         <Sock />
         <Footer contentfulFooter={data.contentfulFooter} contactInfo = {data.contentfulContactInformation} />
       </Container>
