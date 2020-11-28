@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { teal, navy, white } from "./colors"
 import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
+import { device } from './device'
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -59,3 +60,13 @@ export const SecondaryButton = (props) => {
         </ArrowButton>
     );
   };
+
+export const BaseContainer = styled.div`
+  margin: 100px;
+  @media ${device.tablet} {
+    margin: 42px;
+  }
+  @media ${device.mobile} {
+    margin: 25px;
+  }
+`
