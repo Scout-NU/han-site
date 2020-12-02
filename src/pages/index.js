@@ -105,7 +105,7 @@ export const pageQuery = graphql`
       headline
       tagline
       heroImage {
-        fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+        fluid {
           ...GatsbyContentfulFluid
         }
       }
