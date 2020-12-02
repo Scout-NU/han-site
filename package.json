@@ -12,6 +12,7 @@
     "bootstrap": "^4.5.3",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
+    "gatsby-plugin-schema-snapshot": "^1.2.0",
     "gatsby-plugin-sharp": "^2.5.6",
     "gatsby-source-contentful": "^2.2.9",
     "gatsby-transformer-remark": "^2.7.3",
