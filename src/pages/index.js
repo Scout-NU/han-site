@@ -18,10 +18,8 @@ class HomePage extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={homePage} />
+          <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
           <div className="wrapper">
-            <h1>{homePage.headline}</h1>
-            <h2>{homePage.tagline}</h2>
             <h1>{homePage.missionStatement.value.value}</h1>
             <h2 className="section-headline">{homePage.statsHeader}</h2>
 

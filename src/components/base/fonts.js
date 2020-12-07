@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { device } from "./device"
-import { navy , white } from "./colors"
+import { navy, white } from "./colors"
 
 export const HANh1 = styled.h1`
   font-family: "URW DIN", sans-serif;
@@ -9,7 +9,7 @@ export const HANh1 = styled.h1`
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 700;
-  color: ${navy};
+  color: ${props => (props.color ? props.color : navy)};
 
   @media ${device.tablet} {
     font-size: 60px;
@@ -28,7 +28,7 @@ export const HANh2 = styled.h2`
     line-height: 60px;
     letter-spacing: 1px;
     font-weight: 700;
-    color: ${navy};
+    color: ${props => (props.color ? props.color : navy)};
 
     @media ${device.tablet} {
         font-size: 35px;
@@ -47,7 +47,7 @@ export const HANh3 = styled.h3`
     line-height: 41px;
     letter-spacing: 1px;
     font-weight: 500;
-    color: ${navy};
+    color: ${props => (props.color ? props.color : navy)};
 
     @media ${device.tablet} {
         font-size: 22px;
@@ -145,4 +145,18 @@ export const HANsubh3 = styled.p`
     font-size: 18px;
     line-height: 25px;
     }
+`
+
+export const HANSpecialBody = styled.p`
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 22px;
+  line-height: 34px;
+  @media ${device.tablet} {
+    font-size: 18px;
+    line-height: 33px;
+  }
+  @media ${device.mobile} {
+  font-size: 16px;
+  line-height: 30px;
+  }
 `
