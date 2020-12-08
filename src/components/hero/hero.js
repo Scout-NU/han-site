@@ -20,7 +20,7 @@ import {
 import styles from './hero.module.css'
 
 export default ({ headline, tagline, heroImage }) => (
-
+<HeroContainer>
   <HeroGrid>
     <HeroImage src={heroImage.fluid.src} />
     <BlockContainer>
@@ -32,6 +32,7 @@ export default ({ headline, tagline, heroImage }) => (
     </GrayBlock>
     <GoldBar/>
     </BlockContainer>
-      <HANBoldText>HAN</HANBoldText>
   </HeroGrid>
+  <HANBoldText>HAN</HANBoldText>
+  </HeroContainer>
 )

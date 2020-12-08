@@ -103,7 +103,7 @@ export const pageQuery = graphql`
       headline
       tagline
       heroImage {
-        fluid {
+        fluid (quality: 100){
           ...GatsbyContentfulFluid
         }
       }

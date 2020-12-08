@@ -69,20 +69,16 @@ export const TextContainer = styled.div`
 `
 
 export const HANBoldText = styled.p`
-    font-size: 25vh;
-    transform: rotate(270deg);
+    font-size: 200px;;
     opacity: 70%;
     text-transform: uppercase;
     color: ${yellow};
-    align-self: end;
-    margin: 0px 0px 0px 0px;
-    grid-area: 3 / 11 / 9 / 13;
-    display: inline-block;
     z-index: 3;
+    position: absolute;
+    transform: rotate(-90deg) translate(0, -100%);
+    transform-origin: 100% 0;
+    right: 0;
     @media ${device.mobile} {
-        grid-area: 2 / 6 / 6 / 9;
-        justify-self: end;
-        align-self: end;
     }
 `
 // export const HANBoldContainer = styled.div`
@@ -108,4 +104,10 @@ export const GoldBar = styled.div`
     }
     @media ${device.mobile} {
     }
+`
+
+export const HeroContainer = styled.div`
+    position: relative;
+    background-color:blue;
+
 `
