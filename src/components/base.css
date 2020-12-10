@@ -51,16 +51,20 @@ img {
   width: 100%;
 }
 
-h1,
+/* h1,
 h2,
 h3 {
   font-family: "Merriweather"; 
   font-size: 2em;
   font-weight: normal;
-}
+} */
 
 a {
   color: currentColor;
+}
+
+p {
+  margin: 0;
 }
 
 .wrapper {

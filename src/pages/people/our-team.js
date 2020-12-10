@@ -41,7 +41,6 @@ export const pageQuery = graphql`
         name
         title
         bio
-        email
         linkedIn
         profilePicture {
           fluid {

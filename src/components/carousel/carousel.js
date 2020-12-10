@@ -4,40 +4,60 @@ import { SecondaryButton } from '../base/base-components'
 import ChevronLeftIconSVG from '../../images/chevron-left'
 import ChevronRightIconSVG from '../../images/chevron-right'
 import CircleIconSVG from '../../images/circle'
-import { teal, lightGray } from "../base/colors"
+import { teal, lightGray, navy, yellow70 } from "../base/colors"
+import { HANdescription, HANh2, HANsmalldescription, HANsubh2, HANSpecialBody } from '../base/fonts'
+import { MAX_Z_VALUE } from '../base/constants'
+import { Link } from 'gatsby'
 
 
 export const CarouselBox = styled.div`
-    background: ${lightGray};
+    display: flex;
+    position: relative;
+    height: 100vh;
+    margin: 0px 100px;
+`
+
+export const CarouselHeader = styled(HANh2)`
+    position: absolute;
+    top: 10vh;
+`
+
+export const TestimonialTextBox = styled.div`
+    background-color: #FFCE69B3;
+    padding: 40px 60px 40px 140px;
+    position: absolute;
+    top: 20vh;
+    left: -140px;
+    width: 75%;
+    height: 40vh;
+    z-index: ${MAX_Z_VALUE};
+    align-items: center;
     display: flex;
 `
 
-export const DirectionWrapper = styled.div`
-    // width: 50%;
-    // display: flex;
-    // justify-content: flex-end;
+export const TestimonialInfoBox = styled.div`
+    padding: 40px 0px 0px 20px;
+    border-left: 4px solid ${teal};
+    position: absolute;
+    top: 55vh;
+    left: 10vw;
+    z-index: ${MAX_Z_VALUE};
 `
 
-
-export const CarouselHeader = styled.h1`
-
-`
-
-export const TestimonialText = styled.div`
-    background-color: yellow;
-`
-
-export const SpeakerName = styled.div`
-`
-
-export const CompanyName = styled.div`
+export const TestimonialNameTag = styled.div`
+    padding: 0px 0px 20px 0px;
+    p {
+        margin: 0;
+    }
 `
 
 export const SpeakerImage = styled.img`
-    width: 300px;
-    height: 300px;
+    position: absolute;
+    width: 37vw;
+    height: 69vh;
     object-fit: cover;
-    display: inline-block;
+    right: 0;
+    top: 10vh;
 `
 
 export const CarouselArrow = styled.button` 
@@ -60,7 +80,20 @@ export const CarouselControl = styled.div`
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    
+    position: absolute;
+    bottom: 10vh;
+    right: 0;
+    width: 35vw;
+    padding: 0px 50px;
+`
+
+
+export const CarouselDotList = styled.div`
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: inherit;
+    padding: 0px 20%;
 `
 
 export const CarouselDot = styled.button`
@@ -83,64 +116,64 @@ export const CarouselDot = styled.button`
     }
 `
 
-//What components to consider?
-//TITLE -> BELIEVE IN HAN
-//Speaksy
-//Name
-//Company Name
-//Link
-//Image
-//Carosul
-// - button
-// - arrows
 
-const Carousel = ({ carousel }) => {
+const Carousel = ({ carousel, carouselHeader }) => {
     const maxIndex = carousel.length - 1;
     const [index, setIndex] = React.useState(0);
     const leftClick = () => {
-        if(index > 0)  {
-             setIndex(index - 1);
+        if (index > 0) {
+            setIndex(index - 1);
         } else {
             setIndex(maxIndex);
         }
     }
 
     const rightClick = () => {
-        if(index < maxIndex)  {
+        if (index < maxIndex) {
             setIndex(index + 1);
-       } else {
-           setIndex(0);
-       }
+        } else {
+            setIndex(0);
+        }
     }
-   
 
-   return <CarouselBox>
-       <div>
-    <CarouselHeader>Believe in HAN</CarouselHeader>
-    <SecondaryButton>LinkedIn Link</SecondaryButton>
-    <SpeakerName>Bunny the buny</SpeakerName>
-    <CompanyName>Hibunny Daycare Inc.</CompanyName>
-    <TestimonialText>{carousel[index]}</TestimonialText>
-    </div>
-    <div>
-    <SpeakerImage src="https://cdn.discordapp.com/attachments/336008480022593536/775222795684282378/image0.jpg"/>
-    <CarouselControl>
-        <CarouselArrow onClick={leftClick}>
-            <ChevronLeftIconSVG/>
-        </CarouselArrow>
-        <div>
-        {carousel.map((currElement, currIndex) =>
-            <CarouselDot onClick={() => setIndex(currIndex)} isActive={(currIndex == index)}>
-                <CircleIconSVG/>
-            </CarouselDot>
-        )}
-        </div>
-            <CarouselArrow onClick={rightClick}>
-                <ChevronRightIconSVG/>
+
+    return <CarouselBox>
+        <CarouselHeader>{carouselHeader}</CarouselHeader>
+        <TestimonialTextBox>
+            <HANSpecialBody>
+                {carousel[index].testimonial.testimonial}
+            </HANSpecialBody>
+        </TestimonialTextBox>
+        <TestimonialInfoBox>
+            <TestimonialNameTag>
+                <HANsubh2>{carousel[index].name}</HANsubh2>
+                <HANsmalldescription>{carousel[index].company}</HANsmalldescription>
+            </TestimonialNameTag>
+            <Link to={carousel[index].name}>
+                <SecondaryButton>
+                    LinkedIn
+                </SecondaryButton>
+            </Link>
+        </TestimonialInfoBox>
+
+        <SpeakerImage src={carousel[index].profilePicture.file.url}/>
+        <CarouselControl>
+            <CarouselArrow onClick={leftClick}>
+                <ChevronLeftIconSVG />
             </CarouselArrow>
-    </CarouselControl>
-    </div>
+            <CarouselDotList>
+                {carousel.map((currElement, currIndex) =>
+                    <CarouselDot onClick={() => setIndex(currIndex)} isActive={(currIndex == index)}>
+                        <CircleIconSVG />
+                    </CarouselDot>
+                )}
+            </CarouselDotList>
+            <CarouselArrow onClick={rightClick}>
+                <ChevronRightIconSVG />
+            </CarouselArrow>
+        </CarouselControl>
     </CarouselBox>
+
 }
 
 export default Carousel

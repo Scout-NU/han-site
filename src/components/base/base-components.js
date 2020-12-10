@@ -26,13 +26,13 @@ export const Button = styled.button`
 
 export const ArrowButton = styled.button`
     border: none;
-    color: ${navy};
+    color: ${teal};
     background-color: transparent;
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 10px 30px;
+    padding: 0px;
     letter-spacing: 1px;
     svg {
         margin-left: 5px;
@@ -41,7 +41,7 @@ export const ArrowButton = styled.button`
         height: 40px;
     }
     svg path {
-        fill: ${white};
+        fill: transparent;
         transition: all 0.2s;
     }
     &:hover svg path{

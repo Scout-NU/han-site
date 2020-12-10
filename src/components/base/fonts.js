@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { device } from "./device"
-import { navy , white } from "./colors"
+import { navy , white, lightGray } from "./colors"
 
 export const HANh1 = styled.h1`
   font-family: "URW DIN", sans-serif;
@@ -24,6 +24,7 @@ export const HANh1 = styled.h1`
 
 export const HANh2 = styled.h2`
     font-family: "URW DIN", sans-serif;
+    text-transform: uppercase;
     font-size: 50px;
     line-height: 60px;
     letter-spacing: 1px;
@@ -146,3 +147,54 @@ export const HANsubh3 = styled.p`
     line-height: 25px;
     }
 `
+
+export const HANSpecialBody = styled.p`
+  font-family: "HK Grotesk", sans-serif;
+  font-size: 22px;
+  line-height: 34px;
+  @media ${device.tablet} {
+    font-size: 18px;
+    line-height: 33px;
+  }
+  @media ${device.mobile} {
+  font-size: 16px;
+  line-height: 30px;
+  }
+  `
+
+export const HANdescription = styled.p`
+    font-family: "URW DIN", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+
+    @media ${device.tablet} {
+        font-size: 18px;
+        line-height: 30px;
+      }
+    
+    @media ${device.mobile} {
+    font-size: 16px;
+    line-height: 30px;
+    }
+`
+
+export const HANsmalldescription = styled.p`
+    font-family: "URW DIN", sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    @media ${device.tablet} {
+        font-size: 13px;
+        line-height: 24px;
+      }
+    
+    @media ${device.mobile} {
+    font-size: 12px;
+    line-height: 17px;
+    }
+`
+

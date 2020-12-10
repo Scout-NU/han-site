@@ -5,7 +5,7 @@ import { teal, navy, white, black, darkGray, lightGray } from "../base/colors"
 import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
 import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"
-import { MAX_Z_VALUE } from "../base/constants"
+import { NAVBAR_Z_VALUE } from "../base/constants"
 import HamburgerIconPicture from "../../images/hamburger.svg"
 import CloseIconPicture from "../../images/close.svg"
 
@@ -21,7 +21,7 @@ export const NavWrapper = styled.nav`
   height: auto;
   background-color: ${white};
   box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-  z-index: ${MAX_Z_VALUE};
+  z-index: ${NAVBAR_Z_VALUE};
   width: 100%;
   top: 0;
 `
@@ -130,7 +130,7 @@ export const HamburgerMenu = styled.div`
     cursor: pointer;
     padding-right: 30px;
   }
-  z-index: ${MAX_Z_VALUE};
+  z-index: ${NAVBAR_Z_VALUE};
 
 `
 

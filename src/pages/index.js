@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
 import Carousel from '../components/carousel/carousel'
+import testimonial from '../components/testimonial/testimonial.js'
 
 class HomePage extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class HomePage extends React.Component {
     const missionStatement = get(this, 'props.data.contentfulHomePage.missionStatement.value.value')
     const stats = get(this, 'props.data.contentfulHomePage.stats')
     const testimonials = get(this, 'props.data.contentfulHomePage.testimonials')
+    const testimonialsHeader = get(this, 'props.data.contentfulHomePage.testimonialsHeader')
     const statsHeader = get(this, 'props.data.contentfulHomePage.statisticsHeader')
 
     return (
@@ -46,7 +48,7 @@ class HomePage extends React.Component {
             {testimonials.map(t =>
                 <Testimonial testimonial={t}/>
             )}
-            <Carousel carousel={["I am pink!", "I'm currently wearing cool shades", "Cool, cool bunny"]}/>
+            <Carousel carousel={testimonials} carouselHeader={testimonialsHeader}/>
             <Link to="/faq">
               <Button>click me</Button>
               <SecondaryButton>secondary Button
@@ -142,7 +144,14 @@ export const pageQuery = graphql`
       testimonials {
         company
         name
-        role
+        profilePicture {
+          file {
+            url
+          }
+        }
+        testimonial {
+          testimonial
+        }
       }
     }
   }
