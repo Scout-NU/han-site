@@ -4,8 +4,7 @@ import {
   MissionContainer,
   MissionH2,
   MissionHeaderBlock,
-  TextBlock,
-  GoldBar
+  TextBlock
 } from './mission-statement-styles'
 import {
   HANsubh2,
@@ -17,7 +16,6 @@ export default ({header, subheader, missionStatement}) =>
         <MissionHeaderBlock>
             <MissionH2>{header}</MissionH2>
         </MissionHeaderBlock>
-        <GoldBar/>
         <TextBlock>
             <HANsubh2 color={teal}>{subheader}</HANsubh2>
             <HANSpecialBody>{missionStatement}</HANSpecialBody>

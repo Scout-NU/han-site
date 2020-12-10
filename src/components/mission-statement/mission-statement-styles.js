@@ -16,7 +16,7 @@ export const MissionContainer = styled.div`
     padding: ${DESKTOP_MARGIN}px;
     align-items: flex-start;
     justify-content: space-around;
-    flex-direction: row;
+    overflow: auto;
     @media ${device.tablet} {
         padding: ${TABLET_MARGIN}px;
     }
@@ -27,9 +27,10 @@ export const MissionContainer = styled.div`
 `
 
 export const MissionHeaderBlock = styled.div`
-    width: 30%;
+    padding-right: 5%;
     @media ${device.mobile} {
         width: 100%;
+        padding-right: 0;
         padding-top: 10px;
         padding-bottom: 35px;
     }
@@ -40,30 +41,22 @@ export const MissionH2 = styled(HANh2)`
 `
 
 export const TextBlock = styled.div`
-    width: 70%;
+    border-left: 4px solid ${yellow};
+    padding-left: 5%;
+    @media ${device.tablet} {
+        border-left: 3px solid ${yellow};
+    }
     @media ${device.mobile} {
         width: 100%;
+        border-left: none;
+        border-top: 3px solid ${yellow};
+        padding-left: 0;
         padding-top: 35px;
         padding-bottom: 10px;
         
     }
 `
 
-export const GoldBar = styled.div`
-    transform: rotate(90deg);
-    width: 50vh;
-    height: 4px;
-    align-self: center;
-    display: block;
-    background-color: ${yellow};
-    overflow: hidden;
-    @media ${device.mobile} {
-        transform: none;
-        width: 100%;
-        height: 3px;
-    }
-`
-
 export default {
-    MissionContainer, MissionHeaderBlock, TextBlock, GoldBar
+    MissionContainer, MissionHeaderBlock, TextBlock
 }
