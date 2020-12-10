@@ -1,13 +1,10 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import { teal, yellow } from "../base/colors"
+import { teal } from "../base/colors"
 import {
   HeroContainer,
-  HeroGrid,
   HeroImage,
   GrayBlock,
   HANBoldText,
-  HANBoldContainer,
   TextContainer,
   GoldBar,
   BlockContainer
@@ -17,11 +14,9 @@ import {
   HANSpecialBody
 } from '../base/fonts'
 
-import styles from './hero.module.css'
-
 export default ({ headline, tagline, heroImage }) => (
-<HeroContainer>
-  <HeroGrid>
+
+  <HeroContainer>
     <HeroImage src={heroImage.fluid.src} />
     <BlockContainer>
     <GrayBlock>
@@ -32,7 +27,9 @@ export default ({ headline, tagline, heroImage }) => (
     </GrayBlock>
     <GoldBar/>
     </BlockContainer>
-  </HeroGrid>
-  <HANBoldText>HAN</HANBoldText>
+    <HANBoldText>HAN</HANBoldText>
   </HeroContainer>
+
+  
+
 )
