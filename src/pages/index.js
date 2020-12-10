@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
+import MissionStatement from '../components/mission-statement/mission-statement'
 import Layout from '../components/layout'
 import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -19,6 +20,7 @@ class HomePage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
+          <MissionStatement header={homePage.missionStatementHeader} subheader={homePage.missionStatementSubheader} missionStatement={homePage.missionStatement.value.value}/>
           <div className="wrapper">
             <h1>{homePage.missionStatement.value.value}</h1>
             <h2 className="section-headline">{homePage.statsHeader}</h2>
@@ -109,6 +111,7 @@ export const pageQuery = graphql`
       }
       contentful_id
       missionStatementHeader
+      missionStatementSubheader
       missionStatement {
         value {
           value

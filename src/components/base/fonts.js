@@ -118,6 +118,7 @@ export const HANsubh2 = styled.p`
     line-height: 45px;
     font-style: italic;
     font-weight: 700;
+    color: ${props => (props.color ? props.color : "#000")};
 
     @media ${device.tablet} {
         font-size: 22px;
