@@ -1,19 +1,35 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { teal } from "../base/colors"
+import {
+  HeroContainer,
+  HeroImage,
+  GrayBlock,
+  HANBoldText,
+  TextContainer,
+  GoldBar,
+  BlockContainer
+} from './hero-styles'
+import {
+  HANh1,
+  HANSpecialBody
+} from '../base/fonts'
 
-import styles from './hero.module.css'
+export default ({ headline, tagline, heroImage }) => (
 
-export default ({ data }) => (
-  <div className={styles.hero}>
-    <Img
-      className={styles.heroImage}
-      alt={data.name}
-      fluid={data.heroImage.fluid}
-    />
-    <div className={styles.heroDetails}>
-      <h3 className={styles.heroHeadline}>{data.name}</h3>
-      <p className={styles.heroTitle}>{data.title}</p>
-      <p>{data.shortBio.shortBio}</p>
-    </div>
-  </div>
+  <HeroContainer>
+    <HeroImage src={heroImage.fluid.src} />
+    <BlockContainer>
+    <GrayBlock>
+      <TextContainer>
+        <HANh1 color={teal}>{headline}</HANh1>
+        <HANSpecialBody>{tagline}</HANSpecialBody>
+      </TextContainer>
+    </GrayBlock>
+    <GoldBar/>
+    </BlockContainer>
+    <HANBoldText>HAN</HANBoldText>
+  </HeroContainer>
+
+  
+
 )

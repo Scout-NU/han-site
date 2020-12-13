@@ -12,37 +12,21 @@ import * as arrowIcon from '../images/arrowIcon.svg'
 class HomePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const headline = get(this, 'props.data.contentfulHomePage.headline')
-    const tagline = get(this, 'props.data.contentfulHomePage.tagline')
-    const missionStatement = get(this, 'props.data.contentfulHomePage.missionStatement.value.value')
-    const stats = get(this, 'props.data.contentfulHomePage.stats')
-    const testimonials = get(this, 'props.data.contentfulHomePage.testimonials')
-    const statsHeader = get(this, 'props.data.contentfulHomePage.statisticsHeader')
+    const homePage = get(this, 'props.data.contentfulHomePage')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
+          <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
           <div className="wrapper">
-            <h1>{headline}</h1>
-            <h2>{tagline}</h2>
-            <h1>{missionStatement}</h1>
-            <h2 className="section-headline">{statsHeader}</h2>
-            <ul className="article-list">
-              {/* {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })} */}
-              {stats.map(stat =>
+            <h1>{homePage.missionStatement.value.value}</h1>
+            <h2 className="section-headline">{homePage.statsHeader}</h2>
+
+              {homePage.stats.map(stat =>
                 <p>{stat.number} {stat.description}</p>)}
-            </ul>
-            {testimonials.map(t =>
+
+            {homePage.testimonials.map(t =>
                 <Testimonial testimonial={t}/>
             )}
             <Link to="/faq">
@@ -51,6 +35,11 @@ class HomePage extends React.Component {
               </SecondaryButton>
             </Link>
             <SecondaryButton text="Helloooo"/>
+            <p>{homePage.eventHeader}</p>
+            {
+              homePage.event &&
+              <p>{homePage.event.title}</p>
+            }
           </div>
         </div>
       </Layout>
@@ -111,9 +100,14 @@ export const pageQuery = graphql`
       }
     }
     contentfulHomePage {
-      tagline
-      contentful_id
       headline
+      tagline
+      heroImage {
+        fluid (quality: 100){
+          ...GatsbyContentfulFluid
+        }
+      }
+      contentful_id
       missionStatementHeader
       missionStatement {
         value {
@@ -128,6 +122,7 @@ export const pageQuery = graphql`
       }
       eventHeader
       event {
+        title
         date
         endTime
         startTime
@@ -140,7 +135,6 @@ export const pageQuery = graphql`
       testimonials {
         company
         name
-        role
       }
     }
   }
