@@ -143,6 +143,7 @@ export const pageQuery = graphql`
       testimonialsHeader
       testimonials {
         company
+        companyWebsite
         name
         profilePicture {
           file {
