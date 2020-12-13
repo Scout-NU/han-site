@@ -1,10 +1,6 @@
 import styled from "styled-components"
 import { device } from "./device"
-<<<<<<< HEAD
 import { navy , white, lightGray } from "./colors"
-=======
-import { navy, white } from "./colors"
->>>>>>> 389caee35dd3da370de5ce7f5b0a6bb8a219a273
 
 export const HANh1 = styled.h1`
   font-family: "URW DIN", sans-serif;
@@ -164,8 +160,7 @@ export const HANSpecialBody = styled.p`
   font-size: 16px;
   line-height: 30px;
   }
-<<<<<<< HEAD
-  `
+`
 
 export const HANdescription = styled.p`
     font-family: "URW DIN", sans-serif;
@@ -203,6 +198,3 @@ export const HANsmalldescription = styled.p`
     }
 `
 
-=======
-`
->>>>>>> 389caee35dd3da370de5ce7f5b0a6bb8a219a273

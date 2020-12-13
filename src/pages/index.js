@@ -14,19 +14,7 @@ import testimonial from '../components/testimonial/testimonial.js'
 class HomePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-<<<<<<< HEAD
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const headline = get(this, 'props.data.contentfulHomePage.headline')
-    const tagline = get(this, 'props.data.contentfulHomePage.tagline')
-    const missionStatement = get(this, 'props.data.contentfulHomePage.missionStatement.value.value')
-    const stats = get(this, 'props.data.contentfulHomePage.stats')
-    const testimonials = get(this, 'props.data.contentfulHomePage.testimonials')
-    const testimonialsHeader = get(this, 'props.data.contentfulHomePage.testimonialsHeader')
-    const statsHeader = get(this, 'props.data.contentfulHomePage.statisticsHeader')
-=======
     const homePage = get(this, 'props.data.contentfulHomePage')
->>>>>>> 389caee35dd3da370de5ce7f5b0a6bb8a219a273
 
     return (
       <Layout location={this.props.location}>
@@ -151,7 +139,6 @@ export const pageQuery = graphql`
         company
         companyWebsite
         name
-<<<<<<< HEAD
         profilePicture {
           file {
             url
@@ -160,8 +147,6 @@ export const pageQuery = graphql`
         testimonial {
           testimonial
         }
-=======
->>>>>>> 389caee35dd3da370de5ce7f5b0a6bb8a219a273
       }
     }
   }
