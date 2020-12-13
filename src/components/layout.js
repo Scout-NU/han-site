@@ -1,15 +1,54 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery } from 'gatsby'
 import base from './base.css'
 import Container from './container'
 import Navigation from './navigation/navigation'
 import Sock from './sock/sock'
 import Footer from './footer/footer'
 
-class LayoutTemplate extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+const Layout = ({location, children}) => {
+
+    //const { location, children } = this.props
+    const data = useStaticQuery(graphql`
+  query FooterQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    contentfulFooter {
+      hanLogo {
+        file {
+          url
+        }
+      }
+      descriptionAboutHan
+      emailAddress {
+        value {
+          value
+        }
+      }
+      affiliationText
+      damoreMcKimLogo {
+        fluid {
+          src
+        }
+      }
+      mosaicLogo {
+        fluid {
+          src
+        }
+      }
+    }
+    contentfulContactInformation {
+      email
+      instagramLink
+      linkedInLink
+      mediumLink
+    }
+  }
+`
+)
 
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -23,10 +62,10 @@ class LayoutTemplate extends React.Component {
         {children}
         </div>
         <Sock />
-        <Footer />
+        <Footer contentfulFooter={data.contentfulFooter} contactInfo = {data.contentfulContactInformation} />
       </Container>
     )
   }
-}
 
-export default LayoutTemplate
+
+export default Layout

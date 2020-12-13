@@ -2,6 +2,8 @@ import styled from "styled-components"
 import { teal, navy, white } from "./colors"
 import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
+import { DESKTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
+import { device } from "./device"
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -50,12 +52,25 @@ export const ArrowButton = styled.button`
 `
 
 export const SecondaryButton = (props) => {
-    const {text, children, ...rest } = props;
+    const { text, children, ...rest } = props;
     return (
         <ArrowButton>
-          {text}{' '}
-          {children}
-            <ArrowIconSVG/>
+            {text}{' '}
+            {children}
+            <ArrowIconSVG />
         </ArrowButton>
     );
-  };
+};
+
+export const BaseMarginContainer = styled.div`
+    margin-left: ${DESKTOP_MARGIN};
+    margin-right: ${DESKTOP_MARGIN};
+    @media ${device.tablet} {
+        margin-left: ${TABLET_MARGIN};
+        margin-right: ${TABLET_MARGIN};
+    }
+    @media ${device.mobile} {
+        margin-left: ${MOBILE_MARGIN};
+        margin-right: ${MOBILE_MARGIN};
+    }
+`
