@@ -94,25 +94,26 @@ export const GoldBar = styled.div`
 
 
 
-const HomepageEvent = () => {
+const HomepageEvent = ({event, eventHeader}) => {
+    if(event == null) {
+        return <> </>
+    }
+    else {
     return <>
     <HomepageEventContainer>
         <EventVisualsContainer>
-        <EventTitle>Upcoming Event</EventTitle>
+        <EventTitle>{eventHeader}</EventTitle>
         <EventPicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
         </EventVisualsContainer>
 
         
         <EventDescriptionContainer>
         <EventDescription>
-            <HANsubh2>Event Title insert</HANsubh2>
-            <HANdescription>Time here</HANdescription>
-            <HANbody>Event description here. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed sed et auctor senectus nisi, habitant eu augue condimentum. 
-                Euismod aenean tortor malesuada in sodales vitae odio ut in.
+            <HANsubh2>{event.title}</HANsubh2>
+            <HANdescription>{event.location}, {event.date} {event.startTime}–{event.endTime}</HANdescription>
+            <HANbody>{event.description.description}
             </HANbody>
-            <Link to={"google.com"}>
+            <Link to={event.registrationLink}>
                 <SecondaryButton>
                     EventBrite
                 </SecondaryButton>
@@ -120,9 +121,9 @@ const HomepageEvent = () => {
             </EventDescription>
             <GoldBar/>
         </EventDescriptionContainer>
-       
     </HomepageEventContainer>
     </>  
+    }
 }
 
 

@@ -26,7 +26,7 @@ class HomePage extends React.Component {
 
               {homePage.stats.map(stat =>
                 <p>{stat.number} {stat.description}</p>)}
-            <HomepageEvent/>
+            <HomepageEvent event={homePage.event} eventHeader={homePage.eventHeader}/>
 
             <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader}/>
             <Link to="/faq">
@@ -130,6 +130,7 @@ export const pageQuery = graphql`
           description
         }
         registrationLink
+        location
       }
       testimonialsHeader
       testimonials {
