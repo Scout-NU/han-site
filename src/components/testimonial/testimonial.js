@@ -6,7 +6,7 @@ import ChevronRightIconSVG from '../../images/chevron-right'
 import CircleIconSVG from '../../images/circle'
 import { teal, lightGray, navy, yellow70 } from "../base/colors"
 import { HANdescription, HANh2, HANsmalldescription, HANsubh2, HANSpecialBody } from '../base/fonts'
-import { MAX_Z_VALUE, DESKTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from '../base/constants'
+import { MAX_Z_VALUE, DESKTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN, LAPTOP_MARGIN } from '../base/constants'
 import { Link } from 'gatsby'
 import { device } from "../base/device"
 
@@ -43,6 +43,13 @@ export const TestimonialTextBox = styled.div`
     z-index: ${MAX_Z_VALUE};
     align-items: center;
     display: flex;
+
+    @media ${device.smLaptop} {
+        width: 70%;
+        left: -${LAPTOP_MARGIN};
+        padding-left: ${LAPTOP_MARGIN};
+        top: 18vh;
+    }
 
     @media ${device.tablet} {
         width: 70%;

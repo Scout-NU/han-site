@@ -65,7 +65,6 @@ export const SecondaryButton = (props) => {
 export const BaseMarginContainer = styled.div`
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};
-    
     @media ${device.smLaptop} {
         margin-left: ${LAPTOP_MARGIN};
         margin-right: ${LAPTOP_MARGIN};
