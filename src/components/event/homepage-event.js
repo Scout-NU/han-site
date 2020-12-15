@@ -5,6 +5,7 @@ import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
 import { SecondaryButton } from "../base/base-components"
+import { MOBILE_MARGIN } from "../base/constants"
 
 export const HomepageEventContainer = styled.div`
     display: flex;
@@ -14,16 +15,28 @@ export const HomepageEventContainer = styled.div`
 
     @media ${device.mobile} {
         height: fit-content;
+        flex-flow: column wrap;
+        background-color: ${lightGray};
+        margin: 100px -${MOBILE_MARGIN};
+        padding: 0px ${MOBILE_MARGIN};
+
     }
 `
 
 export const EventTitle = styled(HANh2)`
+    @media ${device.mobile} {
+        margin-top: -10px;
+    }
+
 `
 
 export const EventVisualsContainer = styled.div`
-    flex: 1 1 60%;
+    flex: 1 1 50%;
     display: flex;
     flex-direction: column;
+
+    @media ${device.mobile} {
+    }
 `
 
 
@@ -33,36 +46,49 @@ export const EventPicture = styled.img`
     flex-grow: 1;
     min-width: 100%;
     object-fit: cover;
-    @media ${device.tablet} {
-    }
-
     @media ${device.mobile} {
     }
 `
 
 export const EventDescriptionContainer = styled.div`
-    flex: 1 1 40%;
+    flex: 1 1 50%;
     position: relative;
     background-color:  ${lightGray};
     margin-bottom: 30px;
     top: 30px;
     display: flex;
+
+    @media ${device.mobile} {
+        background-color:  unset;
+    }
 `
 
 
 export const EventDescription = styled.div`
     padding: 120px 40px 40px 40px;
     align-self: flex-end;
+
+    @media ${device.mobile} {
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+
 `
 
 
 export const GoldBar = styled.div`
-    width: 300px;
+    width: 25vw;
     height: 4px;
     background-color: ${yellow};
     position: absolute;
     top: 70px;
-    left: 200px;
+    right: -42px;
+
+    @media ${device.mobile} {
+        width: 75vw;
+        top: 0px;
+        right: -${MOBILE_MARGIN};
+    }
 `
 
 
