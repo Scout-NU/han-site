@@ -65,6 +65,10 @@ export const SecondaryButton = (props) => {
 export const BaseMarginContainer = styled.div`
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};
+    // @media (max-width:1200px) {
+    //     margin-left: ${TABLET_MARGIN};
+    //     margin-right: ${TABLET_MARGIN};
+    // }
     @media ${device.tablet} {
         margin-left: ${TABLET_MARGIN};
         margin-right: ${TABLET_MARGIN};

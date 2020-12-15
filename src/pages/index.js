@@ -8,6 +8,7 @@ import Testimonial from '../components/testimonial/testimonial'
 import 'bootstrap/dist/css/bootstrap.css';
 import { ArrowButton, BaseMarginContainer, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
+import HomepageEvent from '../components/event/homepage-event'
 
 class HomePage extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class HomePage extends React.Component {
 
               {homePage.stats.map(stat =>
                 <p>{stat.number} {stat.description}</p>)}
+            <HomepageEvent/>
 
             <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader}/>
             <Link to="/faq">
