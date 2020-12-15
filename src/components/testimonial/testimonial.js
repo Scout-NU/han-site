@@ -32,7 +32,6 @@ export const TestimonialHeader = styled(HANh2)`
     }
 `
 
-//TOdO: MOBILE MARGINS LEFT
 export const TestimonialTextBox = styled.div`
     background-color: ${yellow70};
     position: absolute;
