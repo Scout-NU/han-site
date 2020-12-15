@@ -4,12 +4,10 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
-import Testimonial from '../components/testimonial/testimonial.js'
+import Testimonial from '../components/testimonial/testimonial'
 import 'bootstrap/dist/css/bootstrap.css';
-import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
+import { ArrowButton, BaseMarginContainer, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
-import Carousel from '../components/carousel/carousel'
-import testimonial from '../components/testimonial/testimonial.js'
 
 class HomePage extends React.Component {
   render() {
@@ -21,17 +19,14 @@ class HomePage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
-          <div className="wrapper">
+          <BaseMarginContainer>
             <h1>{homePage.missionStatement.value.value}</h1>
             <h2 className="section-headline">{homePage.statsHeader}</h2>
 
               {homePage.stats.map(stat =>
                 <p>{stat.number} {stat.description}</p>)}
 
-            {homePage.testimonials.map(t =>
-                <Testimonial testimonial={t}/>
-            )}
-            <Carousel carousel={testimonials} carouselHeader={testimonialsHeader}/>
+            <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader}/>
             <Link to="/faq">
               <Button>click me</Button>
               <SecondaryButton>secondary Button
@@ -42,8 +37,8 @@ class HomePage extends React.Component {
             {
               homePage.event &&
               <p>{homePage.event.title}</p>
-            }
-          </div>
+              }
+          </BaseMarginContainer>
         </div>
       </Layout>
     )
