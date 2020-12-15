@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { teal, navy, white } from "./colors"
 import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
-import { DESKTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
+import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
 import { device } from "./device"
 
 export const Button = styled.button`
@@ -65,6 +65,11 @@ export const SecondaryButton = (props) => {
 export const BaseMarginContainer = styled.div`
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};
+
+    @media ${device.smLaptop} {
+        margin-left: ${LAPTOP_MARGIN};
+        margin-right: ${LAPTOP_MARGIN};
+    }
     @media ${device.tablet} {
         margin-left: ${TABLET_MARGIN};
         margin-right: ${TABLET_MARGIN};
