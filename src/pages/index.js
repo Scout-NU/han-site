@@ -8,6 +8,7 @@ import Testimonial from '../components/testimonial/testimonial'
 import 'bootstrap/dist/css/bootstrap.css';
 import { ArrowButton, BaseMarginContainer, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
 import * as arrowIcon from '../images/arrowIcon.svg'
+import { HANbody, HANdescription, HANh1, HANh2, HANh3, HANh4, HANsmalldescription, HANSpecialBody, HANsubh1, HANsubh2, HANsubh3, HANsubh4 } from '../components/base/fonts'
 
 class HomePage extends React.Component {
   render() {
@@ -25,6 +26,23 @@ class HomePage extends React.Component {
 
               {homePage.stats.map(stat =>
                 <p>{stat.number} {stat.description}</p>)}
+
+            <HANh1>Header 1</HANh1>
+            <HANh2>Header 2</HANh2>
+            <HANh3>Header 3</HANh3>
+            <HANh4>Header 4</HANh4>
+            <HANsubh1>Subheader 1</HANsubh1>
+            <HANsubh2>Subheader 2</HANsubh2>
+            <HANsubh3>Subheader 3</HANsubh3>
+            <HANsubh4>Subheader 4</HANsubh4>
+            <HANbody>HAN body HAN body HAN body HAN body HAN body HAN body HAN body HAN body </HANbody>
+            <HANSpecialBody>HAN body 2 HAN body 2 HAN body 2 HAN body 2 HAN body2  HAN body2  </HANSpecialBody>
+            <HANdescription>HAN Description</HANdescription>
+            <HANsmalldescription>HAN small description</HANsmalldescription>
+
+
+
+
 
             <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader}/>
             <Link to="/faq">

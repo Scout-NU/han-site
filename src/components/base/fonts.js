@@ -48,6 +48,7 @@ export const HANh3 = styled.h3`
     line-height: 41px;
     letter-spacing: 1px;
     font-weight: 500;
+    text-transform: uppercase;
     color: ${props => (props.color ? props.color : navy)};
 
     @media ${device.tablet} {
@@ -67,6 +68,7 @@ export const HANh4 = styled.h4`
     line-height: 27px;
     letter-spacing: 2px;
     font-weight: 500;
+    text-transform: uppercase;
     color: ${navy};
 
     @media ${device.tablet} {
@@ -77,22 +79,6 @@ export const HANh4 = styled.h4`
     @media ${device.mobile} {
         font-size: 19px;
         line-height: 30px;
-    }
-`
-
-export const HANbody = styled.p`
-    font-family: "HK Grotesk", sans-serif;
-    font-size: 18px;
-    line-height: 29px;
-
-    @media ${device.tablet} {
-        font-size: 16px;
-        line-height: 29px;
-      }
-    
-    @media ${device.mobile} {
-    font-size: 14px;
-    line-height: 24px;
     }
 `
 
@@ -148,17 +134,52 @@ export const HANsubh3 = styled.p`
     }
 `
 
+export const HANsubh4 = styled.p`
+    font-family: "Merriweather", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-style: italic;
+    font-weight: 400;
+
+    @media ${device.tablet} {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    
+    @media ${device.mobile} {
+        font-size: 15px;
+        line-height: 25px;
+    }
+`
+
+export const HANbody = styled.p`
+    font-family: "HK Grotesk", sans-serif;
+    font-size: 18px;
+    line-height: 29px;
+
+    @media ${device.tablet} {
+        font-size: 16px;
+        line-height: 29px;
+      }
+    
+    @media ${device.mobile} {
+    font-size: 14px;
+    line-height: 24px;
+    }
+`
+
 export const HANSpecialBody = styled.p`
   font-family: "HK Grotesk", sans-serif;
   font-size: 22px;
   line-height: 34px;
+
   @media ${device.tablet} {
     font-size: 18px;
     line-height: 33px;
   }
   @media ${device.mobile} {
-  font-size: 16px;
-  line-height: 30px;
+    font-size: 16px;
+    line-height: 30px;
   }
 `
 
@@ -167,7 +188,7 @@ export const HANdescription = styled.p`
     text-transform: uppercase;
     font-size: 18px;
     line-height: 27px;
-    font-weight: 400;
+    font-weight: 600;
 
     @media ${device.tablet} {
         font-size: 18px;
@@ -175,8 +196,8 @@ export const HANdescription = styled.p`
       }
     
     @media ${device.mobile} {
-    font-size: 16px;
-    line-height: 30px;
+      font-size: 16px;
+      line-height: 30px;
     }
 `
 
@@ -185,7 +206,7 @@ export const HANsmalldescription = styled.p`
     text-transform: uppercase;
     font-size: 16px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 600;
 
     @media ${device.tablet} {
         font-size: 13px;
