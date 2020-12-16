@@ -3,7 +3,7 @@ import { teal, navy, white } from "./colors"
 import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
 import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
-import { device } from "./device"
+import { device, size } from "./device"
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -63,6 +63,7 @@ export const SecondaryButton = (props) => {
 };
 
 export const BaseMarginContainer = styled.div`
+    max-width: ${size.desktop}px;
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};
 

@@ -20,7 +20,6 @@ class HomePage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
-          <BaseMarginContainer>
             <h1>{homePage.missionStatement.value.value}</h1>
             <h2 className="section-headline">{homePage.statsHeader}</h2>
 
@@ -56,7 +55,6 @@ class HomePage extends React.Component {
               homePage.event &&
               <p>{homePage.event.title}</p>
               }
-          </BaseMarginContainer>
         </div>
       </Layout>
     )

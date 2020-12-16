@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { device } from "./device"
-import { navy , white, lightGray } from "./colors"
+import { navy , white, lightGray, darkGray, black } from "./colors"
 
 export const HANh1 = styled.h1`
   font-family: "URW DIN", sans-serif;
@@ -69,7 +69,8 @@ export const HANh4 = styled.h4`
     letter-spacing: 2px;
     font-weight: 500;
     text-transform: uppercase;
-    color: ${navy};
+    color: ${props => (props.color ? props.color : navy)};
+
 
     @media ${device.tablet} {
         font-size: 18px;
@@ -87,6 +88,8 @@ export const HANsubh1 = styled.p`
   font-size: 36px;
   font-style: italic;
   font-weight: 400;
+  color: ${props => (props.color ? props.color : navy)};
+
 
   @media ${device.tablet} {
     font-size: 25px;
@@ -105,6 +108,8 @@ export const HANsubh2 = styled.p`
     line-height: 45px;
     font-style: italic;
     font-weight: 700;
+  color: ${props => (props.color ? props.color : navy)};
+
 
     @media ${device.tablet} {
         font-size: 22px;
@@ -122,6 +127,8 @@ export const HANsubh3 = styled.p`
     line-height: 35px;
     font-style: italic;
     font-weight: 400;
+    color: ${props => (props.color ? props.color : navy)};
+
 
     @media ${device.tablet} {
         font-size: 20px;
@@ -140,6 +147,8 @@ export const HANsubh4 = styled.p`
     line-height: 27px;
     font-style: italic;
     font-weight: 400;
+    color: ${props => (props.color ? props.color : navy)};
+
 
     @media ${device.tablet} {
         font-size: 14px;
@@ -156,6 +165,8 @@ export const HANbody = styled.p`
     font-family: "HK Grotesk", sans-serif;
     font-size: 18px;
     line-height: 29px;
+    color: ${props => (props.color ? props.color : black)};
+    
 
     @media ${device.tablet} {
         font-size: 16px;
@@ -172,6 +183,8 @@ export const HANSpecialBody = styled.p`
   font-family: "HK Grotesk", sans-serif;
   font-size: 22px;
   line-height: 34px;
+  color: ${props => (props.color ? props.color : black)};
+
 
   @media ${device.tablet} {
     font-size: 18px;
@@ -189,6 +202,8 @@ export const HANdescription = styled.p`
     font-size: 18px;
     line-height: 27px;
     font-weight: 600;
+    color: ${props => (props.color ? props.color : darkGray)};
+
 
     @media ${device.tablet} {
         font-size: 18px;
@@ -207,6 +222,8 @@ export const HANsmalldescription = styled.p`
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
+    color: ${props => (props.color ? props.color : darkGray)};
+
 
     @media ${device.tablet} {
         font-size: 13px;

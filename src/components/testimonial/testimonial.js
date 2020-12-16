@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import { SecondaryButton } from '../base/base-components'
+import { BaseMarginContainer, SecondaryButton } from '../base/base-components'
 import ChevronLeftIconSVG from '../../images/chevron-left'
 import ChevronRightIconSVG from '../../images/chevron-right'
 import CircleIconSVG from '../../images/circle'
@@ -11,7 +11,7 @@ import { Link } from 'gatsby'
 import { device } from "../base/device"
 
 
-export const TestimonialContainer = styled.div`
+export const TestimonialContainer = styled(BaseMarginContainer)`
     display: flex;
     flex-direction: column;
     position: relative;
@@ -102,6 +102,7 @@ export const SpeakerImage = styled.img`
     object-fit: cover;
     right: 0;
     top: 10vh;
+    max-width: 550px;
     @media ${device.tablet} {
         top: 18vh;
         height: 57vh;
@@ -137,6 +138,7 @@ export const CarouselControl = styled.div`
     bottom: 10vh;
     right: 0;
     width: 37vw;
+    max-width: 550px;
 
     @media ${device.tablet} {
         bottom: 14vh;
