@@ -5,36 +5,101 @@ import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { MOBILE_MARGIN, DESKTOP_MARGIN } from "../base/constants"
+import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
 
 
 export const TitleContainer = styled(BaseMarginContainer)`
+    padding-top: ${props => (props.display ? "150px" : "100px")};
+    margin-bottom: 50px;
+    position: relative;
+    width: 50%;
 
+    @media ${device.tablet} {
+        width: 70%;
+    }
+
+    @media ${device.mobile} {
+        width: auto;
+        padding-top: 50px;
+    }
 `
 
-export const GoldBar = styled.div`
+export const SideGoldBar = styled.div`
+    display: ${props => (props.display ? "block" : "none")};
     width: calc(${DESKTOP_MARGIN} - 40px);
     height: 4px;
     background-color: ${yellow};
     position: relative;
     left: -${DESKTOP_MARGIN};
-    top: -50px;
+    top: 45px;
+
+
+    @media ${device.smLaptop} {
+        width: 25vw;
+        top: -10px;
+        left: -${LAPTOP_MARGIN};
+    }
+
+    @media ${device.tablet} {
+        left: -${TABLET_MARGIN};
+    }
 
     @media ${device.mobile} {
-        width: 75vw;
-        top: 0px;
-        right: -${MOBILE_MARGIN};
+        width: 45vw;
+        left: -${MOBILE_MARGIN};
     }
 `
 
+export const TopGoldBar = styled.div`
+    display: ${props => (props.display ? "block" : "none")};
+    margin-bottom: 10px;
+    background-color: ${yellow};
+    height: 4px;
+    width: 150px;
+`
 
+export const GrayBlock = styled.div`
+    :after {
+        display:  ${props => (props.display ? "block" : "none")};
+        content:"";
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background-color:rgba(0, 0, 0, .1);
+        left: -${DESKTOP_MARGIN};
+        top: 100px;
+        z-index:-1;
 
-const HeaderBar = () => {
-    return <TitleContainer>
-        <HANh1>TEXTY TEXT TEXT</HANh1>
-        <GoldBar/>
+        @media ${device.smLaptop} {
+            left: -${LAPTOP_MARGIN};
+        }
+
+        @media ${device.tablet} {
+            width: 80%;
+            left: -${TABLET_MARGIN};
+        }
+
+        @media ${device.mobile} {
+            width: 100vw;
+            height: 120%;
+            top: 0;
+            left: -${MOBILE_MARGIN};
+        }
+    }
+`
+
+const HeaderBar = (props) => {
+    const { title, body, isTop, isSide, grayBackground, ...rest } = props;
+    return <TitleContainer display={grayBackground}>
+        <GrayBlock display={grayBackground}>
+        <TopGoldBar display={isTop}/>
+        <SideGoldBar display={isSide}/>
+        <HANh1>{title}</HANh1>
+        <HANbody>
+            {body}
+        </HANbody>
+        </GrayBlock>
     </TitleContainer>  
 }
-
 
 export default HeaderBar

@@ -11,7 +11,7 @@ class GetInvolvedPage extends React.Component {
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
-              <HeaderBar/>
+              <HeaderBar isSide grayBackground title={"HEADER HEADER"} body={"jfgjfdkgjdflk jfkdlfgjdkgjd gfdklg jfdkljgjg klfdjgl jdfklgjl jfgjfdkgjdflk jfkdlfgjdkgjd gfdklg jfdkljgjg klfdjgl jdfklgjl jfgjfdkgjdflk jfkdlfgjdkgjd gfdklg jfdkljgjg klfdjgl jdfklgjl"}/>
             </Layout>
         )
     }
