@@ -106,6 +106,7 @@ padding: 15px 30px;
   text-decoration: none;
   display: block;
   color: ${white};
+  font-weight: 500;
   text-transform: uppercase;
   padding: 15px;
   transition: all 0.2s;

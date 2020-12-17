@@ -104,7 +104,7 @@ const HomepageEvent = ({event, eventHeader}) => {
     <HomepageEventContainer>
         <EventVisualsContainer>
         <EventTitle>{eventHeader}</EventTitle>
-        <EventPicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
+        <EventPicture src={event.photo.file.url}/>
         </EventVisualsContainer>
 
         

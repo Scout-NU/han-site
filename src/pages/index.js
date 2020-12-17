@@ -147,6 +147,11 @@ export const pageQuery = graphql`
         }
         registrationLink
         location
+        photo {
+          file {
+            url
+          }
+        }
       }
       testimonialsHeader
       testimonials {
