@@ -4,28 +4,29 @@ import { Link } from 'gatsby'
 import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
-import { SecondaryButton } from "../base/base-components"
+import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
 import { MOBILE_MARGIN } from "../base/constants"
 
-export const HomepageEventContainer = styled.div`
+export const HomepageEventContainer = styled(BaseMarginContainer)`
     display: flex;
     flex-flow: row wrap;
-    margin: 100px 0px;
     position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
 
     @media ${device.mobile} {
         height: fit-content;
         flex-flow: column wrap;
+        margin: 50px 0px;
         background-color: ${lightGray};
-        margin: 100px -${MOBILE_MARGIN};
         padding: 0px ${MOBILE_MARGIN};
-
     }
 `
 
 export const EventTitle = styled(HANh2)`
     @media ${device.mobile} {
-        margin-top: -10px;
+        margin-top: -17px;
     }
 
 `

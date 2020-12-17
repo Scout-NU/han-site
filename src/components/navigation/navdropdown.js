@@ -38,8 +38,10 @@ export const NavDropdownIcon = styled.div`
 export const NavMenu = styled.div`
 cursor: pointer;
 color: ${props => (props.isOpen ? teal : navy)};
-font-family: sans-serif;
-font-size: 13px;
+font-family: "URW DIN", sans-serif;
+font-size: 14px;
+letter-spacing: 2px;
+font-weight: 700;
 text-transform: uppercase;
 transition: all 0.2s;
 :hover {
@@ -51,6 +53,7 @@ transition: all 0.2s;
   display: block;
   color: ${white};
   text-transform: uppercase;
+  font-weight: 600;
   padding: 15px;
   font-size: 15px;
   transition: all 0.2s;
@@ -66,7 +69,7 @@ position: absolute;
 background-color: ${lightGray};
 overflow: hidden;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-transform: translate(-26%, 20px);
+transform: translate(-27px, 20px);
 max-height: ${props => (props.isOpen ? '200px' : '0px')};
 transition: all 0.3s;
 
@@ -82,8 +85,10 @@ transition: all 0.3s;
 
 export const DropdownLink = styled(Link)`
 color: ${navy};
-font-family: sans-serif;
-font-size: 13px;
+font-family: "URW DIN", sans-serif;
+font-size: 14px;
+letter-spacing: 1px;
+font-weight: 700;
 text-transform: uppercase;
 display: block;
 text-align: center;
