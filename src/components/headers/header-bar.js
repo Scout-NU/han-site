@@ -12,7 +12,11 @@ export const TitleContainer = styled(BaseMarginContainer)`
     padding-top: ${props => (props.display ? "150px" : "100px")};
     margin-bottom: 50px;
     position: relative;
-    width: 50%;
+    width: 40%;
+
+    @media ${device.smLaptop} {
+        width: 50%;
+    }
 
     @media ${device.tablet} {
         width: 70%;
@@ -35,12 +39,13 @@ export const SideGoldBar = styled.div`
 
 
     @media ${device.smLaptop} {
-        width: 25vw;
-        top: -10px;
+        width: calc(${LAPTOP_MARGIN} - 20px);
         left: -${LAPTOP_MARGIN};
     }
 
     @media ${device.tablet} {
+        width: 25vw;
+        top: -10px;
         left: -${TABLET_MARGIN};
     }
 
