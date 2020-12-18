@@ -5,7 +5,7 @@ import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { MOBILE_MARGIN } from "../base/constants"
+import { MOBILE_MARGIN, MONTHS_LIST } from "../base/constants"
 
 export const HomepageEventContainer = styled(BaseMarginContainer)`
     display: flex;
@@ -100,6 +100,14 @@ const HomepageEvent = ({event, eventHeader}) => {
         return <> </>
     }
     else {
+        //parse date -> YYYY-MM-DD
+        const date = event.date
+        const dateList = date.split("-") //
+        const month = MONTHS_LIST[dateList[1]]
+        const day = dateList[2]
+
+        //parse startTime
+        const startTimeString = (event.startTime).slice(0, -2)
     return <>
     <HomepageEventContainer>
         <EventVisualsContainer>
@@ -111,7 +119,7 @@ const HomepageEvent = ({event, eventHeader}) => {
         <EventDescriptionContainer>
         <EventDescription>
             <HANsubh2>{event.title}</HANsubh2>
-            <HANdescription>{event.location}, {event.date} {event.startTime}–{event.endTime}</HANdescription>
+            <HANdescription>{month} {day} &nbsp;&nbsp;|&nbsp;&nbsp;{event.location}&nbsp;&nbsp;&nbsp;{startTimeString}–{event.endTime}</HANdescription>
             <HANbody>{event.description.description}
             </HANbody>
             <Link to={event.registrationLink}>
