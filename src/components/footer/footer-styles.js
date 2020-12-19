@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import { lightGray, darkGray, teal } from "../base/colors"
+import { lightGray, darkGray, teal, black } from "../base/colors"
 import { device } from "../base/device.js"
+import { HANbody, HANdescription } from "../base/fonts"
 
 export const FooterContainer = styled.div`
     background-color: ${lightGray};
@@ -41,7 +42,7 @@ export const FooterLogo = styled.img`
     }
 `
 
-export const FooterDescription = styled.p`
+export const FooterDescription = styled(HANbody)`
     width: 66%;
     margin-top: 20px;
     @media ${device.mobile} {
@@ -59,7 +60,7 @@ export const FooterContactContainer = styled.div`
         width: 100%;
     }
     @media ${device.mobile} {
-        flex-wrap: wrap;
+        flex-direction: column;
         padding: 5% 0 15% 0;
     }
 `
@@ -81,20 +82,32 @@ export const FooterSocialBlock = styled.div`
     }
 `
 
-export const ConnectContactText = styled.p`
+export const ConnectContactText = styled(HANdescription)`
     padding-right: 10%;
+    color: ${black};
     @media ${device.smLaptop} {
         padding-right: 20%;
     }
 `
 
 export const MailtoLink = styled.a`
+    font-family: "URW DIN", sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 600;
+    text-transform: uppercase;
+    min-width: 1%;
     color: ${teal};
     &:hover {
         color: ${teal};
     }
     &:focus {
         color: ${teal};
+    }
+    @media ${device.mobile} {
+        font-size: 18px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 `
 
@@ -120,6 +133,7 @@ export const AffiliationImg = styled.img`
 `
 
 export const ItalicCaption = styled.p`
+    font-family: "Merriweather", serif;
     font-style: italic;
     font-size: 14px;
     color: ${darkGray};
@@ -129,7 +143,7 @@ export const ItalicCaption = styled.p`
     }
 `
 
-export const FooterSmallCaption = styled.p`
+export const FooterSmallCaption = styled(HANdescription)`
     font-size: 14px;
     color: ${darkGray};
     @media ${device.smLaptop} {
