@@ -24,8 +24,6 @@ class HomePage extends React.Component {
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
           <MissionStatement header={homePage.missionStatementHeader} subheader={homePage.missionStatementSubheader} missionStatement={homePage.missionStatement.value.value} />
           <Statistics statsHeader={homePage.statisticsHeader} stats={homePage.stats} statsButtonLabel={homePage.statisticsButtonLabel} />
-          <div className="wrapper">
-
             <HANh1>Header 1</HANh1>
             <HANh2>Header 2</HANh2>
             <HANh3>Header 3</HANh3>
@@ -55,7 +53,6 @@ class HomePage extends React.Component {
               homePage.event &&
               <p>{homePage.event.title}</p>
             }
-          </div>
         </div>
       </Layout>
     )
