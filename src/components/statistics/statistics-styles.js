@@ -9,6 +9,7 @@ export const StatisticsBlock = styled(BaseMarginContainer)`
     margin-top: 100px;
     margin-bottom: 100px;
     flex: nowrap;
+    display: flex;
     @media ${device.tablet} {
         margin-top: 80px;
         margin-bottom: 80px;
@@ -47,6 +48,7 @@ export const StatsHeaderContainer = styled.div`
         margin-left: 0;
         align-items: start;
     }
+    flex: 1 1 50%;
 `
 
 export const GoldBar = styled.div`
@@ -105,6 +107,7 @@ export const StatsOuterContainer = styled.div`
     @media ${device.mobile} {
         flex-direction: column;
     }
+    flex: 1 1 100%;
 `
 
 export const MobileButtonDiv = styled.div`
@@ -117,3 +120,6 @@ export const MobileButtonDiv = styled.div`
 
 
 
+export const DummyContainer = styled.div`
+flex: 1 1 50%;
+`

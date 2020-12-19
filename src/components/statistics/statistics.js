@@ -9,6 +9,7 @@ import {
   StatsHeaderContainer,
   FirstLineContainer,
   MobileButtonDiv,
+  DummyContainer,
   Button
 } from './statistics-styles'
 import {
@@ -18,15 +19,17 @@ import { Link } from 'gatsby'
 
 export default ({ statsHeader, stats, statsButtonLabel }) => (
   <StatisticsBlock>
-    <FirstLineContainer>
+    {/* <FirstLineContainer> */}
       <StatsHeaderContainer>
         <GoldBar></GoldBar>
         <HANh2>{statsHeader}</HANh2>
       </StatsHeaderContainer>
+      <DummyContainer>
       <Link to="/portfolio">
         <Button>{statsButtonLabel}</Button>
       </Link>
-    </FirstLineContainer>
+      </DummyContainer>
+    {/* </FirstLineContainer> */}
     <StatsOuterContainer>
       {
         stats.map(stat =>
