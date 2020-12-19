@@ -509,6 +509,7 @@ type ContentfulEventSysContentTypeSys {
 type ContentfulTestimonial implements Node @derivedTypes @dontInfer {
   name: String
   company: String
+  companyWebsite : String
   profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
   something: [ContentfulSomething] @link(by: "id", from: "something___NODE")
   home_page: [ContentfulHomePage] @link(by: "id", from: "home page___NODE") @proxy(from: "home page___NODE")
