@@ -6,6 +6,7 @@ import {
   } from '../base/fonts'
 import {
     DESKTOP_MARGIN,
+    LAPTOP_MARGIN,
     TABLET_MARGIN,
     MOBILE_MARGIN
 } from '../base/constants'
@@ -13,15 +14,21 @@ import {
 export const MissionContainer = styled.div`
     background-color: ${lightGray};
     display: flex;
-    padding: ${DESKTOP_MARGIN}px;
+    padding-left: ${DESKTOP_MARGIN};
+    padding-right: ${DESKTOP_MARGIN};
+    padding-top: 100px;
+    padding-bottom: 100px;
     align-items: flex-start;
     justify-content: space-around;
     overflow: auto;
+    @media ${device.smLaptop} {
+        padding: ${LAPTOP_MARGIN};
+    }
     @media ${device.tablet} {
-        padding: ${TABLET_MARGIN}px;
+        padding: ${TABLET_MARGIN};
     }
     @media ${device.mobile} {
-        padding: ${MOBILE_MARGIN}px;
+        padding: ${MOBILE_MARGIN};
         flex-direction: column;
     }
 `
