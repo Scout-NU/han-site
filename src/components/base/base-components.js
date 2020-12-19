@@ -2,8 +2,12 @@ import styled from "styled-components"
 import { teal, navy, white } from "./colors"
 import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
+<<<<<<< HEAD
 import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
 import { device, size } from "./device"
+=======
+import { device } from './device'
+>>>>>>> ah-sock
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -60,6 +64,7 @@ export const SecondaryButton = (props) => {
             <ArrowIconSVG />
         </ArrowButton>
     );
+<<<<<<< HEAD
 };
 
 export const BaseMarginContainer = styled.div`
@@ -79,4 +84,16 @@ export const BaseMarginContainer = styled.div`
         margin-left: ${MOBILE_MARGIN};
         margin-right: ${MOBILE_MARGIN};
     }
+=======
+  };
+
+export const BaseContainer = styled.div`
+  margin: 100px;
+  @media ${device.tablet} {
+    margin: 42px;
+  }
+  @media ${device.mobile} {
+    margin: 25px;
+  }
+>>>>>>> ah-sock
 `
