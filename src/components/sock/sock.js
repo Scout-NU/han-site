@@ -1,35 +1,23 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import styles from './sock.module.css'
-import { StaticQuery } from 'gatsby'
 import {
   EmailInput,
-  InputDiv,
-  DefaultContainer,
+  SockHeaderContainer,
+  GoldBar,
   SockForm
 } from './sock-styles'
 import { Button } from '../base/base-components'
-import {
-  BaseContainer
-} from '../base/base-components'
+import { BaseMarginContainer } from '../base/base-components'
+import { HANh2, HANsubh3 } from '../base/fonts'
 
 export default () => (
-  <StaticQuery query={graphql`
-    query SockQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `
-  }
-    render={data => (
-      <BaseContainer>
-          <SockForm action="https://formspree.io/f/xdopejzj" method="POST">
-            <EmailInput placeholder="enter your email address" type="email" name="email"></EmailInput>
-            <Button as="input" type="submit" name="submit"></Button>
-          </SockForm>
-      </BaseContainer>
-    )} />
+      <BaseMarginContainer>
+        <SockHeaderContainer>
+          <GoldBar />
+          <HANh2>Keep in touch</HANh2>
+        </SockHeaderContainer>
+        <SockForm action="https://formspree.io/f/xdopejzj" method="POST">
+          <EmailInput placeholder="enter your email address" type="email" name="email"></EmailInput>
+          <Button as="input" type="submit" name="submit"></Button>
+        </SockForm>
+      </BaseMarginContainer>
 )
