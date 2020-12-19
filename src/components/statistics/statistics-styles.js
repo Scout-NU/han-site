@@ -64,16 +64,16 @@ export const GoldBar = styled.div`
 `
 
 export const StatContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-@media ${device.mobile} {
-    flex-direction: row;
-    align-items: baseline;
-    border-left: 5px solid ${yellow};
-    padding-left: 36px;
-    width: 100%;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media ${device.mobile} {
+        flex-direction: row;
+        align-items: baseline;
+        border-left: 5px solid ${yellow};
+        padding-left: 36px;
+        width: 100%;
+    }
 `
 
 export const StatNumber = styled.p`
@@ -98,13 +98,13 @@ export const StatDescription = styled(HANsubh3)`
 `
 
 export const StatsOuterContainer = styled.div`
-display: flex;
-flex-direction: row;
-width: 100%;
-justify-content: space-between;
-@media ${device.mobile} {
-    flex-direction: column;
-}
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    @media ${device.mobile} {
+        flex-direction: column;
+    }
 `
 
 export const MobileButtonDiv = styled.div`
