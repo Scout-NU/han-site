@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import MissionStatement from '../components/mission-statement/mission-statement'
 import Layout from '../components/layout'
+import Statistics from '../components/statistics/statistics'
 import Testimonial from '../components/testimonial/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
 import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
@@ -21,12 +22,8 @@ class HomePage extends React.Component {
           <Helmet title={siteTitle} />
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
           <MissionStatement header={homePage.missionStatementHeader} subheader={homePage.missionStatementSubheader} missionStatement={homePage.missionStatement.value.value}/>
+          <Statistics statsHeader={homePage.statisticsHeader} stats={homePage.stats} statsButtonLabel={homePage.statisticsButtonLabel}/>
           <div className="wrapper">
-            <h1>{homePage.missionStatement.value.value}</h1>
-            <h2 className="section-headline">{homePage.statsHeader}</h2>
-
-              {homePage.stats.map(stat =>
-                <p>{stat.number} {stat.description}</p>)}
 
             {homePage.testimonials.map(t =>
                 <Testimonial testimonial={t}/>
