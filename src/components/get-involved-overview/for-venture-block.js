@@ -6,51 +6,19 @@ import { device } from "../base/device"
 import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
 import { DESKTOP_MARGIN, MOBILE_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
 
-export const VentureBlockContainer = styled(BaseMarginContainer)`
-    display: flex;
-    flex-flow: row wrap;
-    position: relative;
-    margin-top: 100px;
-    margin-bottom: 100px;
-
-
-    @media ${device.mobile} {
-        height: fit-content;
-        flex-flow: column wrap;
-        margin: 50px 0px;
-        padding: 0px ${MOBILE_MARGIN};
-    }
-`
-
-
-export const VenturePicture = styled.img`
-    flex: 1 1 50%;
-    width: 50%;
-    object-fit: cover;
-
-    @media ${device.mobile} {
-        width: 100%;
-    }
-`
-
-export const VentureTextContainer = styled.div`
-    flex: 1 1 50%;
-    position: relative;
+export const VentureTextContainer = styled(InvolvedTextContainer)`
     background-color:  ${lightGray};
     margin-bottom: 30px;
     top: -30px;
     margin-left: -10vw;
-    align-self: flex-start;
-    padding: 40px;
 
     @media ${device.mobile} {
-        width: 100vw;
         padding-top: 50px;
         top: 0;
         margin-bottom: 0px;
         margin-left: 0px;
-        left: -${MOBILE_MARGIN};
     }
 `
 
@@ -86,8 +54,8 @@ export const GoldBar = styled.div`
 
 const ForVentureBlock = () => {
     return <>
-    <VentureBlockContainer>
-        <VenturePicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
+    <InvolvedBlockContainer>
+        <InvolvedPicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
         <VentureTextContainer>
             <GoldBar/>
                 <HANh2>JOIN HAN AS A VENTURE</HANh2>
@@ -100,7 +68,7 @@ const ForVentureBlock = () => {
                     </SecondaryButton>
                 </Link>
         </VentureTextContainer>
-    </VentureBlockContainer>
+    </InvolvedBlockContainer>
     </>  
 }
 
