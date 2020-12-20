@@ -13,27 +13,47 @@ export const LargeCTABlock = styled.div`
     right: 5%;
     display: flex;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     width: 90%;
-    height: 90%;
+    height: 87%;
+    max-height: 250px;
     background-color: ${yellow};
-`
+    @media ${device.mobile} {
+        height: 93%;
+    }
+ `
 
 export const SquareBlock = styled.div`
-    positon: absolute;
-    z-index: 2;
-    width: 30%;
-    height: 82%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 40%;
+    height: 90%;
     background-color: ${yellow};
     opacity: 30%;
+    @media ${device.smLaptop} {
+        width: 50%;
+    }
+    @media ${device.mobile} {
+        width: 90%;
+    }
 `
 
 export const LargeCTAContainer = styled.div`
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 60px auto 60px auto;
     width: 80%;
-    height: 270px;
+    height: 36vh;
+    min-height: 120px;
+    max-height: 290px;
+    @media ${device.tablet} {
+        height: 25vh;
+        margin: 50px auto 50px auto;
+    }
+    @media ${device.mobile} {
+        max-height: 190px;
+        margin: 40px auto 40px auto;
+    }
 `
 
 export const LargeCTATextContainer = styled.div`
@@ -41,15 +61,34 @@ export const LargeCTATextContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     padding-left: 35px;
-    margin-left: 100px;
+    margin: 60px auto 60px 100px;
     border-left: 4px solid ${navy};
+    svg {
+        margin-left: 15px;
+        width: 90px;
+        height: 60px;
+    }
+    @media ${device.tablet} {
+        margin-left: 60px;
+        padding-left: 30px;
+    }
+    @media ${device.mobile} {
+        margin-left: 20px;
+        padding-left: 20px;
+        border-left: 2px solid ${navy};
+        svg {
+            margin-left: 15px;
+            width: 60px;
+            height: 40px;
+        }
+    }
 `
 export const FullWidthFlexRow = styled.div`
     flex: 1 1 100%;
 `
 
-export const HalfWidthFlexRow = styled.div`
-    flex: 1 1 50%;
+export const CTALabel = styled(HANsubh3)`
+    margin: 0;
 `
 
 export const LargeCTA = ({ header, label, link }) => {
@@ -60,14 +99,10 @@ export const LargeCTA = ({ header, label, link }) => {
                 <LargeCTABlock>
                     <LargeCTATextContainer>
                         <FullWidthFlexRow>
-                            <HANsubh3>{header}</HANsubh3>
+                            <CTALabel>{header}</CTALabel>
                         </FullWidthFlexRow>
-                        <HalfWidthFlexRow>
-                            <HANh2>{label}</HANh2>
-                        </HalfWidthFlexRow>
-                        <HalfWidthFlexRow>
-                            <ArrowIconSVG/>
-                        </HalfWidthFlexRow>
+                        <HANh2>{label}</HANh2>
+                        <ArrowIconSVG />
                     </LargeCTATextContainer>
                 </LargeCTABlock>
             </LargeCTAContainer>
