@@ -27,7 +27,7 @@ export default ({ statsHeader, stats, statsButtonLabel }) => (
     <StatsOuterContainer>
       {
         stats.map(stat =>
-          <StatContainer>
+          <StatContainer key={stat.id}>
             <StatNumber>{stat.number}</StatNumber>
             <StatDescription>{stat.description}</StatDescription>
           </StatContainer>

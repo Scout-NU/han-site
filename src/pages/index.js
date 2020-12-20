@@ -130,6 +130,7 @@ export const pageQuery = graphql`
       statisticsHeader
       statisticsButtonLabel
       stats {
+        id
         number
         description
       }
