@@ -224,7 +224,7 @@ const Testimonial = ({ carousel, carouselHeader }) => {
             </CarouselArrow>
             <CarouselDotList>
                 {carousel.map((currElement, currIndex) =>
-                    <CarouselDot onClick={() => setIndex(currIndex)} isActive={(currIndex == index)}>
+                    <CarouselDot key={currIndex} onClick={() => setIndex(currIndex)} isActive={(currIndex == index)}>
                         <CircleIconSVG />
                     </CarouselDot>
                 )}
