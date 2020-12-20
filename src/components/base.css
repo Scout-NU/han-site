@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'Merriweather';
   src: url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff'),
@@ -22,9 +24,7 @@
   font-weight: 400;
 }
 
-/** TODO import get DIN fonts from client **/
-
-/* @font-face {
+@font-face {
   font-family: 'URW DIN';
   src: url('../../static/fonts/URWDIN-Medium.woff') format('woff'),
        url('../../static/fonts/URWDIN-Medium.woff2') format('woff2');
@@ -33,10 +33,17 @@
 
 @font-face {
   font-family: 'URW DIN';
+  src: url('../../static/fonts/URWDIN-Demi.woff') format('woff'),
+       url('../../static/fonts/URWDIN-Demi.woff2') format('woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'URW DIN';
   src: url('../../static/fonts/URWDIN-Bold.woff') format('woff'),
        url('../../static/fonts/URWDIN-Bold.woff2') format('woff2');
   font-weight: 700;
-} */
+}
 
 body {
   font-size: 1em;
@@ -51,22 +58,16 @@ img {
   width: 100%;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Merriweather"; 
-  font-size: 2em;
-  font-weight: normal;
-}
-
 a {
   color: currentColor;
 }
 
+p {
+  margin: 0;
+}
+
 .wrapper {
-  width: calc(100% - 10vmin);
-  margin: 0 auto;
-  padding: 5vmin 0;
+  margin: 0 42px;
 }
 
 /**
