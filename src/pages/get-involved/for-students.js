@@ -24,5 +24,31 @@ export const pageQuery = graphql`
         title
       }
     }
+    contentfulInvolvedStudentPage {
+      applyButtonHeader
+      applyButtonLabel
+      applyButtonLink
+      description {
+        description
+      }
+      finalCTADescription
+      finalCTAHeader
+      headline
+      pastVenturesHeader
+      processHeader
+      requirementsDescription
+      requirementsHeader
+      step1Description
+      step1Header
+      step2Description
+      step2Header
+      step3Description
+      step3Header
+      titleImage {
+        fluid(quality: 100) {
+          src
+        }
+      }
+    }
   }
 `
