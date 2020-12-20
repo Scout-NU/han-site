@@ -36,8 +36,6 @@ export const LargeCTABlock = styled.div`
     }
  `
 
-//  ${props => (props.color ? props.color : navy)};
-
 export const SquareBlock = styled.div`
     position: absolute;
     top: 0;
@@ -76,7 +74,7 @@ export const LargeCTATextContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     padding-left: 35px;
-    margin: 60px auto 60px 100px;
+    margin: auto auto auto 100px;
     border-left: 4px solid ${props => (props.theme ? props.theme.accentColor : navy)};
     text-color: ${props => (props.theme ? props.theme.textColor : navy)};
     svg {
@@ -89,7 +87,7 @@ export const LargeCTATextContainer = styled.div`
         padding-left: 30px;
     }
     @media ${device.mobile} {
-        margin-left: 20px;
+        margin-left: 30px;
         padding-left: 20px;
         border-left: 2px solid ${props => (props.theme ? props.theme.accentColor : navy)};
         svg {
@@ -104,8 +102,10 @@ export const FullWidthFlexRow = styled.div`
 `
 
 export const CTALabel = styled(HANsubh3)`
-    margin: 0;
     color: ${props => (props.theme ? props.theme.textColor : navy)};
+    @media ${device.mobile} {
+        margin: 0;
+    }
 `
 
 export const LargeCTA = ({ header, label, link, theme }) => {
@@ -119,7 +119,7 @@ export const LargeCTA = ({ header, label, link, theme }) => {
                             <CTALabel theme={theme}>{header}</CTALabel>
                         </FullWidthFlexRow>
                         <HANh2 color={theme.textColor}>{label}</HANh2>
-                        <ArrowIconSVG color={theme.accentColor}/>
+                        <ArrowIconSVG color={theme.accentColor} />
                     </LargeCTATextContainer>
                 </LargeCTABlock>
             </LargeCTAContainer>
@@ -127,11 +127,85 @@ export const LargeCTA = ({ header, label, link, theme }) => {
     </>
 }
 
+export const OverlayCTAContainer = styled.div`
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    margin: 70px auto 140px auto;
+    @media ${device.mobile} {
+        height: 35vh;
+        margin: 60px auto 100px auto;
+    }
+    @media ${device.mobile} {
+        height: 25vh;
+        margin: 45px auto 60px auto;
+    }
+`
+
+export const OverlayCTABlock = styled(LargeCTABlock)`
+    width: 90%;
+    height: 80%;
+    top: 8%;
+    left: 3%;
+    max-height: 325px;
+    min-height: 170px;
+    @media ${device.tablet} {
+        height: 80%;
+        top: 8%;
+    }
+`
+
+export const OverlaySquareBlock = styled(SquareBlock)`
+    height: 80%;
+`
+
+export const AccentBlock = styled.div`
+    position: absolute;
+    background-color: ${props => (props.theme ? props.theme.accentColor : teal)};
+    width: 12.5%;
+    height: 50%;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    @media ${device.mobile} {
+        display: none;
+    }
+`
+
+export const AccentBlockSmall = styled(AccentBlock)`
+    width: 9%;
+    height: 25%;
+    opacity: 30%;
+    bottom: 0;
+    right: 12.5%;
+    z-index: 4;
+    @media ${device.mobile} {
+        display: none;
+    }
+`
+
+export const OverlayCTATextContainer = styled(LargeCTATextContainer)`
+    border-left: none;
+    padding-left: 0;
+`
+
 export const LargeOverlayCTA = ({ header, description, theme }) => {
     return <>
         <Link to="/faq">
-            <p>{header}</p>
-            <h2>{description}</h2>
+            <OverlayCTAContainer>
+                <OverlaySquareBlock theme={theme}/>
+                <OverlayCTABlock theme={theme}>
+                    <OverlayCTATextContainer theme={theme}>
+                        <FullWidthFlexRow>
+                            <CTALabel theme={theme}>{header}</CTALabel>
+                        </FullWidthFlexRow>
+                        <HANh2 color={theme.textColor}>{description}</HANh2>
+                        <ArrowIconSVG color={theme.accentColor} />
+                    </OverlayCTATextContainer>
+                </OverlayCTABlock>
+                <AccentBlock theme={theme}/>
+                <AccentBlockSmall theme={theme}/>
+            </OverlayCTAContainer>
         </Link>
     </>
 }
