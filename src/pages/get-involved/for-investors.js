@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import Layout from '../../components/layout'
 import { BaseMarginContainer } from '../../components/base/base-components'
 import { Hero, BenefitsBlock } from '../../components/get-involved/for-investors'
-import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA } from '../../components/get-involved/involved-shared-components'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme } from '../../components/get-involved/involved-shared-components'
 
 class ForInvestorsPage extends React.Component {
   render() {
@@ -27,9 +27,9 @@ class ForInvestorsPage extends React.Component {
             step3Header={investorsPage.step3Header}
             step3Description={investorsPage.step3Description}
           />
-          <LargeCTA header={investorsPage.applyButtonHeader} label={investorsPage.applyButtonLabel} link="/contact" colorway="teal"/>
+          <LargeCTA header={investorsPage.applyButtonHeader} label={investorsPage.applyButtonLabel} link="/contact" theme={theme.tealCTA}/>
           <VentureShowcase ventures={investorsPage.ventureShowcase} />
-          <LargeOverlayCTA header={investorsPage.finalCTAHeader} description={investorsPage.finalCTADescription} colorway="yellow"/>
+          <LargeOverlayCTA header={investorsPage.finalCTAHeader} description={investorsPage.finalCTADescription} theme={theme.yellowCTA}/>
         </BaseMarginContainer>
       </Layout>
     )

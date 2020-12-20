@@ -1,10 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { yellow, navy, lightGray, darkGray, teal } from "../base/colors"
+import { yellow, navy, white, lightGray, darkGray, teal } from "../base/colors"
 import { HANsubh3, HANh2 } from "../base/fonts"
 import ArrowIconSVG from "../../images/arrowIcon"
 import { device } from "../base/device.js"
+
+export const theme = {
+    yellowCTA: {
+        backgroundColor: yellow,
+        textColor: navy,
+        accentColor: teal
+    },
+    tealCTA: {
+        backgroundColor: teal,
+        textColor: white,
+        accentColor: yellow
+    }
+}
 
 export const LargeCTABlock = styled.div`
     position: absolute;
@@ -17,11 +30,13 @@ export const LargeCTABlock = styled.div`
     width: 90%;
     height: 87%;
     max-height: 250px;
-    background-color: ${yellow};
+    background-color: ${props => (props.theme ? props.theme.backgroundColor : yellow)};
     @media ${device.mobile} {
         height: 93%;
     }
  `
+
+//  ${props => (props.color ? props.color : navy)};
 
 export const SquareBlock = styled.div`
     position: absolute;
@@ -29,7 +44,7 @@ export const SquareBlock = styled.div`
     z-index: 1;
     width: 40%;
     height: 90%;
-    background-color: ${yellow};
+    background-color: ${props => (props.theme ? props.theme.backgroundColor : yellow)};
     opacity: 30%;
     @media ${device.smLaptop} {
         width: 50%;
@@ -62,7 +77,8 @@ export const LargeCTATextContainer = styled.div`
     align-items: center;
     padding-left: 35px;
     margin: 60px auto 60px 100px;
-    border-left: 4px solid ${navy};
+    border-left: 4px solid ${props => (props.theme ? props.theme.accentColor : navy)};
+    text-color: ${props => (props.theme ? props.theme.textColor : navy)};
     svg {
         margin-left: 15px;
         width: 90px;
@@ -75,7 +91,7 @@ export const LargeCTATextContainer = styled.div`
     @media ${device.mobile} {
         margin-left: 20px;
         padding-left: 20px;
-        border-left: 2px solid ${navy};
+        border-left: 2px solid ${props => (props.theme ? props.theme.accentColor : navy)};
         svg {
             margin-left: 15px;
             width: 60px;
@@ -89,20 +105,21 @@ export const FullWidthFlexRow = styled.div`
 
 export const CTALabel = styled(HANsubh3)`
     margin: 0;
+    color: ${props => (props.theme ? props.theme.textColor : navy)};
 `
 
-export const LargeCTA = ({ header, label, link }) => {
+export const LargeCTA = ({ header, label, link, theme }) => {
     return <>
         <Link to={link}>
             <LargeCTAContainer>
-                <SquareBlock />
-                <LargeCTABlock>
-                    <LargeCTATextContainer>
+                <SquareBlock theme={theme} />
+                <LargeCTABlock theme={theme}>
+                    <LargeCTATextContainer theme={theme}>
                         <FullWidthFlexRow>
-                            <CTALabel>{header}</CTALabel>
+                            <CTALabel theme={theme}>{header}</CTALabel>
                         </FullWidthFlexRow>
-                        <HANh2>{label}</HANh2>
-                        <ArrowIconSVG />
+                        <HANh2 color={theme.textColor}>{label}</HANh2>
+                        <ArrowIconSVG color={theme.accentColor}/>
                     </LargeCTATextContainer>
                 </LargeCTABlock>
             </LargeCTAContainer>
@@ -110,7 +127,7 @@ export const LargeCTA = ({ header, label, link }) => {
     </>
 }
 
-export const LargeOverlayCTA = ({ header, description }) => {
+export const LargeOverlayCTA = ({ header, description, theme }) => {
     return <>
         <Link to="/faq">
             <p>{header}</p>

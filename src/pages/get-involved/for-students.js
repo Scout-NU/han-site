@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import Layout from '../../components/layout'
 import { BaseMarginContainer } from '../../components/base/base-components'
 import { Hero, RequirementsBlock } from '../../components/get-involved/for-students'
-import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA } from '../../components/get-involved/involved-shared-components'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme } from '../../components/get-involved/involved-shared-components'
 
 class ForStudentsPage extends React.Component {
   render() {
@@ -27,9 +27,9 @@ class ForStudentsPage extends React.Component {
             step3Description={studentsPage.step3Description}
           />
           <RequirementsBlock header={studentsPage.requirementsHeader} description={studentsPage.requirementsDescription} />
-          <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} colorway="yellow" />
+          <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} theme={theme.yellowCTA} />
           <VentureShowcase ventures={studentsPage.ventureShowcase} />
-          <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} colorway="teal"/>
+          <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} theme={theme.tealCTA}/>
         </BaseMarginContainer>
       </Layout>
     )
