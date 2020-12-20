@@ -3,18 +3,37 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
+import { BaseMarginContainer } from '../../components/base/base-components'
+import { Hero, BenefitsBlock } from '../../components/get-involved/for-investors'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA } from '../../components/get-involved/involved-shared-components'
 
 class ForInvestorsPage extends React.Component {
-    render(){
-        const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const investorsPage = get(this, 'props.data.contentfulInvolvedInvestorPage')
-        return (
-            <Layout location={this.props.location}>
-              <Helmet title={siteTitle} />
-              
-            </Layout>
-        )
-    }
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const investorsPage = get(this, 'props.data.contentfulInvolvedInvestorPage')
+    return (
+      <Layout location={this.props.location}>
+        <Helmet title={siteTitle} />
+        <BaseMarginContainer>
+          <Hero image={investorsPage.titleImage} headline={investorsPage.headline} description={investorsPage.description.description} />
+          <BenefitsBlock header={investorsPage.benefitsHeader} benefitsList={investorsPage.benefitsList} />
+          <StepsBlock
+            header={investorsPage.processHeader}
+            description={investorsPage.processShortDescription}
+            step1Header={investorsPage.step1Header}
+            step1Description={investorsPage.step1Description}
+            step2Header={investorsPage.step2Header}
+            step2Description={investorsPage.step2Description}
+            step3Header={investorsPage.step3Header}
+            step3Description={investorsPage.step3Description}
+          />
+          <LargeCTA header={investorsPage.applyButtonHeader} label={investorsPage.applyButtonLabel} link="/contact" colorway="teal"/>
+          <VentureShowcase ventures={investorsPage.ventureShowcase} />
+          <LargeOverlayCTA header={investorsPage.finalCTAHeader} description={investorsPage.finalCTADescription} colorway="yellow"/>
+        </BaseMarginContainer>
+      </Layout>
+    )
+  }
 }
 
 export default ForInvestorsPage
@@ -29,8 +48,13 @@ export const pageQuery = graphql`
     contentfulInvolvedInvestorPage {
       applyButtonHeader
       applyButtonLabel
-      applyButtonLink
       benefitsHeader
+      benefitsList {
+        key
+        value {
+          value
+        }
+      }
       description {
         description
       }
@@ -38,7 +62,18 @@ export const pageQuery = graphql`
       finalCTAHeader
       headline
       pastVenturesHeader
+      ventureShowcase {
+        name
+        shortTagline
+        website
+        logo {
+          fluid(quality: 100) {
+            src
+          }
+        }
+      }
       processHeader
+      processShortDescription
       step1Description
       step1Header
       step2Description

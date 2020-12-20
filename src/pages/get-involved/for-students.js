@@ -3,16 +3,37 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-class ForStudentsPage extends React.Component {
-    render(){
-        const siteTitle = get(this,  'props.data.site.siteMetadata.title')
+import { BaseMarginContainer } from '../../components/base/base-components'
+import { Hero, RequirementsBlock } from '../../components/get-involved/for-students'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA } from '../../components/get-involved/involved-shared-components'
 
-        return (
-            <Layout location={this.props.location}>
-              <Helmet title={siteTitle} />
-            </Layout>
-        )
-    }
+class ForStudentsPage extends React.Component {
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const studentsPage = get(this, 'props.data.contentfulInvolvedStudentPage')
+    return (
+      <Layout location={this.props.location}>
+        <Helmet title={siteTitle} />
+        <BaseMarginContainer>
+          <Hero image={studentsPage.titleImage} headline={studentsPage.headline} description={studentsPage.description.description} />
+          <StepsBlock
+            header={studentsPage.processHeader}
+            description={studentsPage.processShortDescription}
+            step1Header={studentsPage.step1Header}
+            step1Description={studentsPage.step1Description}
+            step2Header={studentsPage.step2Header}
+            step2Description={studentsPage.step2Description}
+            step3Header={studentsPage.step3Header}
+            step3Description={studentsPage.step3Description}
+          />
+          <RequirementsBlock header={studentsPage.requirementsHeader} description={studentsPage.requirementsDescription} />
+          <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} colorway="yellow" />
+          <VentureShowcase ventures={studentsPage.ventureShowcase} />
+          <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} colorway="teal"/>
+        </BaseMarginContainer>
+      </Layout>
+    )
+  }
 }
 
 export default ForStudentsPage
@@ -35,7 +56,18 @@ export const pageQuery = graphql`
       finalCTAHeader
       headline
       pastVenturesHeader
+      ventureShowcase {
+        name
+        shortTagline
+        website
+        logo {
+          fluid(quality: 100) {
+            src
+          }
+        }
+      }
       processHeader
+      processShortDescription
       requirementsDescription
       requirementsHeader
       step1Description

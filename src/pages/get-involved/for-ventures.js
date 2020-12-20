@@ -3,17 +3,38 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-class ForVenturesPage extends React.Component {
-    render(){
-        const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const venturesPage = get(this, 'props.data.contentfulInvolvedVenturePage')
+import { BaseMarginContainer } from '../../components/base/base-components'
+import { Hero, RequirementsBlock } from '../../components/get-involved/for-ventures'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA } from '../../components/get-involved/involved-shared-components'
 
-        return (
-            <Layout location={this.props.location}>
-              <Helmet title={siteTitle} />
-            </Layout>
-        )
-    }
+class ForVenturesPage extends React.Component {
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const venturesPage = get(this, 'props.data.contentfulInvolvedVenturePage')
+
+    return (
+      <Layout location={this.props.location}>
+        <Helmet title={siteTitle} />
+        <BaseMarginContainer>
+          <Hero image={venturesPage.titleImage} headline={venturesPage.headline} description={venturesPage.description.description} />
+          <StepsBlock
+            header={venturesPage.processHeader}
+            description={venturesPage.processShortDescription}
+            step1Header={venturesPage.step1Header}
+            step1Description={venturesPage.step1Description}
+            step2Header={venturesPage.step2Header}
+            step2Description={venturesPage.step2Description}
+            step3Header={venturesPage.step3Header}
+            step3Description={venturesPage.step3Description}
+          />
+          <RequirementsBlock header={venturesPage.requirementsHeader} description={venturesPage.requirementsDescription} requirements={venturesPage.requirementsList}/>
+          <LargeCTA header={venturesPage.applyButtonHeader} label={venturesPage.applyButtonLabel} link={venturesPage.applyButtonLink} colorway="yellow" />
+          <VentureShowcase ventures={venturesPage.ventureShowcase} />
+          <LargeOverlayCTA header={venturesPage.finalCTAHeader} description={venturesPage.finalCTADescription} colorway="teal" />
+        </BaseMarginContainer>
+      </Layout>
+    )
+  }
 }
 
 export default ForVenturesPage
@@ -36,6 +57,16 @@ export const pageQuery = graphql`
       finalCTAHeader
       headline
       pastVenturesHeader
+      ventureShowcase {
+        name
+        shortTagline
+        website
+        logo {
+          fluid(quality: 100) {
+            src
+          }
+        }
+      }
       processHeader
       processShortDescription
       requirementsHeader
