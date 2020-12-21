@@ -117,8 +117,8 @@ export const pageQuery = graphql`
         registrationLink
         location
         photo {
-          file {
-            url
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -128,8 +128,8 @@ export const pageQuery = graphql`
         companyWebsite
         name
         profilePicture {
-          file {
-            url
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
           }
         }
         testimonial {
