@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { yellow, navy, white, lightGray, darkGray, teal } from "../base/colors"
-import { HANsubh3, HANh2 } from "../base/fonts"
+import { yellow, yellow70, navy, white, teal } from "../base/colors"
+import { HANsubh3, HANh2, HANh3, HANbody } from "../base/fonts"
 import ArrowIconSVG from "../../images/arrowIcon"
 import { device } from "../base/device.js"
 
@@ -193,7 +193,7 @@ export const LargeOverlayCTA = ({ header, description, theme }) => {
     return <>
         <Link to="/faq">
             <OverlayCTAContainer>
-                <OverlaySquareBlock theme={theme}/>
+                <OverlaySquareBlock theme={theme} />
                 <OverlayCTABlock theme={theme}>
                     <OverlayCTATextContainer theme={theme}>
                         <FullWidthFlexRow>
@@ -203,23 +203,111 @@ export const LargeOverlayCTA = ({ header, description, theme }) => {
                         <ArrowIconSVG color={theme.accentColor} />
                     </OverlayCTATextContainer>
                 </OverlayCTABlock>
-                <AccentBlock theme={theme}/>
-                <AccentBlockSmall theme={theme}/>
+                <AccentBlock theme={theme} />
+                <AccentBlockSmall theme={theme} />
             </OverlayCTAContainer>
         </Link>
     </>
 }
 
+
+export const StepsBlockContainer = styled.div`
+    margin-top: 145px;
+    @media ${device.tablet} {
+        margin-top: 120px;
+    }
+    @media ${device.tablet} {
+        margin-top: 80px;
+    }
+`
+
+export const StepsGroupContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 70px auto 150px auto;
+    @media ${device.tablet} {
+        margin: 40px auto 150px auto;
+    }
+    @media ${device.mobile} {
+        flex-direction: column;
+        margin: 45px auto 100px auto;
+    }
+`
+
+export const Step = styled.div`
+    position: relative;
+    width: 30%;
+    height: 250px;
+    @media ${device.tablet} {
+        height: 450px;
+    }
+    @media ${device.tablet} {
+        width: 100%;
+        height: 200px;
+    }
+`
+
+export const StepNumber = styled.h1`
+    font-family: "URW DIN", sans-serif;
+    font-size: 300px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 210px;
+    color: ${yellow70};
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media ${device.tablet} {
+        font-size: 190px;
+        line-height: 150px;
+    }
+    @media ${device.tablet} {
+        left: 15%;
+    }
+`
+
+export const StepText = styled.div`
+    position: absolute;
+    width: 80%;
+    top: 20%;
+    right: 0;
+    @media ${device.tablet} {
+        top: 15%;
+        right: auto;
+        left: 33%;
+        width: 60%;
+    }
+`
+
 export const StepsBlock = ({ header, description, step1Header, step1Description, step2Header, step2Description, step3Header, step3Description }) => {
     return <>
-        <h1>{header}</h1>
-        <h3>{description}</h3>
-        <p>1 {step1Header}</p>
-        <p>{step1Description}</p>
-        <p>2 {step2Header}</p>
-        <p>{step2Description}</p>
-        <p>3 {step3Header}</p>
-        <p>{step3Description}</p>
+        <StepsBlockContainer>
+            <HANh2>{header}</HANh2>
+            <HANbody>{description}</HANbody>
+            <StepsGroupContainer>
+                <Step>
+                    <StepNumber>1</StepNumber>
+                    <StepText>
+                        <HANh3>{step1Header}</HANh3>
+                        <HANbody>{step1Description}</HANbody>
+                    </StepText>
+                </Step>
+                <Step>
+                    <StepNumber>2</StepNumber>
+                    <StepText>
+                        <HANh3>{step2Header}</HANh3>
+                        <HANbody>{step2Description}</HANbody>
+                    </StepText>
+                </Step>
+                <Step>
+                    <StepNumber>3</StepNumber>
+                    <StepText>
+                        <HANh3>{step3Header}</HANh3>
+                        <HANbody>{step3Description}</HANbody>
+                    </StepText>
+                </Step>
+            </StepsGroupContainer>
+        </StepsBlockContainer>
     </>
 }
 
