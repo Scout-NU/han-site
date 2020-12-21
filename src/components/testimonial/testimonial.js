@@ -201,7 +201,7 @@ const Testimonial = ({ carousel, carouselHeader }) => {
 
     return <TestimonialContainer>
         <TestimonialHeader>{carouselHeader}</TestimonialHeader>
-        <SpeakerImage src={carousel[index].profilePicture.file.url}/>
+        <SpeakerImage src={carousel[index].profilePicture.fluid.src}/>
         <TestimonialTextBox>
             <HANSpecialBody>
                 {carousel[index].testimonial.testimonial}
