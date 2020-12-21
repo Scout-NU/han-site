@@ -2,56 +2,28 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Hero from '../components/hero/hero'
+import Hero from '../components/homepage/hero/hero'
+import MissionStatement from '../components/homepage/mission-statement/mission-statement'
 import Layout from '../components/layout'
-import Testimonial from '../components/testimonial/testimonial.js'
+import Statistics from '../components/homepage/statistics/statistics'
+import Testimonial from '../components/homepage/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import { ArrowButton, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
-import * as arrowIcon from '../images/arrowIcon.svg'
+import HomepageEvent from '../components/homepage/homepage-event'
 
 class HomePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const headline = get(this, 'props.data.contentfulHomePage.headline')
-    const tagline = get(this, 'props.data.contentfulHomePage.tagline')
-    const missionStatement = get(this, 'props.data.contentfulHomePage.missionStatement.value.value')
-    const stats = get(this, 'props.data.contentfulHomePage.stats')
-    const testimonials = get(this, 'props.data.contentfulHomePage.testimonials')
-    const statsHeader = get(this, 'props.data.contentfulHomePage.statisticsHeader')
+    const homePage = get(this, 'props.data.contentfulHomePage')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
-            <h1>{headline}</h1>
-            <h2>{tagline}</h2>
-            <h1>{missionStatement}</h1>
-            <h2 className="section-headline">{statsHeader}</h2>
-            <ul className="article-list">
-              {/* {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })} */}
-              {stats.map(stat =>
-                <p>{stat.number} {stat.description}</p>)}
-            </ul>
-            {testimonials.map(t =>
-                <Testimonial testimonial={t}/>
-            )}
-            <Link to="/faq">
-              <Button>click me</Button>
-              <SecondaryButton>secondary Button
-              </SecondaryButton>
-            </Link>
-            <SecondaryButton text="Helloooo"/>
-          </div>
+          <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
+          <MissionStatement header={homePage.missionStatementHeader} subheader={homePage.missionStatementSubheader} missionStatement={homePage.missionStatement.value.value} />
+          <Statistics statsHeader={homePage.statisticsHeader} stats={homePage.stats} statsButtonLabel={homePage.statisticsButtonLabel} />
+          <HomepageEvent event={homePage.event} eventHeader={homePage.eventHeader} />
+          <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader} />
         </div>
       </Layout>
     )
@@ -111,10 +83,16 @@ export const pageQuery = graphql`
       }
     }
     contentfulHomePage {
-      tagline
-      contentful_id
       headline
+      tagline
+      heroImage {
+        fluid (quality: 100){
+          ...GatsbyContentfulFluid
+        }
+      }
+      contentful_id
       missionStatementHeader
+      missionStatementSubheader
       missionStatement {
         value {
           value
@@ -123,11 +101,13 @@ export const pageQuery = graphql`
       statisticsHeader
       statisticsButtonLabel
       stats {
+        id
         number
         description
       }
       eventHeader
       event {
+        title
         date
         endTime
         startTime
@@ -135,12 +115,26 @@ export const pageQuery = graphql`
           description
         }
         registrationLink
+        location
+        photo {
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
+          }
+        }
       }
       testimonialsHeader
       testimonials {
         company
+        companyWebsite
         name
-        role
+        profilePicture {
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
+          }
+        }
+        testimonial {
+          testimonial
+        }
       }
     }
   }

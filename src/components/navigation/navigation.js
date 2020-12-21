@@ -5,9 +5,11 @@ import { teal, navy, white, black, darkGray, lightGray } from "../base/colors"
 import NavDropdown from "./navdropdown"
 import { device } from "../base/device"
 import { OUR_TEAM_LINKS, GET_INVOLVED_LINKS } from "./links"
-import { MAX_Z_VALUE } from "../base/constants"
+import { NAVBAR_Z_VALUE } from "../base/constants"
 import HamburgerIconPicture from "../../images/hamburger.svg"
 import CloseIconPicture from "../../images/close.svg"
+import LogoPicture from "../../images/navbar-logo.svg"
+
 
 
 export const NavWrapper = styled.nav`
@@ -21,7 +23,7 @@ export const NavWrapper = styled.nav`
   height: auto;
   background-color: ${white};
   box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-  z-index: ${MAX_Z_VALUE};
+  z-index: ${NAVBAR_Z_VALUE};
   width: 100%;
   top: 0;
 `
@@ -51,7 +53,7 @@ export const NavLinkGroup = styled.div`
       background-color: ${teal};
       top: 0;
       right: 0;
-      width: 45%;
+      width: 55vw;
       justify-content: center;
       transition: all 0.2s;
       max-height: ${ props => (props.isOpen ? '500px': '0px')};
@@ -70,8 +72,11 @@ export const NavLinkGroup = styled.div`
 
 export const NavLink = styled(Link)`
   color: ${navy};
-  font-family: sans-serif;
-  font-size: 13px;
+  font-family: "URW DIN", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 700;
+
   text-transform: uppercase;
   :hover {
     transition: all 0.2s;
@@ -83,6 +88,7 @@ export const NavLink = styled(Link)`
     width: 50%;
     text-decoration: none;
     display: block;
+    font-weight: 600;
     color: ${white};
     text-transform: uppercase;
     padding: 15px;
@@ -104,10 +110,12 @@ export const NavLogo = styled.img`
 
 export const NavBrand = styled.span`
   color: ${navy};
-  font-family: sans-serif;
+  font-family: "URW DIN", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
   text-transform: uppercase;
   margin-left: 20px;
-  font-size: 16px;
   vertical-align: middle;
 
   @media ${device.mobile} {
@@ -130,9 +138,10 @@ export const HamburgerMenu = styled.div`
     cursor: pointer;
     padding-right: 30px;
   }
-  z-index: ${MAX_Z_VALUE};
+  z-index: ${NAVBAR_Z_VALUE};
 
 `
+
 
 const Navigation = () => {
   const [open, setIsOpen] = React.useState(false);
@@ -140,7 +149,7 @@ const Navigation = () => {
 
   return <NavWrapper>
       <NavBrandWrapper to="/">
-          <NavLogo src="https://i.pinimg.com/236x/71/b3/e4/71b3e4159892bb319292ab3b76900930.jpg" />
+          <NavLogo src={LogoPicture} />
           {' '}
           <NavBrand>Huntington Angels Network</NavBrand>
       </NavBrandWrapper>
