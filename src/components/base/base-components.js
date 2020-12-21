@@ -63,6 +63,7 @@ export const SecondaryButton = (props) => {
 };
 
 export const BaseMarginContainer = styled.div`
+    position: relative;
     max-width: ${size.desktop}px;
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};
