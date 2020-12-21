@@ -2,14 +2,13 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Hero from '../components/hero/hero'
+import Hero from '../components/homepage/hero/hero'
+import MissionStatement from '../components/homepage/mission-statement/mission-statement'
 import Layout from '../components/layout'
-import Testimonial from '../components/testimonial/testimonial'
+import Statistics from '../components/homepage/statistics/statistics'
+import Testimonial from '../components/homepage/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import { ArrowButton, BaseMarginContainer, Button, SecondaryButton, SecondaryButtonIcon } from '../components/base/base-components'
-import * as arrowIcon from '../images/arrowIcon.svg'
-import HomepageEvent from '../components/event/homepage-event'
-import { HANbody, HANdescription, HANh1, HANh2, HANh3, HANh4, HANsmalldescription, HANSpecialBody, HANsubh1, HANsubh2, HANsubh3, HANsubh4 } from '../components/base/fonts'
+import HomepageEvent from '../components/homepage/homepage-event'
 
 class HomePage extends React.Component {
   render() {
@@ -21,42 +20,10 @@ class HomePage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero headline={homePage.headline} tagline={homePage.tagline} heroImage={homePage.heroImage} />
-            <h1>{homePage.missionStatement.value.value}</h1>
-            <h2 className="section-headline">{homePage.statsHeader}</h2>
-
-              {homePage.stats.map(stat =>
-                <p>{stat.number} {stat.description}</p>)}
-            <HomepageEvent event={homePage.event} eventHeader={homePage.eventHeader}/>
-
-            <HANh1>Header 1</HANh1>
-            <HANh2>Header 2</HANh2>
-            <HANh3>Header 3</HANh3>
-            <HANh4>Header 4</HANh4>
-            <HANsubh1>Subheader 1</HANsubh1>
-            <HANsubh2>Subheader 2</HANsubh2>
-            <HANsubh3>Subheader 3</HANsubh3>
-            <HANsubh4>Subheader 4</HANsubh4>
-            <HANbody>HAN body HAN body HAN body HAN body HAN body HAN body HAN body HAN body </HANbody>
-            <HANSpecialBody>HAN body 2 HAN body 2 HAN body 2 HAN body 2 HAN body2  HAN body2  </HANSpecialBody>
-            <HANdescription>HAN Description</HANdescription>
-            <HANsmalldescription>HAN small description</HANsmalldescription>
-
-
-
-
-
-            <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader}/>
-            <Link to="/faq">
-              <Button>click me</Button>
-              <SecondaryButton>secondary Button
-              </SecondaryButton>
-            </Link>
-            <SecondaryButton text="Helloooo"/>
-            <p>{homePage.eventHeader}</p>
-            {
-              homePage.event &&
-              <p>{homePage.event.title}</p>
-              }
+          <MissionStatement header={homePage.missionStatementHeader} subheader={homePage.missionStatementSubheader} missionStatement={homePage.missionStatement.value.value} />
+          <Statistics statsHeader={homePage.statisticsHeader} stats={homePage.stats} statsButtonLabel={homePage.statisticsButtonLabel} />
+          <HomepageEvent event={homePage.event} eventHeader={homePage.eventHeader} />
+          <Testimonial carousel={homePage.testimonials} carouselHeader={homePage.testimonialsHeader} />
         </div>
       </Layout>
     )
@@ -125,6 +92,7 @@ export const pageQuery = graphql`
       }
       contentful_id
       missionStatementHeader
+      missionStatementSubheader
       missionStatement {
         value {
           value
@@ -133,6 +101,7 @@ export const pageQuery = graphql`
       statisticsHeader
       statisticsButtonLabel
       stats {
+        id
         number
         description
       }
@@ -148,8 +117,8 @@ export const pageQuery = graphql`
         registrationLink
         location
         photo {
-          file {
-            url
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
           }
         }
       }
@@ -159,8 +128,8 @@ export const pageQuery = graphql`
         companyWebsite
         name
         profilePicture {
-          file {
-            url
+          fluid (quality: 100){
+            ...GatsbyContentfulFluid
           }
         }
         testimonial {

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './sock.module.css'
 import { StaticQuery } from 'gatsby'
 
 export default () => (

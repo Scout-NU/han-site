@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import { lightGray, yellow } from "../base/colors"
-import { device } from "../base/device.js"
+import { lightGray, yellow } from "../../base/colors"
+import { device } from "../../base/device.js"
+import { HANh1 } from "../../base/fonts"
 
 export const HeroContainer = styled.div`
     position: relative;
@@ -77,7 +78,7 @@ export const HeroImage = styled.img`
     }
 `
 
-export const HANBoldText = styled.p`
+export const HANBoldText = styled(HANh1)`
     position: absolute;
     right: 0;
     top: 0;

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from 'gatsby'
 import { lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
-import { HANbody } from "../base/fonts"
+import { HANbody, HANh2 } from "../base/fonts"
 import { SecondaryButton } from "../base/base-components"
 import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
 import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
@@ -53,17 +53,17 @@ export const GoldBar = styled.div`
 
 
 
-const ForVentureBlock = () => {
+const ForVentureBlock = ({header, description, image}) => {
     return <>
     <InvolvedBlockContainer>
-        <InvolvedPicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
+        <InvolvedPicture src={image}/>
         <VentureTextContainer>
             <GoldBar/>
-                <HANh2>JOIN HAN AS A VENTURE</HANh2>
+                <HANh2>{header}</HANh2>
                 <HANbody>
-                    Huntington Angels Network serves as a vehicle to connect Northeastern-affilated ventures with angel investors and VCs to help their growth. 
+                    {description}
                 </HANbody>
-                <Link to="mem">
+                <Link to="/get-involved/for-ventures">
                     <SecondaryButton>
                         Learn more
                     </SecondaryButton>

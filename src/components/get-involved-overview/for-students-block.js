@@ -3,9 +3,9 @@ import styled from "styled-components"
 import { Link } from 'gatsby'
 import { teal, navy, white, lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
-import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
+import { HANbody, HANh2} from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { DESKTOP_MARGIN, MOBILE_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MAX_Z_VALUE } from "../base/constants"
+import { MAX_Z_VALUE } from "../base/constants"
 import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
 
 export const StudentTextContainer = styled(InvolvedTextContainer)`
@@ -44,18 +44,17 @@ export const GoldBar = styled.div`
 
 
 
-const ForStudentBlock = () => {
+const ForStudentBlock = ({header, description, image}) => {
     return <>
     <InvolvedBlockContainer>
-        <InvolvedPicture src="https://media.discordapp.net/attachments/336008480022593536/787599362753822720/taipei-taiwan-december-3-2018-people-ride-a-metro-train-in-taipei-taipei-mass-rapid-transit-mrt-bran.png"/>
+        <InvolvedPicture src={image}/>
         <StudentTextContainer>
                 <GoldBar/>
-                <HANh2>JOIN HAN AS A VENTURE</HANh2>
+                <HANh2>{header}</HANh2>
                 <HANbody>
-                HAN provides a learning opportunity for students to get real-world experience in VC in which they source companies and meet with founders, conduct extensive diligence, and meet with investors
-                HAN provides a learning opportunity for students to get real-world experience in VC in which they source companies and meet with founders, conduct extensive diligence, and meet with investors
+                {description}
                 </HANbody>
-                <Link to="mem">
+                <Link to="/get-involved/for-students">
                     <SecondaryButton>
                         Learn more
                     </SecondaryButton>

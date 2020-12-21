@@ -11,8 +11,8 @@ export const HomepageEventContainer = styled(BaseMarginContainer)`
     display: flex;
     flex-flow: row wrap;
     position: relative;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 150px;
+    margin-bottom: 150px;
 
 
     @media ${device.mobile} {
@@ -117,7 +117,7 @@ const HomepageEvent = ({event, eventHeader}) => {
     <HomepageEventContainer>
         <EventVisualsContainer>
         <EventTitle>{eventHeader}</EventTitle>
-        <EventPicture src="https://www.lplegal.com/dam/jcr:c45130cc-0dbc-4c58-98e6-a73fec1306cd/iStock-979449394-3.jpg"/>
+        <EventPicture src={event.photo.fluid.src}/>
         </EventVisualsContainer>
 
         

@@ -71,16 +71,16 @@ export const GoldBar = styled.div`
 `
 
 
-const ForInvestorBlock = () => {
+const ForInvestorBlock = ({header, description, image}) => {
     return <>
     <InvestorBlockContainer>
-        <InvolvedPicture src="https://www.evolo.us/wp-content/uploads/2019/04/0516-0.jpg"/>
+        <InvolvedPicture src={image}/>
         <InvestorTextContainer>
             <GoldBar/>
-                <InvestorHeader>JOIN HAN AS A VENTURE</InvestorHeader>
+                <InvestorHeader>{header}</InvestorHeader>
                 <InvestorTextBox>
                 <HANbody>
-                HAN provides strong deal flow curated to each investor in its network. We conduct diligence on these ventures to ensure they are investment-ready. We work with both angel investors and venture capital firms alike. 
+                 {description}
                 </HANbody>
                 <Link to="/get-involved/for-investors">
                     <SecondaryButton>
