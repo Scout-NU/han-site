@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { device } from "./device"
-import { navy , white, lightGray, darkGray, black } from "./colors"
+import { navy , darkGray, black } from "./colors"
 
 export const HANh1 = styled.h1`
   font-family: "URW DIN", sans-serif;

@@ -9,8 +9,8 @@ import {
   StatsHeaderContainer,
   ButtonContainer
 } from './statistics-styles'
-import { HANh2 } from '../base/fonts'
-import { SecondaryButton } from "../base/base-components"
+import { HANh2 } from '../../base/fonts'
+import { SecondaryButton } from "../../base/base-components"
 import { Link } from 'gatsby'
 
 export default ({ statsHeader, stats, statsButtonLabel }) => (
@@ -27,7 +27,7 @@ export default ({ statsHeader, stats, statsButtonLabel }) => (
     <StatsOuterContainer>
       {
         stats.map(stat =>
-          <StatContainer>
+          <StatContainer key={stat.id}>
             <StatNumber>{stat.number}</StatNumber>
             <StatDescription>{stat.description}</StatDescription>
           </StatContainer>

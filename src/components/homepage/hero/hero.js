@@ -1,5 +1,5 @@
 import React from 'react'
-import { teal } from "../base/colors"
+import { teal } from "../../base/colors"
 import {
   HeroContainer,
   HeroImage,
@@ -12,7 +12,7 @@ import {
 import {
   HANh1,
   HANSpecialBody
-} from '../base/fonts'
+} from '../../base/fonts'
 
 export default ({ headline, tagline, heroImage }) => (
 
