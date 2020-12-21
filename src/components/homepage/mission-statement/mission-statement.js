@@ -1,5 +1,5 @@
 import React from 'react'
-import { teal } from "../base/colors"
+import { teal } from "../../base/colors"
 import {
   MissionContainer,
   MissionH2,
@@ -9,7 +9,7 @@ import {
 import {
   HANsubh2,
   HANSpecialBody
-} from '../base/fonts'
+} from '../../base/fonts'
 
 export default ({header, subheader, missionStatement}) => 
     <MissionContainer>

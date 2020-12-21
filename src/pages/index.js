@@ -2,13 +2,13 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Hero from '../components/hero/hero'
-import MissionStatement from '../components/mission-statement/mission-statement'
+import Hero from '../components/homepage/hero/hero'
+import MissionStatement from '../components/homepage/mission-statement/mission-statement'
 import Layout from '../components/layout'
-import Statistics from '../components/statistics/statistics'
-import Testimonial from '../components/testimonial/testimonial.js'
+import Statistics from '../components/homepage/statistics/statistics'
+import Testimonial from '../components/homepage/testimonial.js'
 import 'bootstrap/dist/css/bootstrap.css';
-import HomepageEvent from '../components/event/homepage-event'
+import HomepageEvent from '../components/homepage/homepage-event'
 
 class HomePage extends React.Component {
   render() {
