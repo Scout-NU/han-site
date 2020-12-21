@@ -4,8 +4,8 @@ import { BaseMarginContainer, SecondaryButton } from '../base/base-components'
 import ChevronLeftIconSVG from '../../images/chevron-left'
 import ChevronRightIconSVG from '../../images/chevron-right'
 import CircleIconSVG from '../../images/circle'
-import { teal, lightGray, navy, yellow70 } from "../base/colors"
-import { HANdescription, HANh2, HANsmalldescription, HANsubh2, HANSpecialBody } from '../base/fonts'
+import { teal, yellow70 } from "../base/colors"
+import { HANh2, HANsmalldescription, HANsubh2, HANSpecialBody } from '../base/fonts'
 import { MAX_Z_VALUE, DESKTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN, LAPTOP_MARGIN } from '../base/constants'
 import { Link } from 'gatsby'
 import { device } from "../base/device"

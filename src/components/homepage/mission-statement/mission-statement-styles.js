@@ -1,15 +1,13 @@
 import styled from "styled-components"
-import { lightGray, yellow } from "../base/colors"
-import { device } from "../base/device.js"
-import {
-    HANh2,
-  } from '../base/fonts'
+import { lightGray, yellow } from "../../base/colors"
+import { device } from "../../base/device.js"
+import { HANh2 } from '../../base/fonts'
 import {
     DESKTOP_MARGIN,
     LAPTOP_MARGIN,
     TABLET_MARGIN,
     MOBILE_MARGIN
-} from '../base/constants'
+} from '../../base/constants'
 
 export const MissionContainer = styled.div`
     background-color: ${lightGray};

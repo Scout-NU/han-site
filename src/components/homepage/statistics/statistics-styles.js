@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import { BaseMarginContainer } from "../base/base-components"
-import { yellow, teal } from "../base/colors"
-import { HANsubh3 } from '../base/fonts'
-import { device } from "../base/device.js"
-import { DESKTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { BaseMarginContainer } from "../../base/base-components"
+import { yellow, teal } from "../../base/colors"
+import { HANsubh3 } from '../../base/fonts'
+import { device } from "../../base/device.js"
+import { DESKTOP_MARGIN, TABLET_MARGIN } from "../../base/constants"
 
 export const StatisticsBlock = styled(BaseMarginContainer)`
     margin-top: 100px;

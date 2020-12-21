@@ -9,8 +9,8 @@ import {
   StatsHeaderContainer,
   ButtonContainer
 } from './statistics-styles'
-import { HANh2 } from '../base/fonts'
-import { SecondaryButton } from "../base/base-components"
+import { HANh2 } from '../../base/fonts'
+import { SecondaryButton } from "../../base/base-components"
 import { Link } from 'gatsby'
 
 export default ({ statsHeader, stats, statsButtonLabel }) => (
