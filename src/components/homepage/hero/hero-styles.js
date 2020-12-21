@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { lightGray, yellow } from "../base/colors"
-import { device } from "../base/device.js"
-import { HANh1 } from "../base/fonts"
+import { lightGray, yellow } from "../../base/colors"
+import { device } from "../../base/device.js"
+import { HANh1 } from "../../base/fonts"
 
 export const HeroContainer = styled.div`
     position: relative;

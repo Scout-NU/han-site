@@ -1,14 +1,15 @@
 import styled from "styled-components"
-import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { yellow, teal } from "../base/colors"
-import { HANsubh3 } from '../base/fonts'
-import { device } from "../base/device.js"
-import { DESKTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { BaseMarginContainer } from "../../base/base-components"
+import { yellow, teal } from "../../base/colors"
+import { HANsubh3 } from '../../base/fonts'
+import { device } from "../../base/device.js"
+import { DESKTOP_MARGIN, TABLET_MARGIN } from "../../base/constants"
 
 export const StatisticsBlock = styled(BaseMarginContainer)`
     margin-top: 100px;
     margin-bottom: 100px;
-    flex: nowrap;
+    flex-wrap: wrap;
+    display: flex;
     @media ${device.tablet} {
         margin-top: 80px;
         margin-bottom: 80px;
@@ -19,28 +20,14 @@ export const StatisticsBlock = styled(BaseMarginContainer)`
     }
 `
 
-export const FirstLineContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    @media ${device.mobile} {
-        margin-bottom: 30px;
-        Button {
-            display: none;
-        }
-    }
-`
-
-// needs to be a component in this class so it can be shown/hidden in different divs depending on screen size
-export const Button = styled(SecondaryButton)`
-`
-
 export const StatsHeaderContainer = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 90%;
     margin-left: -${DESKTOP_MARGIN};
     margin-right: 0px;
+    flex: 1 1 50%;
+    order: 1;
     @media ${device.tablet} {
         flex-direction: column;
         flex-wrap: wrap;
@@ -60,6 +47,21 @@ export const GoldBar = styled.div`
     }
     @media ${device.mobile} {
         display: none;
+    }
+`
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    flex: 1 1 50%;
+    justify-content: flex-end;
+    align-items: center;
+    order: 2;
+    @media ${device.tablet} {
+        align-items: flex-end;
+    }
+    @media ${device.mobile} {
+        order: 3;
+        justify-content: flex-start;
     }
 `
 
@@ -102,18 +104,12 @@ export const StatsOuterContainer = styled.div`
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    flex: 1 1 100%;
+    order: 3;
     @media ${device.mobile} {
         flex-direction: column;
-    }
-`
-
-export const MobileButtonDiv = styled.div`
-    display: none;
-    @media ${device.mobile} {
-        display: flex;
+        order: 2;
         margin-top: 30px;
+        margin-bottom: 40px;
     }
 `
-
-
-

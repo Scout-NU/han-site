@@ -7,40 +7,32 @@ import {
   GoldBar,
   StatContainer,
   StatsHeaderContainer,
-  FirstLineContainer,
-  MobileButtonDiv,
-  Button
+  ButtonContainer
 } from './statistics-styles'
-import {
-  HANh2,
-} from '../base/fonts'
+import { HANh2 } from '../../base/fonts'
+import { SecondaryButton } from "../../base/base-components"
 import { Link } from 'gatsby'
 
 export default ({ statsHeader, stats, statsButtonLabel }) => (
   <StatisticsBlock>
-    <FirstLineContainer>
       <StatsHeaderContainer>
-        <GoldBar></GoldBar>
+        <GoldBar/>
         <HANh2>{statsHeader}</HANh2>
       </StatsHeaderContainer>
+      <ButtonContainer>
       <Link to="/portfolio">
-        <Button>{statsButtonLabel}</Button>
+        <SecondaryButton>{statsButtonLabel}</SecondaryButton>
       </Link>
-    </FirstLineContainer>
+      </ButtonContainer>
     <StatsOuterContainer>
       {
         stats.map(stat =>
-          <StatContainer>
+          <StatContainer key={stat.id}>
             <StatNumber>{stat.number}</StatNumber>
             <StatDescription>{stat.description}</StatDescription>
           </StatContainer>
         )
       }
     </StatsOuterContainer>
-    <MobileButtonDiv>
-      <Link to="/portfolio">
-        <Button>{statsButtonLabel}</Button>
-      </Link>
-    </MobileButtonDiv>
   </StatisticsBlock>
 )
