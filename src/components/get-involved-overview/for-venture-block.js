@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray, yellow } from "../base/colors"
+import { lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
-import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
-import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { DESKTOP_MARGIN, MOBILE_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { HANbody } from "../base/fonts"
+import { SecondaryButton } from "../base/base-components"
+import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
 import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
 
 export const VentureTextContainer = styled(InvolvedTextContainer)`
@@ -25,6 +25,7 @@ export const VentureTextContainer = styled(InvolvedTextContainer)`
 
 export const GoldBar = styled.div`
     width: 25vw;
+    max-width: 350px;
     height: 4px;
     background-color: ${yellow};
     position: absolute;

@@ -10,7 +10,6 @@ export const InvolvedBlockContainer = styled(BaseMarginContainer)`
     position: relative;
     margin-top: 100px;
     margin-bottom: 100px;
-    // height: fit-content;
     min-height: 60vh;
 
 
@@ -25,10 +24,12 @@ export const InvolvedBlockContainer = styled(BaseMarginContainer)`
 
 export const InvolvedPicture = styled.img`
     flex: 1 1 50%;
+    max-height: 450px;
     width: 50%;
     object-fit: cover;
-    // max-height: 400px;
-    height: 100%;
+    max-height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    max-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    max-height: fill-available;
 
     @media ${device.mobile} {
         width: 100%;
