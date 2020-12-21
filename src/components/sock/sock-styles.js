@@ -6,11 +6,14 @@ export const SockHeaderContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
+    margin-top: 140px;
     @media ${device.tablet} {
         margin-bottom: 30px;
+        margin-top: 120px;
     }
     @media ${device.mobile} {
         margin-bottom: 40px;
+        margin-top: 100px;
     }
 `
 
@@ -64,10 +67,11 @@ export const SockForm = styled.form `
     display: flex;
     width: 66%;
     align-content: baseline;
-    margin-bottom: 120px;
+    margin-bottom: 130px;
     margin-top: 50px;
     @media ${device.mobile} {
         flex-direction: column;
         width: 100%;
+        margin-bottom: 80px;
     }
 `
