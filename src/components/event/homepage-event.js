@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray, yellow } from "../base/colors"
+import { lightGray, yellow } from "../base/colors"
 import { device } from "../base/device"
-import { HANbody, HANdescription, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
+import { HANbody, HANdescription, HANh2, HANsubh2 } from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
 import { MOBILE_MARGIN, MONTHS_LIST } from "../base/constants"
 
@@ -47,7 +47,12 @@ export const EventPicture = styled.img`
     flex-grow: 1;
     min-width: 100%;
     object-fit: cover;
+    max-height: 75vh;
+    @media ${device.smLaptop} {
+        max-height: 500px;
+    }
     @media ${device.mobile} {
+        max-height: 300px;
     }
 `
 
@@ -67,7 +72,7 @@ export const EventDescriptionContainer = styled.div`
 
 export const EventDescription = styled.div`
     padding: 120px 40px 40px 40px;
-    align-self: flex-end;
+    align-self: center;
 
     @media ${device.mobile} {
         padding: 20px;
@@ -112,7 +117,7 @@ const HomepageEvent = ({event, eventHeader}) => {
     <HomepageEventContainer>
         <EventVisualsContainer>
         <EventTitle>{eventHeader}</EventTitle>
-        <EventPicture src={event.photo.file.url}/>
+        <EventPicture src="https://www.lplegal.com/dam/jcr:c45130cc-0dbc-4c58-98e6-a73fec1306cd/iStock-979449394-3.jpg"/>
         </EventVisualsContainer>
 
         
