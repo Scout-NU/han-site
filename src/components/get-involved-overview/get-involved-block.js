@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { device } from "../base/device"
 import { BaseMarginContainer } from "../base/base-components"
 import { MOBILE_MARGIN } from "../base/constants"
+import { HANh2 } from "../base/fonts"
 
 export const InvolvedBlockContainer = styled(BaseMarginContainer)`
     display: flex;
@@ -46,4 +47,8 @@ export const InvolvedTextContainer = styled.div`
         width: 100vw;
         left: -${MOBILE_MARGIN};
     }
+`
+
+export const InvolvedHeader = styled(HANh2) `
+    max-width: 500px;
 `
