@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray, yellow } from "../base/colors"
-import { device } from "../base/device"
-import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
-import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { teal, navy, white, lightGray, yellow } from "./colors"
+import { device } from "./device"
+import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh2 } from "./fonts"
+import { BaseMarginContainer, SecondaryButton } from "./base-components"
+import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "./constants"
 
 
 export const TitleContainer = styled(BaseMarginContainer)`
@@ -25,7 +25,12 @@ export const TitleContainer = styled(BaseMarginContainer)`
     @media ${device.mobile} {
         width: auto;
         padding-top: 50px;
+        margin-bottom: ${props => (props.display ? "100px" : "0px")};
     }
+`
+
+export const HeaderDescription = styled(HANbody)`
+    padding: 10px 0px;
 `
 
 export const SideGoldBar = styled.div`
@@ -100,9 +105,10 @@ const HeaderBar = (props) => {
         <TopGoldBar display={isTop}/>
         <SideGoldBar display={isSide}/>
         <HANh1>{title}</HANh1>
-        <HANbody>
+        <HeaderDescription>
             {body}
-        </HANbody>
+        </HeaderDescription>
+
         </GrayBlock>
     </TitleContainer>  
 }

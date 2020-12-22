@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-21T21:41:34.671Z ###
+### Type definitions saved at 2020-12-21T23:21:50.367Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -313,6 +313,15 @@ type ImageSharpResize {
   height: Int
   aspectRatio: Float
   originalName: String
+}
+
+type contentfulTeamPageShortDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  shortDescription: String
+  sys: contentfulTeamPageShortDescriptionTextNodeSys
+}
+
+type contentfulTeamPageShortDescriptionTextNodeSys {
+  type: String
 }
 
 type contentfulInvolvedPageStudentBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
@@ -1212,6 +1221,7 @@ type ContentfulAlumniPageSysContentTypeSys {
 type ContentfulTeamPage implements Node @derivedTypes @dontInfer {
   teamHeadline: String
   teamMembers: [ContentfulTeamMember] @link(by: "id", from: "teamMembers___NODE")
+  shortDescription: contentfulTeamPageShortDescriptionTextNode @link(by: "id", from: "shortDescription___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat

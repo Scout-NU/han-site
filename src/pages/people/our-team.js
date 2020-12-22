@@ -3,7 +3,10 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-import TeamMember from '../../components/team-member/team-member'
+import TeamMember, { OurTeamContainer } from '../../components/team-member/team-member'
+import HeaderBar from '../../components/base/header-bar'
+import { BaseMarginContainer } from '../../components/base/base-components'
+
 
 class OurTeamPage extends React.Component {
     render(){
@@ -14,18 +17,13 @@ class OurTeamPage extends React.Component {
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
-              <div className="wrapper">
-                <h1>{teamPage.teamHeadline}</h1>
-                <div>
-                  {
-                    teamMembers.map(teamMember => 
-                      <div className="col-sm-6 col-md-4">
+               <HeaderBar isTop title={teamPage.teamHeadline} body={teamPage.shortDescription.shortDescription}/>
+               <OurTeamContainer>
+               {teamMembers.map(teamMember => 
                         <TeamMember key={teamMember.name} teamMember={teamMember}/>
-                      </div>
                       )
                   }
-                </div>
-              </div>
+               </OurTeamContainer>
             </Layout>
         )
     }
@@ -37,6 +35,9 @@ export const pageQuery = graphql`
   query OurTeamQuery {
     contentfulTeamPage {
       teamHeadline
+      shortDescription {
+        shortDescription
+      }
       teamMembers {
         name
         title
