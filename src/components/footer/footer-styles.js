@@ -24,6 +24,8 @@ export const FooterRowContainer = styled.div`
 `
 
 export const FooterSubsectionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 50%;
     flex-wrap: nowrap;
     @media ${device.tablet} {
@@ -52,7 +54,6 @@ export const FooterDescription = styled(HANbody)`
 
 export const FooterContactContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     width: 70%;
     align-items: baseline;
     flex-wrap: nowrap;
@@ -64,6 +65,14 @@ export const FooterContactContainer = styled.div`
         padding: 5% 0 15% 0;
     }
 `
+
+export const FooterContactContainerEmail = styled(FooterContactContainer)`
+    width: 70%;
+    justify-content: flex-start;
+    display: flex;
+`
+
+
 export const FooterSocialBlock = styled.div`
     display: flex;
     justify-content: space-between;
@@ -83,10 +92,24 @@ export const FooterSocialBlock = styled.div`
 `
 
 export const ConnectContactText = styled(HANdescription)`
-    padding-right: 10%;
     color: ${black};
+    padding-right: 5vw;
+`
+
+export const EmailContainer = styled.div`
+    flex: 1 1 70%;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
     @media ${device.smLaptop} {
-        padding-right: 20%;
+        width: 300px;
+    }
+    @media ${device.tablet} {
+        width: 100%;
+    }
+    @media ${device.mobile} {
+        width: 280px;
+        padding: 2% 0 0 0;
     }
 `
 
@@ -104,8 +127,20 @@ export const MailtoLink = styled.a`
     &:focus {
         color: ${teal};
     }
+    @media ${device.smLaptop} {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    @media ${device.tablet} {
+        overflow-wrap: unset;
+        word-wrap: unset;
+    }
     @media ${device.mobile} {
         font-size: 18px;
+        overflow-wrap: unset;
+        word-wrap: unset;
+    }
+    @media (max-width: 485px) {
         overflow-wrap: break-word;
         word-wrap: break-word;
     }

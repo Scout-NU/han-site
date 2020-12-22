@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { lighterGray, darkGray, teal, yellow } from "../base/colors"
+import { hintTextColor, darkGray, teal, yellow } from "../base/colors"
 import { device } from "../base/device"
 
 export const SockHeaderContainer = styled.div`
@@ -42,7 +42,7 @@ export const EmailInput = styled.input`
     font-style: italic;
     border-bottom: solid 1px ${darkGray};
     ::placeholder {
-        color: ${lighterGray};
+        color: ${hintTextColor};
     }
     &:focus {
         outline: none;
