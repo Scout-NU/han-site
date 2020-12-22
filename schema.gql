@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-22T06:32:24.892Z ###
+### Type definitions saved at 2020-12-22T07:10:34.933Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -313,6 +313,15 @@ type ImageSharpResize {
   height: Int
   aspectRatio: Float
   originalName: String
+}
+
+type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulAlumniPageDescriptionTextNodeSys
+}
+
+type contentfulAlumniPageDescriptionTextNodeSys {
+  type: String
 }
 
 type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
@@ -1234,12 +1243,47 @@ type ContentfulInvolvedPageSysContentTypeSys {
 
 type ContentfulAlumniPage implements Node @derivedTypes @dontInfer {
   alumniHeader: String
+  alumni: [ContentfulAlumni] @link(by: "id", from: "alumni___NODE")
+  description: contentfulAlumniPageDescriptionTextNode @link(by: "id", from: "description___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulAlumniPageSys
   node_locale: String
+}
+
+type ContentfulAlumni implements Node @derivedTypes @dontInfer {
+  name: String
+  yearInHan: Int
+  linkedIn: String
+  currentCompany: String
+  currentCompanyLink: String
+  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
+  alumni_page: [ContentfulAlumniPage] @link(by: "id", from: "alumni page___NODE") @proxy(from: "alumni page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAlumniSys
+  node_locale: String
+}
+
+type ContentfulAlumniSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAlumniSysContentType
+}
+
+type ContentfulAlumniSysContentType @derivedTypes {
+  sys: ContentfulAlumniSysContentTypeSys
+}
+
+type ContentfulAlumniSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulAlumniPageSys @derivedTypes {
@@ -1315,38 +1359,6 @@ type ContentfulTeamPageSysContentType @derivedTypes {
 }
 
 type ContentfulTeamPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulAlumni implements Node @derivedTypes @dontInfer {
-  name: String
-  yearInHan: Int
-  linkedIn: String
-  currentCompany: String
-  currentCompanyLink: String
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAlumniSys
-  node_locale: String
-  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
-}
-
-type ContentfulAlumniSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAlumniSysContentType
-}
-
-type ContentfulAlumniSysContentType @derivedTypes {
-  sys: ContentfulAlumniSysContentTypeSys
-}
-
-type ContentfulAlumniSysContentTypeSys {
   type: String
   linkType: String
   id: String

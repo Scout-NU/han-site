@@ -39,7 +39,7 @@ export const TeamMemberName = styled(HANsubh3)`
 export const TeamMemberImage = styled.img`
     max-height: 350px;
     object-fit: cover;
-    object-position: 0% 0%;
+    object-position: 50% 0%;
 `
 
 export const TeamMemberNameBox = styled.div`

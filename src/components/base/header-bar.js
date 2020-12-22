@@ -10,6 +10,8 @@ import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "./c
 
 export const TitleContainer = styled(BaseMarginContainer)`
     padding-top: ${props => (props.display ? "150px" : "100px")};
+    padding-bottom: ${props => (props.display ? "50px" : "0px")};
+
     margin-bottom: 50px;
     position: relative;
     width: 45%;
@@ -25,6 +27,7 @@ export const TitleContainer = styled(BaseMarginContainer)`
     @media ${device.mobile} {
         width: auto;
         padding-top: 50px;
+        padding-bottom: 0px;
         margin-bottom: ${props => (props.display ? "100px" : "0px")};
     }
 `
