@@ -14,4 +14,6 @@ export const teal70 = '#267993B3'
 export const teal50 = '#26799380'
 export const teal30 = '#2679934D'
 
+export const lightGray90 = '#F3F3F3E6'
+
 
