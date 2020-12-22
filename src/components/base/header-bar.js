@@ -12,7 +12,7 @@ export const TitleContainer = styled(BaseMarginContainer)`
     padding-top: ${props => (props.display ? "150px" : "100px")};
     margin-bottom: 50px;
     position: relative;
-    width: 40%;
+    width: 45%;
 
     @media ${device.smLaptop} {
         width: 50%;

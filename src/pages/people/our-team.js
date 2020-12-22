@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-import TeamMember, { OurTeamContainer } from '../../components/team-member/team-member'
+import TeamMember, { OurTeamContainer } from '../../components/people/team-member'
 import HeaderBar from '../../components/base/header-bar'
 import { BaseMarginContainer } from '../../components/base/base-components'
 

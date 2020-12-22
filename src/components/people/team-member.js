@@ -25,12 +25,6 @@ export const TeamMemberContainer = styled.div `
     }
 `
 
-
-export const HeaderDescription = styled.div`
-    padding: 10px 0px;
-`
-
-
 export const TeamMemberTitle = styled(HANsmalldescription)`
     padding-top: 10px;
     margin: 0px;

@@ -1,8 +1,6 @@
 import React from 'react'
 import {Link} from 'gatsby'
 
-import styles from './alumni.module.css'
-
 export default ({ alumni }) => (
   <div className={styles.preview}>
     <p>{alumni.name}</p>

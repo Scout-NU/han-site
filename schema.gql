@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-21T23:21:50.367Z ###
+### Type definitions saved at 2020-12-22T06:32:24.892Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -313,6 +313,15 @@ type ImageSharpResize {
   height: Int
   aspectRatio: Float
   originalName: String
+}
+
+type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
+  bio: String
+  sys: contentfulAdvisorBioTextNodeSys
+}
+
+type contentfulAdvisorBioTextNodeSys {
+  type: String
 }
 
 type contentfulTeamPageShortDescriptionTextNode implements Node @derivedTypes @dontInfer {
@@ -1028,12 +1037,44 @@ type ContentfulFooterSysContentTypeSys {
 
 type ContentfulAdvisorPage implements Node @derivedTypes @dontInfer {
   advisorHeadline: String
+  advisors: [ContentfulAdvisor] @link(by: "id", from: "advisors___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulAdvisorPageSys
   node_locale: String
+}
+
+type ContentfulAdvisor implements Node @derivedTypes @dontInfer {
+  name: String
+  linkedIn: String
+  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
+  advisor_page: [ContentfulAdvisorPage] @link(by: "id", from: "advisor page___NODE") @proxy(from: "advisor page___NODE")
+  bio: contentfulAdvisorBioTextNode @link(by: "id", from: "bio___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAdvisorSys
+  node_locale: String
+}
+
+type ContentfulAdvisorSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAdvisorSysContentType
+}
+
+type ContentfulAdvisorSysContentType @derivedTypes {
+  sys: ContentfulAdvisorSysContentTypeSys
+}
+
+type ContentfulAdvisorSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulAdvisorPageSys @derivedTypes {
@@ -1306,45 +1347,6 @@ type ContentfulAlumniSysContentType @derivedTypes {
 }
 
 type ContentfulAlumniSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
-  bio: String
-  sys: contentfulAdvisorBioTextNodeSys
-}
-
-type contentfulAdvisorBioTextNodeSys {
-  type: String
-}
-
-type ContentfulAdvisor implements Node @derivedTypes @dontInfer {
-  name: String
-  linkedIn: String
-  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
-  bio: contentfulAdvisorBioTextNode @link(by: "id", from: "bio___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAdvisorSys
-  node_locale: String
-}
-
-type ContentfulAdvisorSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAdvisorSysContentType
-}
-
-type ContentfulAdvisorSysContentType @derivedTypes {
-  sys: ContentfulAdvisorSysContentTypeSys
-}
-
-type ContentfulAdvisorSysContentTypeSys {
   type: String
   linkType: String
   id: String

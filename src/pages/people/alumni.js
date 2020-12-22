@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-import Alumni from '../../components/alumni/alumni'
+import Alumni from '../../components/people/alumni'
 
 class AlumniPage extends React.Component {
   render() {
