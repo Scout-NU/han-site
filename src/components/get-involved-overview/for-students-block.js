@@ -7,6 +7,7 @@ import { HANbody, HANh2} from "../base/fonts"
 import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
 import { MAX_Z_VALUE } from "../base/constants"
 import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
+import { InvolvedHeader } from "./get-involved-block"
 
 export const StudentTextContainer = styled(InvolvedTextContainer)`
     background-color:  ${lightGray};
@@ -50,7 +51,7 @@ const ForStudentBlock = ({header, description, image}) => {
         <InvolvedPicture src={image}/>
         <StudentTextContainer>
                 <GoldBar/>
-                <HANh2>{header}</HANh2>
+                <InvolvedHeader>{header}</InvolvedHeader>
                 <HANbody>
                 {description}
                 </HANbody>
