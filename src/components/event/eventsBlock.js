@@ -11,6 +11,7 @@ import Event from "./event"
 
 export const EventBlockContainer = styled(BaseMarginContainer)`
     margin-top: 100px;
+    margin-bottom: 100px;
     position: relative;
 `
 export const EventHeaderContainer = styled.div`
@@ -47,15 +48,18 @@ export const NoEventsMessage = styled.div`
     display: flex;
     padding: 20px;
     height: 250px;
-    // background-color: ${lightGray};
+    background-color: ${lightGray};
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    
-    p {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;
-      }
+`
 
+export const PastEventsButton = styled.div `
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
 `
 
 
@@ -70,11 +74,13 @@ const EventsBlock = ({ title, description, noEvents, events }) => {
             <NoEventsMessage>
                 <HANsubh4>{noEvents}</HANsubh4>
             </NoEventsMessage>
+            <PastEventsButton>
             <Link to={'/'}>
                 <Button>
                     View past events
                 </Button>
             </Link>
+            </PastEventsButton>
         </EventBlockContainer>
     } else {
         return <EventBlockContainer>
@@ -88,11 +94,13 @@ const EventsBlock = ({ title, description, noEvents, events }) => {
                     <Event event={event} />
                 )
             })}
+            <PastEventsButton>
             <Link to={'/'}>
                 <Button>
                     View past events
                 </Button>
             </Link>
+            </PastEventsButton>
         </EventBlockContainer>
     }
 }

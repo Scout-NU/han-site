@@ -18,6 +18,15 @@ export const EventContainer = styled.div`
 `
 
 export const EventDate = styled.div`
+    width: 60px;
+    @media ${device.tablet} {
+      width: 50px;
+    }
+
+    @media ${device.mobile} {
+      width: auto;
+    }
+
 `
 
 export const EventMonth = styled.div`
@@ -69,7 +78,8 @@ export const EventImageContainer = styled.div`
     }
 
     @media ${device.mobile} {
-      margin: 10px 0px;
+      margin: 0px 0px 10px 0px;
+
       width: 100%;
       height: 200px;
     }
