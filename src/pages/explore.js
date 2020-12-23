@@ -5,6 +5,7 @@ import Event from '../components/event/event'
 import Newsletter from '../components/newsletter/newsletter'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import EventsBlock from '../components/event/eventsBlock'
 class ExplorePage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
@@ -24,7 +25,12 @@ class ExplorePage extends React.Component {
               <div>{explorePage.blogButtonHeader}</div>
               <div>{explorePage.blogButtonLabel}</div>
               <div>{explorePage.noEventsMessage}</div>
-              <ul>
+              <EventsBlock 
+              title={explorePage.studentsHeader} 
+              description={explorePage.studentsSubheader} 
+              noEvents={explorePage.noEventsMessage} 
+              events={explorePage.upcomingEvents}/>
+              {/* <ul>
                 {events.map(({ node }) => {
                   return (
                     <li>
@@ -32,7 +38,7 @@ class ExplorePage extends React.Component {
                     </li>
                   )
                 })}
-              </ul>
+              </ul> */}
             </Layout>
 
         )
@@ -64,6 +70,23 @@ export const pageQuery = graphql`
         venturesAndInvestorsSubheader
         studentsHeader
         studentsSubheader
+        upcomingEvents {
+          title
+          description {
+            description
+          }
+          date
+          startTime
+          endTime
+          location
+          photo {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          hostName
+          registrationLink
+        }
         blogButtonHeader
         blogButtonLabel
         noEventsMessage
