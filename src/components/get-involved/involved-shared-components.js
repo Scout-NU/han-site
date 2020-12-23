@@ -216,7 +216,7 @@ export const StepsBlockContainer = styled.div`
     @media ${device.tablet} {
         margin-top: 120px;
     }
-    @media ${device.tablet} {
+    @media ${device.mobile} {
         margin-top: 80px;
     }
 `
@@ -228,7 +228,7 @@ export const StepsGroupContainer = styled.div`
     @media ${device.tablet} {
         margin: 40px auto 150px auto;
     }
-    @media ${device.mobile} {
+    @media (max-width: 800px) {
         flex-direction: column;
         margin: 45px auto 100px auto;
     }
@@ -238,9 +238,6 @@ export const Step = styled.div`
     position: relative;
     width: 30%;
     height: 250px;
-    @media ${device.tablet} {
-        height: 450px;
-    }
     @media ${device.tablet} {
         width: 100%;
         height: 200px;
@@ -261,7 +258,7 @@ export const StepNumber = styled.h1`
         font-size: 190px;
         line-height: 150px;
     }
-    @media ${device.tablet} {
+    @media (max-width: 800px) {
         left: 15%;
     }
 `
