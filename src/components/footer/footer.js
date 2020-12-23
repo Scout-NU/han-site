@@ -13,9 +13,11 @@ import {
   AffiliationContainer,
   FooterSocialBlock,
   FooterContactContainer,
+  FooterContactContainerEmail,
   FooterRowContainer,
   ItalicCaption,
   FooterSmallCaption,
+  EmailContainer,
   MailtoLink,
   ConnectContactText
 }
@@ -38,12 +40,12 @@ const Footer = ({ contentfulFooter, contactInfo }) => (
             <a href={contactInfo.mediumLink}><MediumIcon /></a>
           </FooterSocialBlock>
         </FooterContactContainer>
-        <FooterContactContainer>
+        <FooterContactContainerEmail>
           <ConnectContactText>CONTACT</ConnectContactText>
-          <FooterSocialBlock>
+          <EmailContainer>
             <MailtoLink href={"mailto:" + contactInfo.email}>{contactInfo.email}</MailtoLink>
-          </FooterSocialBlock>
-        </FooterContactContainer>
+            </EmailContainer>
+        </FooterContactContainerEmail>
       </FooterSubsectionContainer>
     </FooterRowContainer>
     <hr />
