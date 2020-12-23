@@ -3,6 +3,9 @@ import styled from "styled-components"
 import { BaseMarginContainer } from "../base/base-components"
 import { darkGray, lightGray, navy, teal } from "../base/colors"
 import { HANdescription, HANh1, HANsubh1, HANsubh4, HANbody } from "../base/fonts"
+import LinkedIn from "../../images/linkedIn.svg"
+import Instagram from "../../images/instagram.svg"
+import Medium from "../../images/medium.svg"
 
 const ContactHeadingContainer = styled.div`
     margin: 200px 0px 70px 0px;
@@ -30,7 +33,19 @@ const ContactHANdescription = styled(HANdescription)`
     margin-bottom: 8px;
 `
 
+const ContactHANbody = styled(HANbody)`
+    flex: 1 1 50%
+    width: 80%;
+`
+
 const LinkBlock = styled.a`
+    display: flex;
+    align-items: baseline;
+`
+
+const SocialIcon = styled.img`
+  width: 40px;
+  margin-right: 20px;
 `
 
 const Contact = ({ headline, tagline, emailHeader, emailDescription, linkedInHeader, linkedInDescription,
@@ -50,7 +65,10 @@ const Contact = ({ headline, tagline, emailHeader, emailDescription, linkedInHea
             <ContactGroup>
                 <ContactHANdescription color={navy}>{linkedInHeader}</ContactHANdescription>
                 <HANsubh4 color={darkGray}>{linkedInDescription}</HANsubh4>
-                <HANbody color={teal}>{contactInfoLinks.linkedInLink}</HANbody>
+                <LinkBlock>
+                    <SocialIcon src={LinkedIn} />
+                    <ContactHANbody color={teal}>{contactInfoLinks.linkedInLink}</ContactHANbody>
+                </LinkBlock>
             </ContactGroup>
             <ContactGroup>
                 <ContactHANdescription color={navy}>{newsletterHeader}</ContactHANdescription>
