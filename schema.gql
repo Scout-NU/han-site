@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-### Type definitions saved at 2020-12-21T03:57:55.363Z ###
-=======
-### Type definitions saved at 2020-12-21T21:41:34.671Z ###
->>>>>>> dev
+### Type definitions saved at 2020-12-23T03:15:45.594Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -319,7 +315,96 @@ type ImageSharpResize {
   originalName: String
 }
 
-<<<<<<< HEAD
+type contentfulInvolvedInvestorPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulInvolvedInvestorPageDescriptionTextNodeSys
+}
+
+type contentfulInvolvedInvestorPageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulInvolvedStudentPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulInvolvedStudentPageDescriptionTextNodeSys
+}
+
+type contentfulInvolvedStudentPageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulInvolvedVenturePageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulInvolvedVenturePageDescriptionTextNodeSys
+}
+
+type contentfulInvolvedVenturePageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulTeamPageShortDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  shortDescription: String
+  sys: contentfulTeamPageShortDescriptionTextNodeSys
+}
+
+type contentfulTeamPageShortDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulVentureDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulVentureDescriptionTextNodeSys
+}
+
+type contentfulVentureDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
+  bio: String
+  sys: contentfulAdvisorBioTextNodeSys
+}
+
+type contentfulAdvisorBioTextNodeSys {
+  type: String
+}
+
+type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulAlumniPageDescriptionTextNodeSys
+}
+
+type contentfulAlumniPageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulInvolvedPageStudentBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  studentBlockDescription: String
+  sys: contentfulInvolvedPageStudentBlockDescriptionTextNodeSys
+}
+
+type contentfulInvolvedPageStudentBlockDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulInvolvedPageInvestorBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  investorBlockDescription: String
+  sys: contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys
+}
+
+type contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  ventureBlockDescription: String
+  sys: contentfulInvolvedPageVentureBlockDescriptionTextNodeSys
+}
+
+type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
+  type: String
+}
+
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   spaceId: String
@@ -350,203 +435,10 @@ type ContentfulAssetFileDetailsImage {
 }
 
 type ContentfulAssetSys {
-=======
-type contentfulInvolvedPageStudentBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  studentBlockDescription: String
-  sys: contentfulInvolvedPageStudentBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageStudentBlockDescriptionTextNodeSys {
->>>>>>> dev
   type: String
   revision: Int
 }
 
-<<<<<<< HEAD
-type ContentfulContactInformation implements Node @derivedTypes @dontInfer {
-  email: String
-  instagramLink: String
-  linkedInLink: String
-  mediumLink: String
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulContactInformationSys
-  node_locale: String
-}
-
-type ContentfulContactInformationSys @derivedTypes {
-=======
-type contentfulInvolvedPageInvestorBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  investorBlockDescription: String
-  sys: contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys {
->>>>>>> dev
-  type: String
-  revision: Int
-  contentType: ContentfulContactInformationSysContentType
-}
-
-<<<<<<< HEAD
-type ContentfulContactInformationSysContentType @derivedTypes {
-  sys: ContentfulContactInformationSysContentTypeSys
-}
-
-type ContentfulContactInformationSysContentTypeSys {
-=======
-type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  ventureBlockDescription: String
-  sys: contentfulInvolvedPageVentureBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
->>>>>>> dev
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulFooter implements Node @derivedTypes @dontInfer {
-  descriptionAboutHan: String
-  affiliationText: String
-  hanLogo: ContentfulAsset @link(by: "id", from: "hanLogo___NODE")
-  socialMediaReferences: [ContentfulResource] @link(by: "id", from: "socialMediaReferences___NODE")
-  emailAddress: ContentfulResource @link(by: "id", from: "emailAddress___NODE")
-  damoreMcKimLogo: ContentfulAsset @link(by: "id", from: "damoreMcKimLogo___NODE")
-  mosaicLogo: ContentfulAsset @link(by: "id", from: "mosaicLogo___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulFooterSys
-  node_locale: String
-}
-
-type ContentfulResource implements Node @derivedTypes @dontInfer {
-  key: String
-  involved_investor_page: [ContentfulInvolvedInvestorPage] @link(by: "id", from: "involved investor page___NODE") @proxy(from: "involved investor page___NODE")
-  value: contentfulResourceValueTextNode @link(by: "id", from: "value___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulResourceSys
-  node_locale: String
-  involved_venture_page: [ContentfulInvolvedVenturePage] @link(by: "id", from: "involved venture page___NODE") @proxy(from: "involved venture page___NODE")
-  home_page: [ContentfulHomePage] @link(by: "id", from: "home page___NODE") @proxy(from: "home page___NODE")
-  footer: [ContentfulFooter] @link(by: "id", from: "footer___NODE")
-  resource_set: [ContentfulResourceSet] @link(by: "id", from: "resource set___NODE") @proxy(from: "resource set___NODE")
-  contact_page: [ContentfulContactPage] @link(by: "id", from: "contact page___NODE") @proxy(from: "contact page___NODE")
-}
-
-<<<<<<< HEAD
-type ContentfulInvolvedInvestorPage implements Node @derivedTypes @dontInfer {
-  headline: String
-  benefitsHeader: String
-  processHeader: String
-  processShortDescription: String
-  step1Header: String
-  step1Description: String
-  step2Header: String
-  step2Description: String
-  step3Header: String
-  step3Description: String
-  applyButtonHeader: String
-  applyButtonLabel: String
-  pastVenturesHeader: String
-  finalCTAHeader: String
-  finalCTADescription: String
-  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
-  benefitsList: [ContentfulResource] @link(by: "id", from: "benefitsList___NODE")
-  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
-  description: contentfulInvolvedInvestorPageDescriptionTextNode @link(by: "id", from: "description___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulInvolvedInvestorPageSys
-  node_locale: String
-}
-
-type ContentfulVenture implements Node @derivedTypes @dontInfer {
-  name: String
-  shortTagline: String
-  year: String
-  website: String
-  logo: ContentfulAsset @link(by: "id", from: "logo___NODE")
-  involved_venture_page: [ContentfulInvolvedVenturePage] @link(by: "id", from: "involved venture page___NODE") @proxy(from: "involved venture page___NODE")
-  involved_student_page: [ContentfulInvolvedStudentPage] @link(by: "id", from: "involved student page___NODE") @proxy(from: "involved student page___NODE")
-  involved_investor_page: [ContentfulInvolvedInvestorPage] @link(by: "id", from: "involved investor page___NODE") @proxy(from: "involved investor page___NODE")
-  description: contentfulVentureDescriptionTextNode @link(by: "id", from: "description___NODE")
-=======
-type ContentfulAsset implements Node @derivedTypes @dontInfer {
-  contentful_id: String
->>>>>>> dev
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulVentureSys
-  node_locale: String
-  portfolio_page: [ContentfulPortfolioPage] @link(by: "id", from: "portfolio page___NODE") @proxy(from: "portfolio page___NODE")
-}
-
-type ContentfulInvolvedVenturePage implements Node @derivedTypes @dontInfer {
-  headline: String
-  processHeader: String
-  processShortDescription: String
-  step1Header: String
-  step1Description: String
-  step2Header: String
-  step2Description: String
-  step3Header: String
-  step3Description: String
-  requirementsHeader: String
-  requirementsDescription: String
-  applyButtonHeader: String
-  applyButtonLabel: String
-  applyButtonLink: String
-  pastVenturesHeader: String
-  finalCTAHeader: String
-  finalCTADescription: String
-  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
-  requirementsList: [ContentfulResource] @link(by: "id", from: "requirementsList___NODE")
-  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
-  description: contentfulInvolvedVenturePageDescriptionTextNode @link(by: "id", from: "description___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulInvolvedVenturePageSys
-  node_locale: String
-}
-
-type contentfulInvolvedVenturePageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedVenturePageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedVenturePageDescriptionTextNodeSys {
-  type: String
-}
-
-<<<<<<< HEAD
-type ContentfulInvolvedVenturePageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulInvolvedVenturePageSysContentType
-}
-
-type ContentfulInvolvedVenturePageSysContentType @derivedTypes {
-  sys: ContentfulInvolvedVenturePageSysContentTypeSys
-}
-
-type ContentfulInvolvedVenturePageSysContentTypeSys {
-=======
 type ContentfulContactInformation implements Node @derivedTypes @dontInfer {
   email: String
   instagramLink: String
@@ -571,16 +463,12 @@ type ContentfulContactInformationSysContentType @derivedTypes {
 }
 
 type ContentfulContactInformationSysContentTypeSys {
->>>>>>> dev
   type: String
   linkType: String
   id: String
   contentful_id: String
 }
 
-<<<<<<< HEAD
-type ContentfulInvolvedStudentPage implements Node @derivedTypes @dontInfer {
-=======
 type ContentfulFooter implements Node @derivedTypes @dontInfer {
   descriptionAboutHan: String
   affiliationText: String
@@ -648,6 +536,7 @@ type ContentfulVenture implements Node @derivedTypes @dontInfer {
   year: String
   website: String
   logo: ContentfulAsset @link(by: "id", from: "logo___NODE")
+  portfolio_page: [ContentfulPortfolioPage] @link(by: "id", from: "portfolio page___NODE") @proxy(from: "portfolio page___NODE")
   involved_venture_page: [ContentfulInvolvedVenturePage] @link(by: "id", from: "involved venture page___NODE") @proxy(from: "involved venture page___NODE")
   involved_student_page: [ContentfulInvolvedStudentPage] @link(by: "id", from: "involved student page___NODE") @proxy(from: "involved student page___NODE")
   involved_investor_page: [ContentfulInvolvedInvestorPage] @link(by: "id", from: "involved investor page___NODE") @proxy(from: "involved investor page___NODE")
@@ -658,147 +547,19 @@ type ContentfulVenture implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: ContentfulVentureSys
   node_locale: String
-  portfolio_page: [ContentfulPortfolioPage] @link(by: "id", from: "portfolio page___NODE") @proxy(from: "portfolio page___NODE")
-}
-
-type ContentfulInvolvedVenturePage implements Node @derivedTypes @dontInfer {
->>>>>>> dev
-  headline: String
-  processHeader: String
-  processShortDescription: String
-  step1Header: String
-  step1Description: String
-  step2Header: String
-  step2Description: String
-  step3Header: String
-  step3Description: String
-  requirementsHeader: String
-  requirementsDescription: String
-  applyButtonHeader: String
-  applyButtonLabel: String
-  applyButtonLink: String
-  pastVenturesHeader: String
-  finalCTAHeader: String
-  finalCTADescription: String
-  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
-<<<<<<< HEAD
-  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
-  description: contentfulInvolvedStudentPageDescriptionTextNode @link(by: "id", from: "description___NODE")
-=======
-  requirementsList: [ContentfulResource] @link(by: "id", from: "requirementsList___NODE")
-  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
-  description: contentfulInvolvedVenturePageDescriptionTextNode @link(by: "id", from: "description___NODE")
->>>>>>> dev
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulInvolvedVenturePageSys
-  node_locale: String
-}
-
-<<<<<<< HEAD
-type contentfulInvolvedStudentPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedStudentPageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedStudentPageDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulInvolvedStudentPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulInvolvedStudentPageSysContentType
-=======
-type contentfulInvolvedVenturePageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedVenturePageDescriptionTextNodeSys
->>>>>>> dev
-}
-
-type contentfulInvolvedVenturePageDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulInvolvedVenturePageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulInvolvedVenturePageSysContentType
-}
-
-<<<<<<< HEAD
-type contentfulVentureDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulVentureDescriptionTextNodeSys
-}
-
-type contentfulVentureDescriptionTextNodeSys {
-=======
-type ContentfulInvolvedVenturePageSysContentType @derivedTypes {
-  sys: ContentfulInvolvedVenturePageSysContentTypeSys
-}
-
-type ContentfulInvolvedVenturePageSysContentTypeSys {
->>>>>>> dev
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-<<<<<<< HEAD
-type ContentfulVentureSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulVentureSysContentType
-}
-
-type ContentfulVentureSysContentType @derivedTypes {
-  sys: ContentfulVentureSysContentTypeSys
-}
-
-type ContentfulVentureSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
 }
 
 type ContentfulPortfolioPage implements Node @derivedTypes @dontInfer {
   headline: String
+  shortDescription: String
   featuredSubheader: String
   pastVenturesSubheader: String
   featuredVentures: [ContentfulVenture] @link(by: "id", from: "featuredVentures___NODE")
-=======
-type ContentfulInvolvedStudentPage implements Node @derivedTypes @dontInfer {
-  headline: String
-  processHeader: String
-  processShortDescription: String
-  step1Header: String
-  step1Description: String
-  step2Header: String
-  step2Description: String
-  step3Header: String
-  step3Description: String
-  requirementsHeader: String
-  requirementsDescription: String
-  applyButtonHeader: String
-  applyButtonLabel: String
-  applyButtonLink: String
-  pastVenturesHeader: String
-  finalCTAHeader: String
-  finalCTADescription: String
-  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
-  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
-  description: contentfulInvolvedStudentPageDescriptionTextNode @link(by: "id", from: "description___NODE")
->>>>>>> dev
+  pastVentures: [ContentfulVenture] @link(by: "id", from: "pastVentures___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-<<<<<<< HEAD
   sys: ContentfulPortfolioPageSys
   node_locale: String
 }
@@ -820,38 +581,80 @@ type ContentfulPortfolioPageSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulInvolvedInvestorPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedInvestorPageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedInvestorPageDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulInvolvedInvestorPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulInvolvedInvestorPageSysContentType
-}
-
-type ContentfulInvolvedInvestorPageSysContentType @derivedTypes {
-  sys: ContentfulInvolvedInvestorPageSysContentTypeSys
-}
-
-type ContentfulInvolvedInvestorPageSysContentTypeSys {
-=======
-  sys: ContentfulInvolvedStudentPageSys
+type ContentfulInvolvedVenturePage implements Node @derivedTypes @dontInfer {
+  headline: String
+  processHeader: String
+  processShortDescription: String
+  step1Header: String
+  step1Description: String
+  step2Header: String
+  step2Description: String
+  step3Header: String
+  step3Description: String
+  requirementsHeader: String
+  requirementsDescription: String
+  applyButtonHeader: String
+  applyButtonLabel: String
+  applyButtonLink: String
+  pastVenturesHeader: String
+  finalCTAHeader: String
+  finalCTADescription: String
+  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
+  requirementsList: [ContentfulResource] @link(by: "id", from: "requirementsList___NODE")
+  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
+  description: contentfulInvolvedVenturePageDescriptionTextNode @link(by: "id", from: "description___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulInvolvedVenturePageSys
   node_locale: String
 }
 
-type contentfulInvolvedStudentPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedStudentPageDescriptionTextNodeSys
+type ContentfulInvolvedVenturePageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulInvolvedVenturePageSysContentType
 }
 
-type contentfulInvolvedStudentPageDescriptionTextNodeSys {
+type ContentfulInvolvedVenturePageSysContentType @derivedTypes {
+  sys: ContentfulInvolvedVenturePageSysContentTypeSys
+}
+
+type ContentfulInvolvedVenturePageSysContentTypeSys {
   type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulInvolvedStudentPage implements Node @derivedTypes @dontInfer {
+  headline: String
+  processHeader: String
+  processShortDescription: String
+  step1Header: String
+  step1Description: String
+  step2Header: String
+  step2Description: String
+  step3Header: String
+  step3Description: String
+  requirementsHeader: String
+  requirementsDescription: String
+  applyButtonHeader: String
+  applyButtonLabel: String
+  applyButtonLink: String
+  pastVenturesHeader: String
+  finalCTAHeader: String
+  finalCTADescription: String
+  titleImage: ContentfulAsset @link(by: "id", from: "titleImage___NODE")
+  ventureShowcase: [ContentfulVenture] @link(by: "id", from: "ventureShowcase___NODE")
+  description: contentfulInvolvedStudentPageDescriptionTextNode @link(by: "id", from: "description___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulInvolvedStudentPageSys
+  node_locale: String
 }
 
 type ContentfulInvolvedStudentPageSys @derivedTypes {
@@ -865,46 +668,10 @@ type ContentfulInvolvedStudentPageSysContentType @derivedTypes {
 }
 
 type ContentfulInvolvedStudentPageSysContentTypeSys {
->>>>>>> dev
   type: String
   linkType: String
   id: String
   contentful_id: String
-}
-
-<<<<<<< HEAD
-type contentfulResourceValueTextNode implements Node @derivedTypes @dontInfer {
-  value: String
-  sys: contentfulResourceValueTextNodeSys
-}
-
-type contentfulResourceValueTextNodeSys {
-  type: String
-}
-
-type ContentfulResourceSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulResourceSysContentType
-}
-
-type ContentfulResourceSysContentType @derivedTypes {
-  sys: ContentfulResourceSysContentTypeSys
-}
-
-type ContentfulResourceSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-=======
-type contentfulVentureDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulVentureDescriptionTextNodeSys
-}
-
-type contentfulVentureDescriptionTextNodeSys {
-  type: String
 }
 
 type ContentfulVentureSys @derivedTypes {
@@ -922,45 +689,6 @@ type ContentfulVentureSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
-}
-
-type ContentfulPortfolioPage implements Node @derivedTypes @dontInfer {
-  headline: String
-  featuredSubheader: String
-  pastVenturesSubheader: String
-  featuredVentures: [ContentfulVenture] @link(by: "id", from: "featuredVentures___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulPortfolioPageSys
-  node_locale: String
-}
-
-type ContentfulPortfolioPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulPortfolioPageSysContentType
-}
-
-type ContentfulPortfolioPageSysContentType @derivedTypes {
-  sys: ContentfulPortfolioPageSysContentTypeSys
-}
-
-type ContentfulPortfolioPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulInvolvedInvestorPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedInvestorPageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedInvestorPageDescriptionTextNodeSys {
-  type: String
 }
 
 type ContentfulInvolvedInvestorPageSys @derivedTypes {
@@ -1004,7 +732,6 @@ type ContentfulResourceSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
->>>>>>> dev
 }
 
 type ContentfulHomePage implements Node @derivedTypes @dontInfer {
@@ -1112,32 +839,6 @@ type ContentfulNewsletter implements Node @derivedTypes @dontInfer {
   node_locale: String
 }
 
-<<<<<<< HEAD
-type contentfulTestimonialTestimonialTextNode implements Node @derivedTypes @dontInfer {
-  testimonial: String
-  sys: contentfulTestimonialTestimonialTextNodeSys
-}
-
-type contentfulTestimonialTestimonialTextNodeSys {
-  type: String
-}
-
-type ContentfulTestimonialSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulTestimonialSysContentType
-}
-
-type ContentfulTestimonialSysContentType @derivedTypes {
-  sys: ContentfulTestimonialSysContentTypeSys
-}
-
-type ContentfulTestimonialSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-=======
 type ContentfulNewsletterSys @derivedTypes {
   type: String
   revision: Int
@@ -1237,7 +938,6 @@ type ContentfulTestimonialSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
->>>>>>> dev
 }
 
 type ContentfulHomePageSys @derivedTypes {
@@ -1348,12 +1048,44 @@ type ContentfulFooterSysContentTypeSys {
 
 type ContentfulAdvisorPage implements Node @derivedTypes @dontInfer {
   advisorHeadline: String
+  advisors: [ContentfulAdvisor] @link(by: "id", from: "advisors___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulAdvisorPageSys
   node_locale: String
+}
+
+type ContentfulAdvisor implements Node @derivedTypes @dontInfer {
+  name: String
+  linkedIn: String
+  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
+  advisor_page: [ContentfulAdvisorPage] @link(by: "id", from: "advisor page___NODE") @proxy(from: "advisor page___NODE")
+  bio: contentfulAdvisorBioTextNode @link(by: "id", from: "bio___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAdvisorSys
+  node_locale: String
+}
+
+type ContentfulAdvisorSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAdvisorSysContentType
+}
+
+type ContentfulAdvisorSysContentType @derivedTypes {
+  sys: ContentfulAdvisorSysContentTypeSys
+}
+
+type ContentfulAdvisorSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulAdvisorPageSys @derivedTypes {
@@ -1511,74 +1243,49 @@ type ContentfulInvolvedPageSysContentTypeSys {
   contentful_id: String
 }
 
-type contentfulInvolvedPageStudentBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  studentBlockDescription: String
-  sys: contentfulInvolvedPageStudentBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageStudentBlockDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedPageInvestorBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  investorBlockDescription: String
-  sys: contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  ventureBlockDescription: String
-  sys: contentfulInvolvedPageVentureBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulInvolvedPage implements Node @derivedTypes @dontInfer {
-  headline: String
-  ventureBlockHeading: String
-  investorBlockHeading: String
-  studentBlockHeading: String
-  ventureBlockDescription: contentfulInvolvedPageVentureBlockDescriptionTextNode @link(by: "id", from: "ventureBlockDescription___NODE")
-  investorBlockDescription: contentfulInvolvedPageInvestorBlockDescriptionTextNode @link(by: "id", from: "investorBlockDescription___NODE")
-  studentBlockDescription: contentfulInvolvedPageStudentBlockDescriptionTextNode @link(by: "id", from: "studentBlockDescription___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulInvolvedPageSys
-  node_locale: String
-}
-
-type ContentfulInvolvedPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulInvolvedPageSysContentType
-}
-
-type ContentfulInvolvedPageSysContentType @derivedTypes {
-  sys: ContentfulInvolvedPageSysContentTypeSys
-}
-
-type ContentfulInvolvedPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type ContentfulAlumniPage implements Node @derivedTypes @dontInfer {
   alumniHeader: String
+  alumni: [ContentfulAlumni] @link(by: "id", from: "alumni___NODE")
+  description: contentfulAlumniPageDescriptionTextNode @link(by: "id", from: "description___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulAlumniPageSys
   node_locale: String
+}
+
+type ContentfulAlumni implements Node @derivedTypes @dontInfer {
+  name: String
+  yearInHan: Int
+  linkedIn: String
+  currentCompany: String
+  currentCompanyLink: String
+  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
+  alumni_page: [ContentfulAlumniPage] @link(by: "id", from: "alumni page___NODE") @proxy(from: "alumni page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAlumniSys
+  node_locale: String
+}
+
+type ContentfulAlumniSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAlumniSysContentType
+}
+
+type ContentfulAlumniSysContentType @derivedTypes {
+  sys: ContentfulAlumniSysContentTypeSys
+}
+
+type ContentfulAlumniSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
 }
 
 type ContentfulAlumniPageSys @derivedTypes {
@@ -1601,6 +1308,7 @@ type ContentfulAlumniPageSysContentTypeSys {
 type ContentfulTeamPage implements Node @derivedTypes @dontInfer {
   teamHeadline: String
   teamMembers: [ContentfulTeamMember] @link(by: "id", from: "teamMembers___NODE")
+  shortDescription: contentfulTeamPageShortDescriptionTextNode @link(by: "id", from: "shortDescription___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
@@ -1653,77 +1361,6 @@ type ContentfulTeamPageSysContentType @derivedTypes {
 }
 
 type ContentfulTeamPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulAlumni implements Node @derivedTypes @dontInfer {
-  name: String
-  yearInHan: Int
-  linkedIn: String
-  currentCompany: String
-  currentCompanyLink: String
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAlumniSys
-  node_locale: String
-  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
-}
-
-type ContentfulAlumniSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAlumniSysContentType
-}
-
-type ContentfulAlumniSysContentType @derivedTypes {
-  sys: ContentfulAlumniSysContentTypeSys
-}
-
-type ContentfulAlumniSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
-  bio: String
-  sys: contentfulAdvisorBioTextNodeSys
-}
-
-type contentfulAdvisorBioTextNodeSys {
-  type: String
-}
-
-type ContentfulAdvisor implements Node @derivedTypes @dontInfer {
-  name: String
-  linkedIn: String
-  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
-  bio: contentfulAdvisorBioTextNode @link(by: "id", from: "bio___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAdvisorSys
-  node_locale: String
-}
-
-type ContentfulAdvisorSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAdvisorSysContentType
-}
-
-type ContentfulAdvisorSysContentType @derivedTypes {
-  sys: ContentfulAdvisorSysContentTypeSys
-}
-
-type ContentfulAdvisorSysContentTypeSys {
   type: String
   linkType: String
   id: String
