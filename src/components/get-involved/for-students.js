@@ -49,10 +49,9 @@ export const DescriptionContainer = styled(HeaderContainer)`
     }
     @media ${device.mobile} {
         border-left: none;
-        border-top: 4px solid ${yellow};
+        border-top: 2px solid ${yellow};
         padding-left: 0;
         padding-top: 25px;
-        
     }
 `
 
