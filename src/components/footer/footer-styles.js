@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import { lightGray, darkGray, teal } from "../base/colors"
+import { lightGray, darkGray, teal, black } from "../base/colors"
 import { device } from "../base/device.js"
+import { HANbody, HANdescription } from "../base/fonts"
 
 export const FooterContainer = styled.div`
     background-color: ${lightGray};
@@ -23,6 +24,8 @@ export const FooterRowContainer = styled.div`
 `
 
 export const FooterSubsectionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     width: 50%;
     flex-wrap: nowrap;
     @media ${device.tablet} {
@@ -41,7 +44,7 @@ export const FooterLogo = styled.img`
     }
 `
 
-export const FooterDescription = styled.p`
+export const FooterDescription = styled(HANbody)`
     width: 66%;
     margin-top: 20px;
     @media ${device.mobile} {
@@ -51,7 +54,6 @@ export const FooterDescription = styled.p`
 
 export const FooterContactContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     width: 70%;
     align-items: baseline;
     flex-wrap: nowrap;
@@ -59,10 +61,18 @@ export const FooterContactContainer = styled.div`
         width: 100%;
     }
     @media ${device.mobile} {
-        flex-wrap: wrap;
+        flex-direction: column;
         padding: 5% 0 15% 0;
     }
 `
+
+export const FooterContactContainerEmail = styled(FooterContactContainer)`
+    width: 70%;
+    justify-content: flex-start;
+    display: flex;
+`
+
+
 export const FooterSocialBlock = styled.div`
     display: flex;
     justify-content: space-between;
@@ -81,20 +91,58 @@ export const FooterSocialBlock = styled.div`
     }
 `
 
-export const ConnectContactText = styled.p`
-    padding-right: 10%;
+export const ConnectContactText = styled(HANdescription)`
+    color: ${black};
+    padding-right: 5vw;
+`
+
+export const EmailContainer = styled.div`
+    flex: 1 1 70%;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
     @media ${device.smLaptop} {
-        padding-right: 20%;
+        width: 300px;
+    }
+    @media ${device.tablet} {
+        width: 100%;
+    }
+    @media ${device.mobile} {
+        width: 280px;
+        padding: 2% 0 0 0;
     }
 `
 
 export const MailtoLink = styled.a`
+    font-family: "URW DIN", sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 600;
+    text-transform: uppercase;
+    min-width: 1%;
     color: ${teal};
     &:hover {
         color: ${teal};
     }
     &:focus {
         color: ${teal};
+    }
+    @media ${device.smLaptop} {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    @media ${device.tablet} {
+        overflow-wrap: unset;
+        word-wrap: unset;
+    }
+    @media ${device.mobile} {
+        font-size: 18px;
+        overflow-wrap: unset;
+        word-wrap: unset;
+    }
+    @media (max-width: 485px) {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 `
 
@@ -120,6 +168,7 @@ export const AffiliationImg = styled.img`
 `
 
 export const ItalicCaption = styled.p`
+    font-family: "Merriweather", serif;
     font-style: italic;
     font-size: 14px;
     color: ${darkGray};
@@ -129,7 +178,7 @@ export const ItalicCaption = styled.p`
     }
 `
 
-export const FooterSmallCaption = styled.p`
+export const FooterSmallCaption = styled(HANdescription)`
     font-size: 14px;
     color: ${darkGray};
     @media ${device.smLaptop} {

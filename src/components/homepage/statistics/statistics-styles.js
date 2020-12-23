@@ -6,17 +6,17 @@ import { device } from "../../base/device.js"
 import { DESKTOP_MARGIN, TABLET_MARGIN } from "../../base/constants"
 
 export const StatisticsBlock = styled(BaseMarginContainer)`
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 136px;
+    margin-bottom: 168px;
     flex-wrap: wrap;
     display: flex;
     @media ${device.tablet} {
-        margin-top: 80px;
-        margin-bottom: 80px;
+        margin-top: 87px;
+        margin-bottom: 128px;
     }
     @media ${device.mobile} {
-        margin-top: 60px;
-        margin-bottom: 60px;
+        margin-top: 64px;
+        margin-bottom: 96px;
     }
 `
 
