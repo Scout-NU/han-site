@@ -3,7 +3,7 @@ import styled from "styled-components"
 import ChevronDownIconSVG from "../../images/chevron-down"
 import linkedInIcon from "../../images/linkedIn.svg"
 import { BaseMarginContainer } from "../base/base-components"
-import { device } from "../base/device"
+import { device, size } from "../base/device"
 import { HANbody, HANsmalldescription, HANsubh3 } from "../base/fonts"
 import { darkGray, teal } from "../base/colors"
 
@@ -17,11 +17,24 @@ export const OurTeamContainer = styled(BaseMarginContainer) `
 //FOR ONE MEMBER
 export const TeamMemberContainer = styled.div `
     flex-basis: 33%;
-    padding: 10px;
+    padding: 30px;
     margin-bottom: 30px;
+
+    @media ${device.smLaptop} {
+      padding: 15px;
+    }
+
+    @media ${device.tablet} {
+      padding: 10px;
+    }
 
     @media ${device.mobile} {
       flex-basis: 50%;
+    }
+
+    @media (max-width: 350px) {
+      flex-basis: 100%;
+      padding: 10px;
     }
 `
 
@@ -37,9 +50,32 @@ export const TeamMemberName = styled(HANsubh3)`
 `
 
 export const TeamMemberImage = styled.img`
-    max-height: 350px;
+    height: 350px;
     object-fit: cover;
     object-position: 50% 0%;
+
+
+    @media (min-width: 1600px) {
+      height: auto;
+    }
+
+    @media ${device.smLaptop} {
+      height: auto;
+      max-height: 500px;
+    }
+
+    @media ${device.tablet} {
+      height: auto;
+      max-height: 400px;
+    }
+
+    @media ${device.mobile} {
+      height: auto;
+      max-height: 300px;
+    }
+
+
+
 `
 
 export const TeamMemberNameBox = styled.div`

@@ -25,13 +25,21 @@ export const AlumniMemberContainer = styled.div `
     }
 `
 export const AlumniImage = styled.img`
-    height: 350px;
+    height: 450px;
     object-fit: cover;
     object-position: 50% 0%;
     margin-bottom: 10px;
 
-    @media ${device.mobile} {
+    @media ${device.smLaptop} {
+      height: 350px;
+    }
+
+    @media ${device.tablet} {
       height: 250px;
+    }
+
+    @media (max-width: 375px) {
+      height: 150px;
     }
 `
 
