@@ -66,7 +66,8 @@ export const LargeCTAContainer = styled.div`
     }
     @media ${device.mobile} {
         max-height: 190px;
-        margin: 40px auto 40px auto;
+        width: 100%;
+        margin: 40px 0px;
     }
 `
 
