@@ -17,21 +17,34 @@ export const AlumniTeamContainer = styled(BaseMarginContainer) `
 //FOR ONE MEMBER
 export const AlumniMemberContainer = styled.div `
     flex-basis: 33%;
-    padding: 10px;
+    padding: 30px;
     margin-bottom: 30px;
+
+    @media ${device.smLaptop} {
+      padding: 15px;
+    }
+
+    @media ${device.tablet} {
+      padding: 10px;
+    }
 
     @media ${device.mobile} {
       flex-basis: 50%;
     }
+
+    @media (max-width: 350px) {
+      flex-basis: 100%;
+      padding: 10px;
+    }
 `
 export const AlumniImage = styled.img`
-    height: 450px;
+    height: 350px;
     object-fit: cover;
-    object-position: 50% 0%;
+    object-position: 50% 50%;
     margin-bottom: 10px;
 
-    @media ${device.smLaptop} {
-      height: 350px;
+    @media (min-width: 1600px) {
+      height: 450px;
     }
 
     @media ${device.tablet} {
@@ -39,7 +52,7 @@ export const AlumniImage = styled.img`
     }
 
     @media (max-width: 375px) {
-      height: 150px;
+      height: auto;
     }
 `
 
