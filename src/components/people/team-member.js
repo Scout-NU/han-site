@@ -149,7 +149,7 @@ const TeamMember = ({ teamMember }) => {
       </AboutDropdownIcon>
     </AboutControl>
     <AboutDescription isOpen={open}>
-      <HANbody>{teamMember.bio}</HANbody>
+      <HANbody>{teamMember.bio.bio}</HANbody>
     </AboutDescription>
     <TealBar/>
   </TeamMemberContainer>
