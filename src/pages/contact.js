@@ -16,11 +16,9 @@ class ContactPage extends React.Component {
                 <div>{contact.emailHeader}</div>
                 <div>{contact.emailDescription}</div>
                 {/* <Img fluid={contact.emailIcon.image.fluid}/> */}
-                <div>{contact.email.value.value}</div>
                 <div>{contact.linkedInHeader}</div>
                 <div>{contact.linkedInDescription}</div>
                 {/* <Img fluid={contact.linkedInIcon.image.fluid}/> */}
-                <div>{contact.linkedIn.value.value}</div>
                 <div>{contact.newsletterHeader}</div>
                 <div>{contact.newsletterDescription}</div>
                 {/* <Img fluid={contact.newsletterIcon.image.fluid}/> */}
@@ -47,18 +45,8 @@ export const pageQuery = graphql`
         tagline
         emailHeader
         emailDescription
-        email {
-          value {
-            value
-          }
-        }
         linkedInHeader
         linkedInDescription
-        linkedIn {
-          value {
-            value
-          }
-        }
         newsletterHeader
         newsletterDescription
         faqHeader
