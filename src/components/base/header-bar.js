@@ -78,7 +78,7 @@ export const GrayBlock = styled.div`
         position: absolute;
         width: 80%;
         height: 80%;
-        background-color:rgba(0, 0, 0, .1);
+        background-color: ${lightGray};
         left: -${DESKTOP_MARGIN};
         top: 100px;
         z-index:-1;
