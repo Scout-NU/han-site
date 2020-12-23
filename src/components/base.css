@@ -2,9 +2,9 @@
 
 @font-face {
   font-family: 'Merriweather';
-  src: url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff'),
-       url('../../static/fonts/Merriweather-BoldItalic.woff') format('woff2');
-  font-style: normal;
+  src: url('../../static/fonts/Merriweather-Italic.woff') format('woff'),
+       url('../../static/fonts/Merriweather-Italic.woff') format('woff2');
+  font-style: italic;
   font-weight: 400;
 }
 
