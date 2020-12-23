@@ -47,18 +47,8 @@ export const pageQuery = graphql`
         tagline
         emailHeader
         emailDescription
-        email {
-          value {
-            value
-          }
-        }
         linkedInHeader
         linkedInDescription
-        linkedIn {
-          value {
-            value
-          }
-        }
         newsletterHeader
         newsletterDescription
         faqHeader

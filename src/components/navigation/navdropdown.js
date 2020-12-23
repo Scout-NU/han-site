@@ -61,6 +61,7 @@ transition: all 0.2s;
   :hover {
     color: ${white}
   }
+}
 
 `
 
@@ -69,7 +70,7 @@ position: absolute;
 background-color: ${lightGray};
 overflow: hidden;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-transform: translate(-27px, 20px);
+transform: translate(-27px, 19px);
 max-height: ${props => (props.isOpen ? '200px' : '0px')};
 transition: all 0.3s;
 

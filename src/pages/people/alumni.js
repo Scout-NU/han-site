@@ -3,7 +3,8 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
-import Alumni from '../../components/alumni/alumni'
+import Alumni, { AlumniTeamContainer } from '../../components/people/alumni'
+import HeaderBar from '../../components/base/header-bar'
 
 class AlumniPage extends React.Component {
   render() {
@@ -14,15 +15,14 @@ class AlumniPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <div>
-          Alumni
+        <HeaderBar grayBackground isTop title={alumniPage.alumniHeader} body={alumniPage.description.description}/>
+        <AlumniTeamContainer>
           {
-            alumni.map(({node}) => 
-            <Alumni alumni={node}/>
+            alumniPage.alumni.map((alumni) => 
+            <Alumni key={alumni.name} alumni={alumni}/>
             )
           }
-        </div>
-
+        </AlumniTeamContainer>
       </Layout>
     )
   }
@@ -39,6 +39,21 @@ export const pageQuery = graphql`
     }
     contentfulAlumniPage {
       alumniHeader
+      description {
+        description
+      }
+      alumni {
+        name
+        linkedIn
+        profilePicture {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+        currentCompany
+        currentCompanyLink
+        yearInHan
+      }
     }
     allContentfulAlumni (sort: {fields: yearInHan}) {
       edges {
