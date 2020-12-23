@@ -16,9 +16,10 @@ export const HeroContainer = styled.div`
 export const HeroImage = styled.img`
     position: absolute;
     width: 68%;
+    height: 70%;
+    object-fit: cover;
     bottom: 0;
     left: -${DESKTOP_MARGIN};
-    top: 156;
     @media ${device.smLaptop} {
         left: -${LAPTOP_MARGIN};
     }
@@ -28,6 +29,7 @@ export const HeroImage = styled.img`
     @media ${device.mobile} {
         left: -${MOBILE_MARGIN};
         width: 100%;
+        height: 55%;
     }
 `
 
@@ -39,6 +41,7 @@ export const GoldBlock = styled.div`
     padding: 60px;
     background-color: ${yellow70};
     @media ${device.smLaptop} {
+        right: -${LAPTOP_MARGIN};
     }
     @media ${device.tablet} {
         right: -${TABLET_MARGIN};
@@ -52,7 +55,7 @@ export const GoldBlock = styled.div`
         padding: 55px 30px;
     }
     @media (max-width: 400px) {
-        padding: 20px;
+        padding: 55px 20px;
     }
 `
 
@@ -79,8 +82,12 @@ export const TealBar = styled.div`
         top: 425px;
     }
     @media ${device.mobile} {
-        width: 35%;
+        height: 4px;
+        width: 30%;
         right: -${MOBILE_MARGIN};
+    }
+    @media (max-width: 375px) {
+        top: 450px;
     }
 `
 
@@ -117,7 +124,7 @@ export const BenefitsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 -${DESKTOP_MARGIN} 0 -${DESKTOP_MARGIN};
+    margin: 0 -${DESKTOP_MARGIN};
     padding: 90px ${DESKTOP_MARGIN} 80px ${DESKTOP_MARGIN};
     width: 100vw;
     @media ${device.smLaptop} {
