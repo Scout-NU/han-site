@@ -36,7 +36,7 @@ export const GrayBox = styled.div`
     z-index: -1;
     background-color: ${lightGray};
     @media ${device.mobile} {
-        top: 3vw;
+        top: 18px;
         left: 0;
         width: 100%;
         height: 90%;

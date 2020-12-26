@@ -219,7 +219,7 @@ export const StepsBlockContainer = styled.div`
         margin-top: 120px;
     }
     @media ${device.mobile} {
-        margin-top: 80px;
+        margin-top: 0;
     }
 `
 
@@ -315,10 +315,7 @@ export const StudentVentureHeroContainer = styled.div`
     height: 80vh;
     position: relative;
     @media ${device.mobile} {
-        height: 70vh;
-    }
-    @media (max-width: 375px){
-        height: 82vh;
+        height: 100%;
     }
 
 `
@@ -333,15 +330,18 @@ export const StudentVentureImage = styled.img`
     @media ${device.smLaptop} {
         right: -${LAPTOP_MARGIN};
         width: 70vw;
-        height: 70vh;
+        height: 70%;
     }
     @media ${device.tablet} {
         right: -${TABLET_MARGIN};
     }
     @media ${device.mobile} {
-        right: -${MOBILE_MARGIN};
+        position: relative;
+        margin-top: 60px;
+        right: unset;
         width: 100vw;
-        height: 40vh;
+        margin-left: -${MOBILE_MARGIN};
+        height: 350px;
     }
     
 `
@@ -361,12 +361,17 @@ export const GrayBlock = styled.div`
     }
     @media ${device.tablet} {
         left: -${TABLET_MARGIN};
+        padding: 45px 45px 45px 120px;
     }
     @media ${device.mobile} {
+        position: relative;
         width: 100vw;
-        left: -${MOBILE_MARGIN};
+        
+        top: -85px;
+        bottom: unset;
+        left: unset;
         padding: 50px ${MOBILE_MARGIN};
-        bottom: 0;
+        margin-left: -${MOBILE_MARGIN};
     }
 `
 export const GoldBar = styled.div`
