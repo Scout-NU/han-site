@@ -219,7 +219,7 @@ export const StepsBlockContainer = styled.div`
         margin-top: 120px;
     }
     @media ${device.mobile} {
-        margin-top: 0;
+        margin-top: 80px;
     }
 `
 
@@ -366,12 +366,12 @@ export const GrayBlock = styled.div`
     @media ${device.mobile} {
         position: relative;
         width: 100vw;
-        
         top: -85px;
         bottom: unset;
         left: unset;
         padding: 50px ${MOBILE_MARGIN};
         margin-left: -${MOBILE_MARGIN};
+        margin-bottom: -85px;
     }
 `
 export const GoldBar = styled.div`
