@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import Img from 'gatsby-image'
 import Contact from "../components/contact/contact"
 
 class ContactPage extends React.Component {
