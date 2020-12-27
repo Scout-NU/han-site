@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray, yellow, darkGray } from "../base/colors"
-import { device } from "../base/device"
-import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh2 } from "../base/fonts"
-import { BaseMarginContainer, SecondaryButton } from "../base/base-components"
-import { MONTHS_LIST } from "../base/constants"
+import { teal, navy, white, lightGray, yellow, darkGray } from "../../base/colors"
+import { device } from "../../base/device"
+import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh2 } from "../../base/fonts"
+import { BaseMarginContainer, SecondaryButton } from "../../base/base-components"
+import { MONTHS_LIST } from "../../base/constants"
 
 export const EventContainer = styled.div`
     display: flex;

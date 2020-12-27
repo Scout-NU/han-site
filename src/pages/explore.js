@@ -1,11 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import Event from '../components/event/event'
-import Newsletter from '../components/newsletter/newsletter'
+import Event from '../components/explore/event/event'
+import Newsletter from '../components/explore/newsletter'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import EventsBlock from '../components/event/eventsBlock'
+import EventsBlock from '../components/explore/event/eventsBlock'
+import HeaderBar from '../components/base/header-bar'
 class ExplorePage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
@@ -15,6 +16,7 @@ class ExplorePage extends React.Component {
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
+              <HeaderBar title={explorePage.headline}/>
               <h1>{explorePage.headline}</h1>
               <h2>{explorePage.newsletterSubheader}</h2>
               <Newsletter newsletter={explorePage.featuredNewsletter}/>

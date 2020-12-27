@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from 'gatsby'
-import { teal, navy, white, lightGray, yellow, darkGray } from "../base/colors"
-import { device } from "../base/device"
-import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh3, HANsubh4 } from "../base/fonts"
-import { BaseMarginContainer, Button } from "../base/base-components"
-import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
+import { teal, navy, white, lightGray, yellow, darkGray } from "../../base/colors"
+import { device } from "../../base/device"
+import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh3, HANsubh4, HANsubh1 } from "../../base/fonts"
+import { BaseMarginContainer, Button } from "../../base/base-components"
+import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../../base/constants"
 import Event from "./event"
 
 
@@ -64,7 +64,7 @@ export const PastEventsButton = styled.div `
 
 
 const EventsBlock = ({ title, description, noEvents, events }) => {
-    if (events === null || events.length === 0) {
+    if (events != null) {
         return <EventBlockContainer>
             <EventHeaderContainer>
                 <GoldBar />
@@ -72,15 +72,16 @@ const EventsBlock = ({ title, description, noEvents, events }) => {
                 <HANsubh3 color={darkGray}>{description}</HANsubh3>
             </EventHeaderContainer>
             <NoEventsMessage>
-                <HANsubh4>{noEvents}</HANsubh4>
+                <HANsubh1>{noEvents}</HANsubh1>
             </NoEventsMessage>
-            <PastEventsButton>
+            {/* If you want to include past events eventually, feel free to comment this out! */}
+            {/* <PastEventsButton>
             <Link to={'/'}>
                 <Button>
                     View past events
                 </Button>
             </Link>
-            </PastEventsButton>
+            </PastEventsButton> */}
         </EventBlockContainer>
     } else {
         return <EventBlockContainer>
@@ -94,13 +95,14 @@ const EventsBlock = ({ title, description, noEvents, events }) => {
                     <Event event={event} />
                 )
             })}
-            <PastEventsButton>
+            {/* If you want to include past events eventually, feel free to comment this out! */}
+            {/* <PastEventsButton>
             <Link to={'/'}>
                 <Button>
                     View past events
                 </Button>
             </Link>
-            </PastEventsButton>
+            </PastEventsButton> */}
         </EventBlockContainer>
     }
 }
