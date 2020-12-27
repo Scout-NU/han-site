@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-### Type definitions saved at 2020-12-23T04:09:55.199Z ###
-=======
-### Type definitions saved at 2020-12-23T19:32:57.775Z ###
->>>>>>> dev
+### Type definitions saved at 2020-12-27T04:38:13.801Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -319,8 +315,6 @@ type ImageSharpResize {
   originalName: String
 }
 
-<<<<<<< HEAD
-=======
 type contentfulTeamMemberBioTextNode implements Node @derivedTypes @dontInfer {
   bio: String
   sys: contentfulTeamMemberBioTextNodeSys
@@ -330,7 +324,6 @@ type contentfulTeamMemberBioTextNodeSys {
   type: String
 }
 
->>>>>>> dev
 type contentfulNewsletterDescriptionTextNode implements Node @derivedTypes @dontInfer {
   description: String
   sys: contentfulNewsletterDescriptionTextNodeSys
@@ -427,6 +420,15 @@ type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @deri
 }
 
 type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulEventDescriptionTextNodeSys
+}
+
+type contentfulEventDescriptionTextNodeSys {
   type: String
 }
 
@@ -975,15 +977,6 @@ type ContentfulHomePageSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
-}
-
-type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulEventDescriptionTextNodeSys
-}
-
-type contentfulEventDescriptionTextNodeSys {
-  type: String
 }
 
 type ContentfulEventSys @derivedTypes {
