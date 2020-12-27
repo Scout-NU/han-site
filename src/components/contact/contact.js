@@ -73,7 +73,7 @@ const FAQTealBlock = styled.div`
         padding: 30px;
     }
 `
-export const AccentBlock = styled.div`
+const AccentBlock = styled.div`
     position: absolute;
     background-color: ${yellow};
     width: 12.5%;
@@ -85,7 +85,7 @@ export const AccentBlock = styled.div`
     }
 `
 
-export const AccentBlockSmall = styled(AccentBlock)`
+const AccentBlockSmall = styled(AccentBlock)`
     width: 9%;
     height: 20%;
     opacity: 30%;
