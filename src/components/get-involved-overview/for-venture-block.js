@@ -6,7 +6,7 @@ import { device } from "../base/device"
 import { HANbody, HANh2 } from "../base/fonts"
 import { SecondaryButton } from "../base/base-components"
 import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
-import { InvolvedBlockContainer, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
+import { InvolvedBlockContainer, InvolvedHeader, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
 
 export const VentureTextContainer = styled(InvolvedTextContainer)`
     background-color:  ${lightGray};
@@ -59,7 +59,7 @@ const ForVentureBlock = ({header, description, image}) => {
         <InvolvedPicture src={image}/>
         <VentureTextContainer>
             <GoldBar/>
-                <HANh2>{header}</HANh2>
+                <InvolvedHeader>{header}</InvolvedHeader>
                 <HANbody>
                     {description}
                 </HANbody>
