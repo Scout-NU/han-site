@@ -17,9 +17,7 @@ class ExplorePage extends React.Component {
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
               <HeaderBar title={explorePage.headline}/>
-              <h1>{explorePage.headline}</h1>
-              <h2>{explorePage.newsletterSubheader}</h2>
-              <Newsletter title={explorePage.newsletterSubheader} newsletter={explorePage.featuredNewsletter}/>
+              <Newsletter title={explorePage.newsletterHeader} newsletter={explorePage.featuredNewsletter}/>
               <h2>{explorePage.venturesAndInvestorsHeader}</h2>
               <div>{explorePage.venturesAndInvestorsSubheader}</div>
               <h2>{explorePage.studentsHeader}</h2>
@@ -58,7 +56,7 @@ export const pageQuery = graphql`
     }
     contentfulExplorePage {
         headline
-        newsletterSubheader
+        newsletterHeader
         featuredNewsletter {
           title
           description {

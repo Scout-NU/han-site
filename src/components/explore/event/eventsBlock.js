@@ -64,7 +64,7 @@ export const PastEventsButton = styled.div `
 
 
 const EventsBlock = ({ title, description, noEvents, events }) => {
-    if (events != null) {
+    if (events === null) {
         return <EventBlockContainer>
             <EventHeaderContainer>
                 <GoldBar />
