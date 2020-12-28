@@ -6,7 +6,6 @@ import { device } from "../base/device"
 import { HANbody, HANdescription, HANh1, HANh2, HANsmalldescription, HANsubh3, HANsubh4 } from "../base/fonts"
 import { BaseMarginContainer, Button } from "../base/base-components"
 import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "../base/constants"
-import Event from "./event"
 
 //subh3, h2, body, both buttons
 
@@ -17,13 +16,10 @@ export const NewsletterBlockContainer = styled(BaseMarginContainer)`
 `
 
 export const NewsletterPreview = styled.div`
-    position: relative;
 
 `
 
 export const NewsletterDescriptionContainer = styled.div`
-    position: relative;
-
 
 `
 export const PastEventsButton = styled.div `
@@ -34,34 +30,25 @@ export const PastEventsButton = styled.div `
     margin: 20px 0px;
 `
 
+export const NewsletterButtonContainer = styled.div `
+
+
+`
 
 const NewsletterBlock = ({ newsletter, title }) => {
-        return <EventBlockContainer>
-            <EventHeaderContainer>
-                <GoldBar />
-                <HANh2>{title}</HANh2>
-                <HANsubh3 color={darkGray}>{description}</HANsubh3>
-            </EventHeaderContainer>
-            {events.map((event) => {
-                return (
-                    <Event event={event} />
-                )
-            })}
-            <PastEventsButton>
-            <Link to={'/'}>
-                <Button>
-                    View past events
-                </Button>
-            </Link>
-            </PastEventsButton>
-        </EventBlockContainer>
+        return <NewsletterBlockContainer>
+        <NewsletterPreview>
+        </NewsletterPreview>
+        <NewsletterDescriptionContainer>
+        <HANsubh3>HI</HANsubh3>
+        <HANh2>{newsletter.title}</HANh2>
+        <HANbody>{newsletter.description.description}</HANbody>
+        <NewsletterButtonContainer>
+        </NewsletterButtonContainer>
+
+        </NewsletterDescriptionContainer>
+            
+        </NewsletterBlockContainer>
 }
 
 export default NewsletterBlock
-
-export default ({ newsletter }) => (
-  <> 
-  {newsletter.title}, 
-  {newsletter.publicationDate}
-  </>
-)
