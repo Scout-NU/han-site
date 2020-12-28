@@ -7,6 +7,7 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import EventsBlock from '../components/explore/event/eventsBlock'
 import HeaderBar from '../components/base/header-bar'
+import VentureSignupBlock from '../components/explore/signup'
 class ExplorePage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
@@ -18,13 +19,7 @@ class ExplorePage extends React.Component {
               <Helmet title={siteTitle} />
               <HeaderBar title={explorePage.headline}/>
               <Newsletter title={explorePage.newsletterHeader} newsletter={explorePage.featuredNewsletter}/>
-              <h2>{explorePage.venturesAndInvestorsHeader}</h2>
-              <div>{explorePage.venturesAndInvestorsSubheader}</div>
-              <h2>{explorePage.studentsHeader}</h2>
-              <div>{explorePage.studentsSubheader}</div>
-              <div>{explorePage.blogButtonHeader}</div>
-              <div>{explorePage.blogButtonLabel}</div>
-              <div>{explorePage.noEventsMessage}</div>
+              <VentureSignupBlock title={explorePage.venturesAndInvestorsHeader} description={explorePage.venturesAndInvestorsSubheader}/>
               <EventsBlock 
               title={explorePage.studentsHeader} 
               description={explorePage.studentsSubheader} 

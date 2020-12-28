@@ -87,9 +87,7 @@ const NewsletterBlock = ({ newsletter, title }) => {
                     <SecondaryButton>Past Issues</SecondaryButton>
                 </PastIssuesLink>
             </NewsletterButtonContainer>
-
         </NewsletterDescriptionContainer>
-
     </NewsletterBlockContainer>
 }
 
