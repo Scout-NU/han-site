@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
 import { BaseMarginContainer } from '../../components/base/base-components'
-import { Hero, RequirementsBlock } from '../../components/get-involved/for-ventures'
-import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme } from '../../components/get-involved/involved-shared-components'
+import { RequirementsBlock } from '../../components/get-involved/for-ventures'
+import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme, StudentVentureHero } from '../../components/get-involved/involved-shared-components'
 
 class ForVenturesPage extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class ForVenturesPage extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <BaseMarginContainer>
-          <Hero image={venturesPage.titleImage} headline={venturesPage.headline} description={venturesPage.description.description} />
+          <StudentVentureHero image={venturesPage.titleImage} headline={venturesPage.headline} description={venturesPage.description.description} />
           <StepsBlock
             header={venturesPage.processHeader}
             description={venturesPage.processShortDescription}

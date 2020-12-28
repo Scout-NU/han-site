@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { yellow, yellow70, navy, white, teal } from "../base/colors"
-import { HANsubh3, HANh2, HANh3, HANbody } from "../base/fonts"
+import { yellow, yellow70, navy, white, teal, lightGray, lightGray90 } from "../base/colors"
+import { HANh1, HANsubh3, HANh2, HANh3, HANbody } from "../base/fonts"
 import ArrowIconSVG from "../../images/arrowIcon"
 import { device } from "../base/device.js"
+import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "../base/constants"
 
 export const theme = {
     yellowCTA: {
@@ -65,7 +66,8 @@ export const LargeCTAContainer = styled.div`
     }
     @media ${device.mobile} {
         max-height: 190px;
-        margin: 40px auto 40px auto;
+        width: 100%;
+        margin: 40px 0px;
     }
 `
 
@@ -305,6 +307,120 @@ export const StepsBlock = ({ header, description, step1Header, step1Description,
                 </Step>
             </StepsGroupContainer>
         </StepsBlockContainer>
+    </>
+}
+
+export const StudentVentureHeroContainer = styled.div`
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    @media ${device.mobile} {
+        height: 100%;
+    }
+
+`
+
+export const StudentVentureImage = styled.img`
+    position: absolute;
+    top: 0;
+    right: -${DESKTOP_MARGIN};
+    width: 60vw;
+    height: 80vh;
+    object-fit: cover;
+    @media ${device.smLaptop} {
+        right: -${LAPTOP_MARGIN};
+        width: 70vw;
+        height: 70%;
+    }
+    @media ${device.tablet} {
+        right: -${TABLET_MARGIN};
+    }
+    @media ${device.mobile} {
+        position: relative;
+        margin-top: 60px;
+        right: unset;
+        width: 100vw;
+        margin-left: -${MOBILE_MARGIN};
+        height: 350px;
+    }
+    
+`
+
+export const GrayBlock = styled.div`
+    width: 45vw;
+    position: absolute;
+    bottom: 10vh;
+    left: -106px;
+    padding: 50px 60px 50px 100px;
+    background-color: ${lightGray90};
+    @media ${device.smLaptop} {
+        left: -${LAPTOP_MARGIN};
+        padding: 50px 60px 50px 120px;
+        width: 80vw;
+        bottom: 0;
+    }
+    @media ${device.tablet} {
+        left: -${TABLET_MARGIN};
+        padding: 45px 45px 45px 120px;
+    }
+    @media ${device.mobile} {
+        position: relative;
+        width: 100vw;
+        top: -85px;
+        bottom: unset;
+        left: unset;
+        padding: 50px ${MOBILE_MARGIN};
+        margin-left: -${MOBILE_MARGIN};
+        margin-bottom: -85px;
+    }
+`
+export const GoldBar = styled.div`
+    height: 7px;
+    width: 280px;
+    position: absolute;
+    top: 90px;
+    background-color: ${yellow};
+    left: -${DESKTOP_MARGIN};
+    @media ${device.smLaptop} {
+        height: 5px;
+        width: 200px;
+        left: -${LAPTOP_MARGIN};
+    }
+    @media ${device.tablet} {
+        width: 150px;
+        left: -${TABLET_MARGIN};
+    }
+    @media ${device.mobile} {
+        top: 30px;
+        left: -${MOBILE_MARGIN};
+    }
+`
+
+export const HeroTextContainer = styled.div`
+    width: 100%;
+    max-width: 470px;
+    min-width: 440px;
+    @media ${device.tablet} {
+        max-width: 450px;
+    }
+    @media ${device.mobile} {
+        max-width: 350px;
+        min-width: unset;
+    }
+`
+
+export const StudentVentureHero = ({ headline, description, image }) => {
+    return <>
+        <StudentVentureHeroContainer>
+            <StudentVentureImage src={image.fluid.src}></StudentVentureImage>
+            <GrayBlock>
+                <GoldBar/>
+                <HeroTextContainer>
+                    <HANh1>{headline}</HANh1>
+                </HeroTextContainer>
+                <HANbody>{description}</HANbody>
+            </GrayBlock>
+        </StudentVentureHeroContainer>
     </>
 }
 
