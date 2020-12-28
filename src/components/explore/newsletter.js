@@ -68,22 +68,21 @@ export const PastIssuesLink = styled(Link)`
 `
 
 
-const NewsletterBlock = ({ newsletter, title }) => {
+const NewsletterBlock = ({ newsletter, title, pastNewslettersLink }) => {
     return <NewsletterBlockContainer>
         <NewsletterPreview>
-            <NewsletterImage src="https://www.cover-pages.com/wp-content/uploads/2018/10/cover-page-cover-pages.com-002-n.png" />
+            <NewsletterImage src={newsletter.previewImage.fluid.src} />
         </NewsletterPreview>
         <NewsletterDescriptionContainer>
             <NewsletterSubheader color={darkGray}>{title}</NewsletterSubheader>
             <HANh2>{newsletter.title}</HANh2>
-            {/* <HANbody>{newsletter.description.description}</HANbody> */}
-            <HANbody>Our Spring 2020 newsletter highlights the events we hosted at Northeastern and portfolio companies including Parallel Pipes, Mount Locks, Bountium, Imaginostics, Foodspace, Drink Simple, and The Oyster Common!</HANbody>
+            <HANbody>{newsletter.description.description}</HANbody>
             <br />
             <NewsletterButtonContainer>
                 <Link to={`https://${newsletter.newsletterFile.file.url}`}>
                     <Button> Read More</Button>
                 </Link>
-                <PastIssuesLink to={'/'}>
+                <PastIssuesLink to={pastNewslettersLink}>
                     <SecondaryButton>Past Issues</SecondaryButton>
                 </PastIssuesLink>
             </NewsletterButtonContainer>

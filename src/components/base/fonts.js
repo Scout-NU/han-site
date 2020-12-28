@@ -20,6 +20,11 @@ export const HANh1 = styled.h1`
     font-size: 50px;
     line-height: 66px;
   }
+
+  @media ${device.smMobile} {
+    font-size: 40px;
+    line-height: 56px;
+  }
 `
 
 export const HANh2 = styled.h2`

@@ -9,35 +9,31 @@ import EventsBlock from '../components/explore/event/eventsBlock'
 import HeaderBar from '../components/base/header-bar'
 import VentureSignupBlock from '../components/explore/signup'
 class ExplorePage extends React.Component {
-    render(){
-        const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const explorePage = get(this,  'props.data.contentfulExplorePage')
-        const events = get(this, 'props.data.allContentfulEvent.edges')
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const explorePage = get(this, 'props.data.contentfulExplorePage')
+    const events = get(this, 'props.data.allContentfulEvent.edges')
 
-        return (
-            <Layout location={this.props.location}>
-              <Helmet title={siteTitle} />
-              <HeaderBar title={explorePage.headline}/>
-              <Newsletter title={explorePage.newsletterHeader} newsletter={explorePage.featuredNewsletter}/>
-              <VentureSignupBlock title={explorePage.venturesAndInvestorsHeader} description={explorePage.venturesAndInvestorsSubheader}/>
-              <EventsBlock 
-              title={explorePage.studentsHeader} 
-              description={explorePage.studentsSubheader} 
-              noEvents={explorePage.noEventsMessage} 
-              events={explorePage.upcomingEvents}/>
-              {/* <ul>
-                {events.map(({ node }) => {
-                  return (
-                    <li>
-                      <Event event={node} />
-                    </li>
-                  )
-                })}
-              </ul> */}
-            </Layout>
+    return (
+      <Layout location={this.props.location}>
+        <Helmet title={siteTitle} />
+        <HeaderBar title={explorePage.headline} />
+        <Newsletter
+          title={explorePage.newsletterHeader}
+          newsletter={explorePage.featuredNewsletter}
+          pastNewslettersLink={explorePage.pastNewslettersLink} />
+        <VentureSignupBlock
+          title={explorePage.venturesAndInvestorsHeader}
+          description={explorePage.venturesAndInvestorsSubheader} />
+        <EventsBlock
+          title={explorePage.studentsHeader}
+          description={explorePage.studentsSubheader}
+          noEvents={explorePage.noEventsMessage}
+          events={explorePage.upcomingEvents} />
+      </Layout>
 
-        )
-    }
+    )
+  }
 }
 
 export default ExplorePage
@@ -63,7 +59,13 @@ export const pageQuery = graphql`
               url
             }
           }
+          previewImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
+        pastNewslettersLink
         venturesAndInvestorsHeader
         venturesAndInvestorsSubheader
         studentsHeader
