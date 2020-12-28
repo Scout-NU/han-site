@@ -25,8 +25,7 @@ class ContactPage extends React.Component {
           socialMediaHeader={contact.socialMediaHeader}
           socialMediaDescription={contact.socialMediaDescription}
           faqHeader={contact.faqHeader}
-          contactInfoLinks={contactInfoLinks}
-        ></Contact>
+          contactInfoLinks={contactInfoLinks}/>
         <Helmet title={siteTitle} />
       </Layout>
     )

@@ -60,6 +60,21 @@ export const FAQLinkButton = styled.button`
         width: 40px;
         height: 40px;
     }
+    svg path { 
+        fill: transparent; transition: all 0.2s;
+    }
+    &:hover svg path { 
+        fill: ${yellow}; 
+    }
+`
+
+const FAQBlockLink = styled(Link)`
+    &:hover {
+        text-decoration: none;
+    }
+    button {
+        outline: none;
+    }
 `
 
 const FAQTealBlock = styled.div`
@@ -207,14 +222,14 @@ const Contact = (props) => (
                 </SocialContainer>
             </ContactGroup>
             <FAQButton>
-                <FAQTealBlock>
-                    <HANsubh3 color={white}>{props.faqHeader}</HANsubh3>
-                    <Link to="/faq">
+                <FAQBlockLink to="/faq">
+                    <FAQTealBlock>
+                        <HANsubh3 color={white}>{props.faqHeader}</HANsubh3>
                         <FAQLinkButton>FAQ
                         <ArrowIconSVG color={yellow} />
                         </FAQLinkButton>
-                    </Link>
-                </FAQTealBlock>
+                    </FAQTealBlock>
+                </FAQBlockLink>
                 <AccentBlock />
                 <AccentBlockSmall />
             </FAQButton>
