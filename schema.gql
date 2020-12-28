@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-23T19:32:57.775Z ###
+### Type definitions saved at 2020-12-27T04:38:13.801Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -420,6 +420,15 @@ type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @deri
 }
 
 type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulEventDescriptionTextNodeSys
+}
+
+type contentfulEventDescriptionTextNodeSys {
   type: String
 }
 
@@ -968,15 +977,6 @@ type ContentfulHomePageSysContentTypeSys {
   linkType: String
   id: String
   contentful_id: String
-}
-
-type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulEventDescriptionTextNodeSys
-}
-
-type contentfulEventDescriptionTextNodeSys {
-  type: String
 }
 
 type ContentfulEventSys @derivedTypes {
