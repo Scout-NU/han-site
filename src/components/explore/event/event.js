@@ -101,9 +101,10 @@ export const EventDescription = styled.div`
 
 const Event = ({event}) => {
         //parse date -> YYYY-MM-DD
+        //I could do string to ISO but dates act weird sometimes
         const date = event.date
-        const dateList = date.split("-") //
-        const month = MONTHS_LIST[dateList[1]]
+        const dateList = date.split("-")
+        const month = MONTHS_LIST[parseInt(dateList[1]) - 1]
         const day = dateList[2]
 
         //parse startTime
