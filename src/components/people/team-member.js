@@ -101,6 +101,7 @@ export const AboutControl = styled.div`
   text-align: right;
   font-family: "URW DIN", sans-serif;
   color: ${darkGray};
+  cursor: pointer;
   text-transform: uppercase;
 `
 

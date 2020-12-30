@@ -11,8 +11,7 @@ import { MOBILE_MARGIN, DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN } from "./c
 export const TitleContainer = styled(BaseMarginContainer)`
     padding-top: ${props => (props.display ? "150px" : "100px")};
     padding-bottom: ${props => (props.display ? "50px" : "0px")};
-
-    margin-bottom: 50px;
+    margin-bottom: ${props => (props.display ? "50px" : "0px")};
     position: relative;
     width: 45%;
 

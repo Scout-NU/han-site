@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-27T04:38:13.801Z ###
+### Type definitions saved at 2020-12-28T08:54:56.541Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -315,15 +315,6 @@ type ImageSharpResize {
   originalName: String
 }
 
-type contentfulTeamMemberBioTextNode implements Node @derivedTypes @dontInfer {
-  bio: String
-  sys: contentfulTeamMemberBioTextNodeSys
-}
-
-type contentfulTeamMemberBioTextNodeSys {
-  type: String
-}
-
 type contentfulNewsletterDescriptionTextNode implements Node @derivedTypes @dontInfer {
   description: String
   sys: contentfulNewsletterDescriptionTextNodeSys
@@ -333,12 +324,21 @@ type contentfulNewsletterDescriptionTextNodeSys {
   type: String
 }
 
-type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
   description: String
-  sys: contentfulAlumniPageDescriptionTextNodeSys
+  sys: contentfulEventDescriptionTextNodeSys
 }
 
-type contentfulAlumniPageDescriptionTextNodeSys {
+type contentfulEventDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulTeamMemberBioTextNode implements Node @derivedTypes @dontInfer {
+  bio: String
+  sys: contentfulTeamMemberBioTextNodeSys
+}
+
+type contentfulTeamMemberBioTextNodeSys {
   type: String
 }
 
@@ -366,6 +366,15 @@ type contentfulInvolvedVenturePageDescriptionTextNode implements Node @derivedTy
 }
 
 type contentfulInvolvedVenturePageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulAlumniPageDescriptionTextNodeSys
+}
+
+type contentfulAlumniPageDescriptionTextNodeSys {
   type: String
 }
 
@@ -506,6 +515,7 @@ type ContentfulNewsletter implements Node @derivedTypes @dontInfer {
   title: String
   publicationDate: Date @dateformat
   newsletterFile: ContentfulAsset @link(by: "id", from: "newsletterFile___NODE")
+  previewImage: ContentfulAsset @link(by: "id", from: "previewImage___NODE")
   explore_page: [ContentfulExplorePage] @link(by: "id", from: "explore page___NODE") @proxy(from: "explore page___NODE")
   contact_page: [ContentfulContactPage] @link(by: "id", from: "contact page___NODE") @proxy(from: "contact page___NODE")
   description: contentfulNewsletterDescriptionTextNode @link(by: "id", from: "description___NODE")
@@ -521,6 +531,7 @@ type ContentfulExplorePage implements Node @derivedTypes @dontInfer {
   headline: String
   newsletterHeader: String
   newsletterSubheader: String
+  pastNewslettersLink: String
   venturesAndInvestorsHeader: String
   venturesAndInvestorsSubheader: String
   studentsHeader: String
@@ -627,7 +638,7 @@ type ContentfulInvolvedInvestorPage implements Node @derivedTypes @dontInfer {
 type ContentfulVenture implements Node @derivedTypes @dontInfer {
   name: String
   shortTagline: String
-  year: String
+  year: Date @dateformat
   website: String
   logo: ContentfulAsset @link(by: "id", from: "logo___NODE")
   portfolio_page: [ContentfulPortfolioPage] @link(by: "id", from: "portfolio page___NODE") @proxy(from: "portfolio page___NODE")
