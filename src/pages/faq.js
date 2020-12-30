@@ -2,8 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
-import FaqQuestion from '../components/faq-question/faq-question'
+import FaqQuestion from '../components/faq/question'
 import Layout from '../components/layout'
+import HeaderBar from '../components/base/header-bar'
+import FaqBlock from '../components/faq/faq-block'
+import FaqGrayBlock from '../components/faq/faq-gray-block'
 class FAQPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
@@ -12,37 +15,19 @@ class FAQPage extends React.Component {
         return (
             <Layout location={this.props.location}>
               <Helmet title={siteTitle} />
-              <h1>{faqPage.headline}</h1>
-              <div>{faqPage.category1Label}</div>
-              <ul>
-                  {faqPage.category1Questions.map((question) => {
-                      return (
-                          <li>
-                              <FaqQuestion faqQuestion={question} />
-                          </li>
-                      )
-                  })}
-              </ul>
-              <div>{faqPage.category2Label}</div>
-              <ul>
-                  {faqPage.category2Questions.map((question) => {
-                      return (
-                          <li>
-                              <FaqQuestion faqQuestion={question} />
-                          </li>
-                      )
-                  })}
-              </ul>
-              <div>{faqPage.category3Label}</div>
-              <ul>
-                  {faqPage.category3Questions.map((question) => {
-                      return (
-                          <li>
-                              <FaqQuestion faqQuestion={question} />
-                          </li>
-                      )
-                  })}
-              </ul>
+              <HeaderBar isTop title={faqPage.headline}/>
+              <FaqBlock 
+              title={faqPage.category1Label} 
+              questions={faqPage.category1Questions}/>
+
+              <FaqGrayBlock 
+              title={faqPage.category2Label} 
+              questions={faqPage.category2Questions}/>
+              
+              <FaqBlock 
+              title={faqPage.category3Label} 
+              questions={faqPage.category3Questions}/>
+
             </Layout>
         )
     }

@@ -5,7 +5,7 @@ import { teal, yellow70 } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANh2} from "../base/fonts"
 import { SecondaryButton } from "../base/base-components"
-import { InvolvedBlockContainer, InvolvedHeader, InvolvedPicture, InvolvedTextContainer } from "../get-involved-overview/get-involved-block"
+import { InvolvedBlockContainer, InvolvedHeader, InvolvedPicture, InvolvedTextContainer } from "./get-involved-block"
 
 
 export const InvestorBlockContainer = styled(InvolvedBlockContainer)`

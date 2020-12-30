@@ -141,7 +141,7 @@ export const HANsubh3 = styled.p`
       }
     
     @media ${device.mobile} {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 25px;
     }
 `
