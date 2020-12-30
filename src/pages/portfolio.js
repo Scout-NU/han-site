@@ -11,7 +11,6 @@ class PortfolioPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const portfolioPage = get(this, 'props.data.contentfulPortfolioPage')
-    const allVentures = get(this, 'props.data.allContentfulVenture.edges')
 
 
     return (
@@ -20,7 +19,7 @@ class PortfolioPage extends React.Component {
         <BaseMarginContainer>
           <PortfolioHeader headline={portfolioPage.headline} description={portfolioPage.shortDescription}></PortfolioHeader>
           <FeaturedVenturesBlock heading={portfolioPage.featuredSubheader} ventures={portfolioPage.featuredVentures}/>
-          <PastVentures headline={portfolioPage.pastVenturesSubheader} ventures={allVentures} />
+          <PastVentures headline={portfolioPage.pastVenturesSubheader} ventures={portfolioPage.pastVentures} />
         </BaseMarginContainer>
 
       </Layout>
@@ -41,11 +40,9 @@ export const pageQuery = graphql`
         headline
         shortDescription
         featuredSubheader
-        pastVenturesSubheader
         featuredVentures {
           name
           website
-          year
           description {
             description
           }
@@ -55,21 +52,14 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-      allContentfulVenture {
-        edges {
-          node {
-            name
-            website
-            year
-            description {
-              description
-            }
-            shortTagline
-            logo {
-              fluid (quality: 100) {
-                src
-              }
+        pastVenturesSubheader
+        pastVentures {
+          name
+          website
+          shortTagline
+          logo {
+            fluid (quality: 100) {
+              src
             }
           }
         }

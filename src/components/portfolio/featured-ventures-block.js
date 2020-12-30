@@ -15,20 +15,20 @@ import { VentureImage } from './portfolio'
 
 const FeaturedContainer = styled.div`
     background-color: ${lightGray};
-    padding: 100px ${DESKTOP_MARGIN};
+    padding: 100px ${DESKTOP_MARGIN} 50px;
     position: relative;
     margin: 0px -${DESKTOP_MARGIN};
     @media ${device.smLaptop} {
         margin: 0px -${LAPTOP_MARGIN};
-        padding: 100px ${LAPTOP_MARGIN};
+        padding: 100px ${LAPTOP_MARGIN} 50px;
     }
     @media ${device.tablet} {
         margin: 0px -${TABLET_MARGIN};
-        padding: 75px ${TABLET_MARGIN};
+        padding: 75px ${TABLET_MARGIN} 0px;
     }
     @media ${device.mobile} {
         margin: 0px -${MOBILE_MARGIN};
-        padding: 67px ${MOBILE_MARGIN};
+        padding: 67px ${MOBILE_MARGIN} 0px;
     }
 
 `
@@ -47,90 +47,93 @@ const GoldBar = styled.div`
     @media ${device.tablet} {
         margin-left: -${TABLET_MARGIN};
         top: 50px;
-        width: 200px;
+        width: 25vw;
     }
     @media ${device.mobile} {
-        width: 150px;
+        width: 33vw;
         top: 43px;
         margin-left: -${MOBILE_MARGIN};
     }
 `
 
 const FeaturedVentureImage = styled(VentureImage)`
-    object-fit: cover;
     margin-bottom: 50px;
+    @media ${device.mobile} {
+        margin-bottom: 30px;
+        height: 20vw;
+    }
 `
 
-// const Venture = styled.div`
-//     width: 30%;
-//     margin: 50px 3% 100px 0px;
-//     justify-content: start;
-//     &:nth-child(3n) {
-//         margin-right: 0px;
-//     }
-// `
-/////////////Dropdown
+//dropdown
 
-export const QuestionBlockContainer = styled.div`
-  width: 30%;
-  margin: 50px 3% 100px 0px;
-  justify-content: start;
-  @media ${device.mobile} {
-      width: 45%;
-  }
+const VentureBlockContainer = styled.div`
+    width: 28%;
+    margin: 0px 2.5% 100px;
+    @media ${device.mobile} {
+        width: 45%;
+      margin-bottom: 60px;
+    }
 `
 
-export const VentureContainer = styled.div`
-
+const VentureContainer = styled.div`
+    display: flex;
+    flex: row;
+    flex-wrap: wrap;
+    cursor: pointer;
 `
 
-export const DescriptionControl = styled.div`
-  margin-left: auto;
-  display: none;
-  @media ${device.mobile} {
-    display: inline-block;
-  }
+const DescriptionControl = styled.div`
+    margin-left: auto;
+    display: none;
+    @media ${device.mobile} {
+        display: inline-block;
+    }
 `
 
-export const DropdownIcon = styled.div`
-  display: inline;
-  width: 100%;
-  vertical-align: baseline;
-  margin-left: 3px;
-  transition: all 0.2s;
-  svg {
-    vertical-align: baseline;
-    transition: all 0.2s;
-    transform: ${props => (props.isOpen ? 'rotate(180deg)' : 'none')};
-  }
-    
-`
-
-export const DescriptionContainer = styled.div`
-  @media ${device.mobile} {
-    overflow: hidden;
-    transition: all 0.2s;
-    max-height: ${props => (props.isOpen ? '500px' : '0px')};
-  }
-    
-`
-
-export const TealBar = styled.div`
-  display: none;
-  @media ${device.mobile} {
-    display: inline-block;
-    height: 2px;
-    margin-top: 25px;
-    background-color: ${teal};
+const DropdownIcon = styled.div`
+    display: inline;
     width: 100%;
-  }
+    vertical-align: baseline;
+    margin-left: 3px;
+    transition: all 0.2s;
+    svg {
+        vertical-align: baseline;
+        transition: all 0.2s;
+        transform: ${props => (props.isOpen ? 'rotate(180deg)' : 'none')};
+    }
 `
 
-export const VentureName = styled(HANsubh2)`
-margin: 0px; 
+const DescriptionContainer = styled.div`
+    @media ${device.mobile} {
+        overflow: hidden;
+        transition: all 0.2s;
+        max-height: ${props => (props.isOpen ? '1000px' : '0px')};
+    }
 `
 
-const Dropdown = ({ venture }) => {
+const TealBar = styled.div`
+    display: none;
+    @media ${device.mobile} {
+        display: inline-block;
+        height: 2px;
+        background-color: ${teal};
+        width: 100%;
+    }
+`
+
+const VentureName = styled(HANsubh2)`
+    margin: 0px; 
+    margin-bottom: 20px;
+    @media ${device.mobile} {
+        margin-bottom: 10px;
+    }
+`
+
+const VentureDescription = styled(HANbody)`
+    margin-bottom: 20px;    
+`
+
+const Venture = ({ venture }) => {
     //default open? check mobile if this is fine
     const [open, setOpen] = React.useState(true);
     const windowSize = typeof window !== 'undefined' && window.innerWidth;
@@ -150,9 +153,7 @@ const Dropdown = ({ venture }) => {
         }
     }, [width]);
 
-
-
-    return <QuestionBlockContainer>
+    return <VentureBlockContainer>
         <FeaturedVentureImage src={venture.logo.fluid.src} />
         <VentureContainer onClick={e => setOpen(!open)} >
             <VentureName>{venture.name}</VentureName>
@@ -163,36 +164,21 @@ const Dropdown = ({ venture }) => {
             </DescriptionControl>
         </VentureContainer>
         <DescriptionContainer isOpen={open}>
-            <HANbody>{venture.description.description}</HANbody>
+            <VentureDescription>{venture.description.description}</VentureDescription>
             <a href={venture.website}>
-                <SecondaryButton>Website</SecondaryButton>
+                <SecondaryButton>Visit Website</SecondaryButton>
             </a>
         </DescriptionContainer>
         <TealBar />
-    </QuestionBlockContainer>
+    </VentureBlockContainer>
 
-}
-
-
-const FeaturedVenture = ({ venture }) => {
-    return <>
-        <Venture>
-            <FeaturedVentureImage src={venture.logo.fluid.src} />
-            <HANsubh2>{venture.name}</HANsubh2>
-            <DescriptionDropdown>
-                <HANbody>{venture.description.description}</HANbody>
-                <a href={venture.website}>
-                    <SecondaryButton>Website</SecondaryButton>
-                </a>
-            </DescriptionDropdown>
-        </Venture>
-    </>
 }
 
 const VenturesContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
+    margin-top: 50px;
 `
 
 export const FeaturedVenturesBlock = ({ heading, ventures }) => {
@@ -203,7 +189,7 @@ export const FeaturedVenturesBlock = ({ heading, ventures }) => {
             <VenturesContainer>
                 {
                     ventures.map(venture =>
-                        <Dropdown key={venture.name} venture={venture} />
+                        <Venture key={venture.name} venture={venture} />
                     )
                 }
             </VenturesContainer>

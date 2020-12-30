@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { SecondaryButton } from "../base/base-components"
-import { teal, navy, white, lightGray, yellow } from "../base/colors"
+import { yellow } from "../base/colors"
 import { device } from "../base/device"
 import { HANbody, HANh2, HANh1 } from "../base/fonts"
 import {
@@ -38,8 +38,10 @@ const PastVenturesContainer = styled.div`
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 150px;
+    @media ${device.mobile} {
+        margin-top: 70px;
+    }
 `
 
 const PastVenturesH2 = styled(HANh2)`
@@ -79,35 +81,35 @@ export const PastVentures = ({ headline, ventures }) => {
             <PastVenturesH2>{headline}</PastVenturesH2>
             <GoldBar />
             {
-                ventures.map(({ node }) => {
-                    return (
-                        <PortfolioVenture venture={node}></PortfolioVenture>
-                    )
-                })
+                ventures.map(venture =>
+                        <PortfolioVenture venture={venture}></PortfolioVenture>
+                        )
             }
         </PastVenturesContainer>
     </>
 }
 
+// below is for a single Venture
 const PortfolioVentureContainer = styled.div`
     width: 30%;
-    margin: 40px 0px;
+    margin: 40px 1.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     @media ${device.mobile} {
         width: 45%;
-        margin: 30px 0px;
+        margin: 30px 2.5%;
     }
 `
 
 export const VentureImage = styled.img`
     width: 100%;
-    height: 300px;
-    object-fit: contain;
-    @media ${device.mobile} {
-        height: 100px;
-    }
+    height: 20vw;
+    object-fit: cover;
+`
+
+const VentureHANbody = styled(HANbody)`
+    text-align: center;
 `
 
 export const PortfolioVenture = ({ venture }) => {
@@ -117,7 +119,7 @@ export const PortfolioVenture = ({ venture }) => {
             <a href={venture.website}>
                 <SecondaryButton>{venture.name}</SecondaryButton>
             </a>
-            <HANbody>{venture.shortTagline}</HANbody>
+            <VentureHANbody>{venture.shortTagline}</VentureHANbody>
         </PortfolioVentureContainer>
     </>
 }
