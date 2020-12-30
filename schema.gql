@@ -432,6 +432,15 @@ type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
   type: String
 }
 
+type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulEventDescriptionTextNodeSys
+}
+
+type contentfulEventDescriptionTextNodeSys {
+  type: String
+}
+
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
   contentful_id: String
   spaceId: String
