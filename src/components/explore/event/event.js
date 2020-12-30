@@ -57,6 +57,7 @@ export const EventDay = styled.div`
 
     @media ${device.tablet} {
       font-size: 36px;
+      font-weight: 600;
     }
 
     @media ${device.mobile} {
@@ -70,29 +71,28 @@ export const EventDay = styled.div`
 
 export const EventImageContainer = styled.div`
     width: 33vw;
-    height: 300px;
+    height: 25vw;
     margin: 0px 20px;
 
     @media ${device.tablet} {
-      height: 200px;
+      height: 25vw;
     }
 
     @media ${device.mobile} {
       margin: 0px 0px 10px 0px;
-
       width: 100%;
-      height: 200px;
+      height:65vw;
     }
 `
 
 export const EventPicture = styled.img`
-  width: inherit;
-  height: inherit;
-  object-fit: cover;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
 `
 
 export const EventHeader = styled(HANsubh2)`
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 `
 
 export const EventDescription = styled.div`
