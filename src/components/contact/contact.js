@@ -1,10 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { BaseMarginContainer } from "../base/base-components"
-import { darkGray, lightGray, navy, teal, yellow, white } from "../base/colors"
+import { darkGray, navy, teal, yellow, white } from "../base/colors"
 import { HANdescription, HANh1, HANsubh1, HANsubh4, HANbody, HANsubh3 } from "../base/fonts"
 import { device } from "../base/device"
-import { Link } from 'gatsby'
 import LinkedIn from "../../images/linkedIn.svg"
 import Instagram from "../../images/instagram.svg"
 import Medium from "../../images/medium.svg"
@@ -59,6 +58,18 @@ export const FAQLinkButton = styled.button`
         margin-bottom: 2px;
         width: 40px;
         height: 40px;
+    }
+    svg path { 
+        fill: transparent; transition: all 0.2s;
+    }
+    &:hover svg path { 
+        fill: ${yellow}; 
+    }
+`
+
+const FAQBlockLink = styled.a`
+    &:hover {
+        text-decoration: none;
     }
 `
 
@@ -207,14 +218,14 @@ const Contact = (props) => (
                 </SocialContainer>
             </ContactGroup>
             <FAQButton>
-                <FAQTealBlock>
-                    <HANsubh3 color={white}>{props.faqHeader}</HANsubh3>
-                    <Link to="/faq">
+                <FAQBlockLink href="/faq">
+                    <FAQTealBlock>
+                        <HANsubh3 color={white}>{props.faqHeader}</HANsubh3>
                         <FAQLinkButton>FAQ
                         <ArrowIconSVG color={yellow} />
                         </FAQLinkButton>
-                    </Link>
-                </FAQTealBlock>
+                    </FAQTealBlock>
+                </FAQBlockLink>
                 <AccentBlock />
                 <AccentBlockSmall />
             </FAQButton>
