@@ -22,7 +22,7 @@ export const RequirementsContainer = styled.div`
     }
     @media ${device.mobile} {
         flex-direction: column;
-        margin: 0px -${MOBILE_MARGIN} 90px -${MOBILE_MARGIN};
+        margin: 0px -${MOBILE_MARGIN} 60px -${MOBILE_MARGIN};
         padding: 0px ${MOBILE_MARGIN} 50px ${MOBILE_MARGIN};
     }
 `

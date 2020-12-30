@@ -20,7 +20,7 @@ export const RequirementsContainer = styled.div`
         padding: 65px ${TABLET_MARGIN};
     }
     @media ${device.mobile} {
-        margin: 0px -${MOBILE_MARGIN} 90px -${MOBILE_MARGIN};
+        margin: 0px -${MOBILE_MARGIN} 60px -${MOBILE_MARGIN};
         padding: 50px ${MOBILE_MARGIN} 60px ${MOBILE_MARGIN};
     }
 `

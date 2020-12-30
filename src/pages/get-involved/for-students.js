@@ -4,8 +4,9 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../../components/layout'
 import { BaseMarginContainer } from '../../components/base/base-components'
+import { FeaturedVenturesBlock } from '../../components/portfolio/featured-ventures-block'
 import { RequirementsBlock } from '../../components/get-involved/for-students'
-import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme, StudentVentureHero } from '../../components/get-involved/involved-shared-components'
+import { StepsBlock, LargeCTA, LargeOverlayCTA, theme, StudentVentureHero } from '../../components/get-involved/involved-shared-components'
 
 class ForStudentsPage extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class ForStudentsPage extends React.Component {
           />
           <RequirementsBlock header={studentsPage.requirementsHeader} description={studentsPage.requirementsDescription} />
           <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} theme={theme.yellowCTA} />
-          <VentureShowcase ventures={studentsPage.ventureShowcase} />
+          <FeaturedVenturesBlock heading={studentsPage.pastVenturesHeader} ventures={studentsPage.ventureShowcase} />
           <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} theme={theme.tealCTA}/>
         </BaseMarginContainer>
       </Layout>
@@ -58,7 +59,9 @@ export const pageQuery = graphql`
       pastVenturesHeader
       ventureShowcase {
         name
-        shortTagline
+        description {
+          description
+        }
         website
         logo {
           fluid(quality: 100) {

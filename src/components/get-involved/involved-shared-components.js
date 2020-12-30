@@ -55,19 +55,19 @@ export const SquareBlock = styled.div`
 
 export const LargeCTAContainer = styled.div`
     position: relative;
-    margin: 60px auto 60px auto;
+    margin: 120px auto;
     width: 80%;
     height: 36vh;
     min-height: 120px;
     max-height: 290px;
     @media ${device.tablet} {
         height: 25vh;
-        margin: 50px auto 50px auto;
+        margin: 100px auto;
     }
     @media ${device.mobile} {
         max-height: 190px;
         width: 100%;
-        margin: 40px 0px;
+        margin: 60px 0px;
     }
 `
 
@@ -133,14 +133,14 @@ export const OverlayCTAContainer = styled.div`
     position: relative;
     width: 100%;
     height: 40vh;
-    margin: 70px auto 140px auto;
+    margin: 140px auto;
     @media ${device.mobile} {
         height: 35vh;
-        margin: 60px auto 100px auto;
+        margin: 100px auto;
     }
     @media ${device.mobile} {
         height: 25vh;
-        margin: 45px auto 60px auto;
+        margin: 60px auto;
     }
 `
 
@@ -421,21 +421,6 @@ export const StudentVentureHero = ({ headline, description, image }) => {
                 <HANbody>{description}</HANbody>
             </GrayBlock>
         </StudentVentureHeroContainer>
-    </>
-}
-
-export const VentureShowcase = ({ ventures }) => {
-    return <>
-        {
-            ventures.map(venture =>
-                <>
-                    <h1>{venture.name}</h1>
-                    <h3>{venture.shortTagline}</h3>
-                    <a href={venture.website}>{venture.website}</a>
-                    <img src={venture.logo.fluid.src}></img>
-                </>)
-        }
-
     </>
 }
 

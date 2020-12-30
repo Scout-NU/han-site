@@ -5,7 +5,8 @@ import get from 'lodash/get'
 import Layout from '../../components/layout'
 import { BaseMarginContainer } from '../../components/base/base-components'
 import { Hero, BenefitsBlock } from '../../components/get-involved/for-investors'
-import { StepsBlock, LargeCTA, VentureShowcase, LargeOverlayCTA, theme } from '../../components/get-involved/involved-shared-components'
+import { FeaturedVenturesBlock } from '../../components/portfolio/featured-ventures-block'
+import { StepsBlock, LargeCTA, LargeOverlayCTA, theme } from '../../components/get-involved/involved-shared-components'
 
 class ForInvestorsPage extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class ForInvestorsPage extends React.Component {
             step3Description={investorsPage.step3Description}
           />
           <LargeCTA header={investorsPage.applyButtonHeader} label={investorsPage.applyButtonLabel} link="/contact" theme={theme.tealCTA}/>
-          <VentureShowcase ventures={investorsPage.ventureShowcase} />
+          <FeaturedVenturesBlock heading={investorsPage.pastVenturesHeader} ventures={investorsPage.ventureShowcase} />
           <LargeOverlayCTA header={investorsPage.finalCTAHeader} description={investorsPage.finalCTADescription} theme={theme.yellowCTA}/>
         </BaseMarginContainer>
       </Layout>
@@ -64,8 +65,10 @@ export const pageQuery = graphql`
       pastVenturesHeader
       ventureShowcase {
         name
-        shortTagline
         website
+        description {
+          description
+        }
         logo {
           fluid(quality: 100) {
             src

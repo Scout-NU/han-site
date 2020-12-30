@@ -1,4 +1,4 @@
-### Type definitions saved at 2020-12-28T08:54:56.541Z ###
+### Type definitions saved at 2020-12-30T22:18:41.545Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -71,8 +71,6 @@ type Directory implements Node @dontInfer {
 type Site implements Node @dontInfer {
   buildTime: Date @dateformat
   siteMetadata: SiteSiteMetadata
-  port: Int
-  host: String
   pathPrefix: String
   polyfill: Boolean
 }
@@ -315,108 +313,9 @@ type ImageSharpResize {
   originalName: String
 }
 
-type contentfulNewsletterDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulNewsletterDescriptionTextNodeSys
-}
-
-type contentfulNewsletterDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulEventDescriptionTextNodeSys
-}
-
-type contentfulEventDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulTeamMemberBioTextNode implements Node @derivedTypes @dontInfer {
-  bio: String
-  sys: contentfulTeamMemberBioTextNodeSys
-}
-
-type contentfulTeamMemberBioTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedInvestorPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedInvestorPageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedInvestorPageDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedStudentPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedStudentPageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedStudentPageDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedVenturePageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulInvolvedVenturePageDescriptionTextNodeSys
-}
-
-type contentfulInvolvedVenturePageDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulAlumniPageDescriptionTextNodeSys
-}
-
-type contentfulAlumniPageDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulTeamPageShortDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  shortDescription: String
-  sys: contentfulTeamPageShortDescriptionTextNodeSys
-}
-
-type contentfulTeamPageShortDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulVentureDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulVentureDescriptionTextNodeSys
-}
-
-type contentfulVentureDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulAdvisorBioTextNode implements Node @derivedTypes @dontInfer {
-  bio: String
-  sys: contentfulAdvisorBioTextNodeSys
-}
-
-type contentfulAdvisorBioTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedPageStudentBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  studentBlockDescription: String
-  sys: contentfulInvolvedPageStudentBlockDescriptionTextNodeSys
-}
-
-type contentfulInvolvedPageStudentBlockDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulInvolvedPageInvestorBlockDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  investorBlockDescription: String
-  sys: contentfulInvolvedPageInvestorBlockDescriptionTextNodeSys
+type contentful404PageErrorDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  errorDescription: String
+  sys: contentful404PageErrorDescriptionTextNodeSys
 }
 
 type contentful404PageErrorDescriptionTextNodeSys {
@@ -433,15 +332,6 @@ type Contentful404Page implements Node @derivedTypes @dontInfer {
   updatedAt: Date @dateformat
   sys: Contentful404PageSys
   node_locale: String
-}
-
-type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulEventDescriptionTextNodeSys
-}
-
-type contentfulEventDescriptionTextNodeSys {
-  type: String
 }
 
 type ContentfulAsset implements Node @derivedTypes @dontInfer {
@@ -1161,40 +1051,6 @@ type ContentfulExplorePageSysContentTypeSys {
   contentful_id: String
 }
 
-type ContentfulEventSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulEventSysContentType
-}
-
-type ContentfulEventSysContentType @derivedTypes {
-  sys: ContentfulEventSysContentTypeSys
-}
-
-type ContentfulEventSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulExplorePageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulExplorePageSysContentType
-}
-
-type ContentfulExplorePageSysContentType @derivedTypes {
-  sys: ContentfulExplorePageSysContentTypeSys
-}
-
-type ContentfulExplorePageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
 type ContentfulNewsletterSys @derivedTypes {
   type: String
   revision: Int
@@ -1509,91 +1365,6 @@ type ContentfulTeamPage implements Node @derivedTypes @dontInfer {
   teamHeadline: String
   teamMembers: [ContentfulTeamMember] @link(by: "id", from: "teamMembers___NODE")
   shortDescription: contentfulTeamPageShortDescriptionTextNode @link(by: "id", from: "shortDescription___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulTeamPageSys
-  node_locale: String
-}
-
-type ContentfulTeamMember implements Node @derivedTypes @dontInfer {
-  name: String
-  title: String
-  linkedIn: String
-  profilePicture: ContentfulAsset @link(by: "id", from: "profilePicture___NODE")
-  alternateProfilePicture: ContentfulAsset @link(by: "id", from: "alternateProfilePicture___NODE")
-  team_page: [ContentfulTeamPage] @link(by: "id", from: "team page___NODE") @proxy(from: "team page___NODE")
-  bio: contentfulTeamMemberBioTextNode @link(by: "id", from: "bio___NODE")
-  spaceId: String
-  contentful_id: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulTeamMemberSys
-  node_locale: String
-}
-
-type ContentfulTeamMemberSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulTeamMemberSysContentType
-}
-
-type ContentfulTeamMemberSysContentType @derivedTypes {
-  sys: ContentfulTeamMemberSysContentTypeSys
-}
-
-type ContentfulTeamMemberSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type ContentfulTeamPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulTeamPageSysContentType
-}
-
-type ContentfulTeamPageSysContentType @derivedTypes {
-  sys: ContentfulTeamPageSysContentTypeSys
-}
-
-type ContentfulTeamPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-  contentful_id: String
-}
-
-type contentfulBlogPostBodyTextNode implements Node @derivedTypes @dontInfer {
-  body: String
-  sys: contentfulBlogPostBodyTextNodeSys
-}
-
-type contentfulBlogPostBodyTextNodeSys {
-  type: String
-}
-
-type contentfulBlogPostDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulBlogPostDescriptionTextNodeSys
-}
-
-type contentfulBlogPostDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulBlogPost implements Node @derivedTypes @dontInfer {
-  title: String
-  slug: String
-  publishDate: Date @dateformat
-  tags: [String]
-  heroImage: ContentfulAsset @link(by: "id", from: "heroImage___NODE")
-  author: ContentfulPerson @link(by: "id", from: "author___NODE")
-  description: contentfulBlogPostDescriptionTextNode @link(by: "id", from: "description___NODE")
-  body: contentfulBlogPostBodyTextNode @link(by: "id", from: "body___NODE")
   spaceId: String
   contentful_id: String
   createdAt: Date @dateformat
