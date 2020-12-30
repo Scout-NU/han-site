@@ -39,6 +39,7 @@ const PastVenturesContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 150px;
 `
 
 const PastVenturesH2 = styled(HANh2)`
@@ -100,7 +101,7 @@ const PortfolioVentureContainer = styled.div`
     }
 `
 
-const VentureImage = styled.img`
+export const VentureImage = styled.img`
     width: 100%;
     height: 300px;
     object-fit: contain;

@@ -3,9 +3,10 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import { PastVentures, PortfolioHeader, PortfolioVenture } from '../components/portfolio/portfolio'
+import { PastVentures, PortfolioHeader } from '../components/portfolio/portfolio'
+import { FeaturedVenturesBlock } from '../components/portfolio/featured-ventures-block'
 import { BaseMarginContainer } from '../components/base/base-components'
-import { HANbody, HANh1, HANh2 } from '../components/base/fonts'
+
 class PortfolioPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -18,6 +19,7 @@ class PortfolioPage extends React.Component {
         <Helmet title={siteTitle} />
         <BaseMarginContainer>
           <PortfolioHeader headline={portfolioPage.headline} description={portfolioPage.shortDescription}></PortfolioHeader>
+          <FeaturedVenturesBlock heading={portfolioPage.featuredSubheader} ventures={portfolioPage.featuredVentures}/>
           <PastVentures headline={portfolioPage.pastVenturesSubheader} ventures={allVentures} />
         </BaseMarginContainer>
 
