@@ -100,12 +100,22 @@ const PortfolioVentureContainer = styled.div`
         width: 45%;
         margin: 30px 2.5%;
     }
+    @media ${device.smMobile} {
+        width: 100%;
+        margin: 30px 0px;
+    }
 `
 
 export const VentureImage = styled.img`
     width: 100%;
     height: 20vw;
-    object-fit: cover;
+    object-fit: contain;
+    @media ${device.mobile} {
+        height: 30vw;
+    }
+    @media ${device.smMobile} {
+        height: 60vw;
+    }
 `
 
 const VentureHANbody = styled(HANbody)`

@@ -57,11 +57,7 @@ const GoldBar = styled.div`
 `
 
 const FeaturedVentureImage = styled(VentureImage)`
-    margin-bottom: 50px;
-    @media ${device.mobile} {
-        margin-bottom: 30px;
-        height: 20vw;
-    }
+    margin-bottom: 30px;
 `
 
 //dropdown
@@ -71,7 +67,10 @@ const VentureBlockContainer = styled.div`
     margin: 0px 2.5% 100px;
     @media ${device.mobile} {
         width: 45%;
-      margin-bottom: 60px;
+        margin-bottom: 60px;
+    }
+    @media ${device.smMobile} {
+        width: 100%;
     }
 `
 

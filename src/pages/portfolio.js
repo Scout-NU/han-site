@@ -12,7 +12,6 @@ class PortfolioPage extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const portfolioPage = get(this, 'props.data.contentfulPortfolioPage')
 
-
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
@@ -21,7 +20,6 @@ class PortfolioPage extends React.Component {
           <FeaturedVenturesBlock heading={portfolioPage.featuredSubheader} ventures={portfolioPage.featuredVentures}/>
           <PastVentures headline={portfolioPage.pastVenturesSubheader} ventures={portfolioPage.pastVentures} />
         </BaseMarginContainer>
-
       </Layout>
     )
   }
