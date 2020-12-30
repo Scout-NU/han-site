@@ -20,6 +20,11 @@ export const HANh1 = styled.h1`
     font-size: 50px;
     line-height: 66px;
   }
+
+  @media ${device.smMobile} {
+    font-size: 40px;
+    line-height: 56px;
+  }
 `
 
 export const HANh2 = styled.h2`
@@ -28,7 +33,7 @@ export const HANh2 = styled.h2`
     font-size: 50px;
     line-height: 60px;
     letter-spacing: 1px;
-    font-weight: 700;
+    font-weight: 600;
     color: ${props => (props.color ? props.color : navy)};
 
     @media ${device.tablet} {
@@ -136,7 +141,7 @@ export const HANsubh3 = styled.p`
       }
     
     @media ${device.mobile} {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 25px;
     }
 `

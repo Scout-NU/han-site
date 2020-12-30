@@ -68,6 +68,10 @@ export const NavLinkGroup = styled.div`
     width: 100%;
   }
 
+  @media (max-width: 360px) {
+    padding: ${ props => (props.isOpen ? '60px 20px': '0px 20px')};
+  }
+
 `
 
 export const NavLink = styled(Link)`

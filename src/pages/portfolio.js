@@ -3,45 +3,26 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import Venture from '../components/venture/venture'
+import { PastVentures, PortfolioHeader } from '../components/portfolio/portfolio'
+import { FeaturedVenturesBlock } from '../components/portfolio/featured-ventures-block'
+import { BaseMarginContainer } from '../components/base/base-components'
+
 class PortfolioPage extends React.Component {
-    render(){
-        const siteTitle = get(this,  'props.data.site.siteMetadata.title')
-        const portfolioPage = get(this, 'props.data.contentfulPortfolioPage')
-        const allVentures = get(this, 'props.data.allContentfulVenture.edges')
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const portfolioPage = get(this, 'props.data.contentfulPortfolioPage')
 
-
-        return (
-            <Layout location={this.props.location}>
-                <Helmet title={siteTitle} />
-                <div>{portfolioPage.headline}</div>
-                <div className="wrapper">
-                    <h2>{portfolioPage.featuredSubheader}</h2>
-                    <div>Huh?</div>
-                    <ul>
-                        {portfolioPage.featuredVentures.map((venture) => {
-                            return (
-                                <li>
-                                    <Venture venture={venture} />
-                                </li>
-                            )
-                        })}
-                    </ul>
-                    <h2>{portfolioPage.pastVenturesSubheader}</h2>
-                    <ul>
-                        {allVentures.map(({node})=> {
-                            return (
-                                <li>
-                                    <Venture venture={node} />
-                                </li>
-                            )
-                        })}
-                    </ul>
-
-                </div>
-            </Layout>
-        )
-    }
+    return (
+      <Layout location={this.props.location}>
+        <Helmet title={siteTitle} />
+        <BaseMarginContainer>
+          <PortfolioHeader headline={portfolioPage.headline} description={portfolioPage.shortDescription}></PortfolioHeader>
+          <FeaturedVenturesBlock heading={portfolioPage.featuredSubheader} ventures={portfolioPage.featuredVentures}/>
+          <PastVentures headline={portfolioPage.pastVenturesSubheader} ventures={portfolioPage.pastVentures} />
+        </BaseMarginContainer>
+      </Layout>
+    )
+  }
 }
 
 export default PortfolioPage
@@ -55,35 +36,28 @@ export const pageQuery = graphql`
     }
     contentfulPortfolioPage {
         headline
+        shortDescription
         featuredSubheader
-        pastVenturesSubheader
         featuredVentures {
           name
           website
-          year
           description {
             description
           }
           logo {
-            fluid (maxWidth: 100, maxHeight: 100) {
-              ...GatsbyContentfulFluid
+            fluid (quality: 100) {
+              src
             }
           }
         }
-      }
-      allContentfulVenture {
-        edges {
-          node {
-            name
-            website
-            year
-            description {
-              description
-            }
-            logo {
-              fluid (maxWidth: 100, maxHeight: 100) {
-                ...GatsbyContentfulFluid
-              }
+        pastVenturesSubheader
+        pastVentures {
+          name
+          website
+          shortTagline
+          logo {
+            fluid (quality: 100) {
+              src
             }
           }
         }
