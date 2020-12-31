@@ -76,6 +76,10 @@ export const StatContainer = styled.div`
         padding-left: 36px;
         width: 100%;
     }
+    @media ${device.smMobile} {
+        flex-direction: column;
+        align-items: start;
+    }
 `
 
 export const StatNumber = styled.p`
