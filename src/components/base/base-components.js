@@ -78,4 +78,9 @@ export const BaseMarginContainer = styled.div`
         margin-left: ${MOBILE_MARGIN};
         margin-right: ${MOBILE_MARGIN};
     }
+
+    @media ${device.fourK} {
+        margin-left: auto;
+        margin-right: auto;
+    }
 `
