@@ -21,7 +21,6 @@ export const theme = {
 }
 
 export const LargeCTABlock = styled.div`
-    position: absolute;
     bottom: 0;
     left: 5%;
     right: 5%;
@@ -29,11 +28,17 @@ export const LargeCTABlock = styled.div`
     align-items: center;
     z-index: 2;
     width: 90%;
-    height: 87%;
-    max-height: 250px;
+    height: auto;
+    position: relative;
+    padding: 50px 30px;
     background-color: ${props => (props.theme ? props.theme.backgroundColor : yellow)};
-    @media ${device.mobile} {
-        height: 93%;
+
+    svg path {
+        fill: transparent;
+        transition: all 0.2s;
+    }
+    &:hover svg path{
+        fill: ${props => (props.theme ? props.theme.accentColor : navy)};
     }
  `
 
@@ -42,9 +47,10 @@ export const SquareBlock = styled.div`
     top: 0;
     z-index: 1;
     width: 40%;
-    height: 90%;
     background-color: ${props => (props.theme ? props.theme.backgroundColor : yellow)};
     opacity: 30%;
+    height: 100%;
+    top: -10px;
     @media ${device.smLaptop} {
         width: 50%;
     }
@@ -57,15 +63,12 @@ export const LargeCTAContainer = styled.div`
     position: relative;
     margin: 120px auto;
     width: 80%;
-    height: 36vh;
     min-height: 120px;
-    max-height: 290px;
+    height: auto;
     @media ${device.tablet} {
-        height: 25vh;
         margin: 100px auto;
     }
     @media ${device.mobile} {
-        max-height: 190px;
         width: 100%;
         margin: 60px 0px;
     }
@@ -89,7 +92,7 @@ export const LargeCTATextContainer = styled.div`
         padding-left: 30px;
     }
     @media ${device.mobile} {
-        margin-left: 30px;
+        margin-left: 0px;
         padding-left: 20px;
         border-left: 2px solid ${props => (props.theme ? props.theme.accentColor : navy)};
         svg {
@@ -132,16 +135,12 @@ export const LargeCTA = ({ header, label, link, theme }) => {
 export const OverlayCTAContainer = styled.div`
     position: relative;
     width: 100%;
-    height: 40vh;
+    height: auto;
     margin: 140px auto;
     @media ${device.mobile} {
-        height: 35vh;
-        margin: 100px auto;
-    }
-    @media ${device.mobile} {
-        height: 25vh;
         margin: 60px auto;
     }
+
 `
 
 export const OverlayCTABlock = styled(LargeCTABlock)`
@@ -149,8 +148,6 @@ export const OverlayCTABlock = styled(LargeCTABlock)`
     height: 80%;
     top: 8%;
     left: 3%;
-    max-height: 325px;
-    min-height: 170px;
     @media ${device.tablet} {
         height: 80%;
         top: 8%;
@@ -166,7 +163,7 @@ export const AccentBlock = styled.div`
     background-color: ${props => (props.theme ? props.theme.accentColor : teal)};
     width: 12.5%;
     height: 50%;
-    bottom: 0;
+    bottom: -25px;
     right: 0;
     z-index: 3;
     @media ${device.mobile} {
@@ -178,7 +175,7 @@ export const AccentBlockSmall = styled(AccentBlock)`
     width: 9%;
     height: 25%;
     opacity: 30%;
-    bottom: 0;
+    bottom: -25px;
     right: 12.5%;
     z-index: 4;
     @media ${device.mobile} {
@@ -237,12 +234,13 @@ export const StepsGroupContainer = styled.div`
 `
 
 export const Step = styled.div`
-    position: relative;
     width: 30%;
-    height: 250px;
+    height: auto;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
     @media ${device.tablet} {
         width: 100%;
-        height: 200px;
     }
 `
 
@@ -253,28 +251,26 @@ export const StepNumber = styled.h1`
     font-weight: 700;
     line-height: 210px;
     color: ${yellow70};
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
     @media ${device.tablet} {
         font-size: 190px;
         line-height: 150px;
+        width: auto;
+
     }
-    @media (max-width: 800px) {
-        left: 15%;
-    }
+        
 `
 
 export const StepText = styled.div`
-    position: absolute;
-    width: 80%;
-    top: 20%;
-    right: 0;
+    left: -40px;
+    width: 60%;
+    top: 60px;
+    position: relative;
+    display: inline-block;
     @media ${device.tablet} {
-        top: 15%;
-        right: auto;
-        left: 33%;
-        width: 60%;
+        top: 30px;
     }
 `
 
