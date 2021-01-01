@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { yellow, yellow70, navy, white, teal, lightGray, lightGray90 } from "../base/colors"
+import { yellow, yellow70, navy, white, teal, lightGray90 } from "../base/colors"
 import { HANh1, HANsubh3, HANh2, HANh3, HANbody } from "../base/fonts"
 import ArrowIconSVG from "../../images/arrowIcon"
 import { device } from "../base/device.js"
@@ -22,8 +22,7 @@ export const theme = {
 
 export const LargeCTABlock = styled.div`
     bottom: 0;
-    left: 5%;
-    right: 5%;
+    left: 20px;
     display: flex;
     align-items: center;
     z-index: 2;
@@ -44,15 +43,14 @@ export const LargeCTABlock = styled.div`
 
 export const SquareBlock = styled.div`
     position: absolute;
-    top: 0;
     z-index: 1;
-    width: 40%;
+    width: 30%;
     background-color: ${props => (props.theme ? props.theme.backgroundColor : yellow)};
     opacity: 30%;
     height: 100%;
-    top: -10px;
+    top: -20px;
     @media ${device.smLaptop} {
-        width: 50%;
+        width: 40%;
     }
     @media ${device.mobile} {
         width: 90%;
@@ -147,15 +145,20 @@ export const OverlayCTABlock = styled(LargeCTABlock)`
     width: 90%;
     height: 80%;
     top: 8%;
-    left: 3%;
+    left: 20px;
     @media ${device.tablet} {
         height: 80%;
-        top: 8%;
     }
 `
 
 export const OverlaySquareBlock = styled(SquareBlock)`
-    height: 80%;
+    width: 40%;
+    @media ${device.tablet} {
+        width: 80%;
+    }
+    @media ${device.mobile} {
+        width: 90%;
+    }
 `
 
 export const AccentBlock = styled.div`
