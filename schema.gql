@@ -71,8 +71,6 @@ type Directory implements Node @dontInfer {
 type Site implements Node @dontInfer {
   buildTime: Date @dateformat
   siteMetadata: SiteSiteMetadata
-  port: Int
-  host: String
   pathPrefix: String
   polyfill: Boolean
 }
@@ -398,19 +396,64 @@ type contentfulAlumniPageDescriptionTextNodeSys {
 
 type contentfulNewsletterDescriptionTextNode implements Node @derivedTypes @dontInfer {
   description: String
+  node_locale: String
+  sys: ContentfulAssetSys
+}
+
+type ContentfulAssetFile @derivedTypes {
+  url: String
+  details: ContentfulAssetFileDetails
+  fileName: String
+  contentType: String
+}
+
+type ContentfulAssetFileDetails @derivedTypes {
+  size: Int
+  image: ContentfulAssetFileDetailsImage
+}
+
+type ContentfulAssetFileDetailsImage {
+  width: Int
+  height: Int
+}
+
+type ContentfulAssetSys {
+  type: String
+  revision: Int
+}
+
+type Contentful404PageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: Contentful404PageSysContentType
+}
+
+type Contentful404PageSysContentType @derivedTypes {
+  sys: Contentful404PageSysContentTypeSys
+}
+
+type Contentful404PageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulAlumniPageDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulAlumniPageDescriptionTextNodeSys
+}
+
+type contentfulAlumniPageDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulNewsletterDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
   sys: contentfulNewsletterDescriptionTextNodeSys
 }
 
 type contentfulNewsletterDescriptionTextNodeSys {
-  type: String
-}
-
-type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
-  description: String
-  sys: contentfulEventDescriptionTextNodeSys
-}
-
-type contentfulEventDescriptionTextNodeSys {
   type: String
 }
 
@@ -501,6 +544,15 @@ type contentfulInvolvedPageVentureBlockDescriptionTextNode implements Node @deri
 }
 
 type contentfulInvolvedPageVentureBlockDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulEventDescriptionTextNode implements Node @derivedTypes @dontInfer {
+  description: String
+  sys: contentfulEventDescriptionTextNodeSys
+}
+
+type contentfulEventDescriptionTextNodeSys {
   type: String
 }
 
