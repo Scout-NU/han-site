@@ -62,7 +62,7 @@ export const NewsletterButtonContainer = styled.div`
     }
 `
 
-export const PastIssuesLink = styled(Link)`
+export const PastIssuesLink = styled.a`
     margin-left: 10px;
     display: flex;
 `
@@ -82,7 +82,7 @@ const NewsletterBlock = ({ newsletter, title, pastNewslettersLink }) => {
                 <a target="_blank" href={`https://${newsletter.newsletterFile.file.url}`}>
                     <Button> Read More</Button>
                 </a>
-                <PastIssuesLink to={pastNewslettersLink}>
+                <PastIssuesLink target="_blank" href={pastNewslettersLink}>
                     <SecondaryButton>Past Issues</SecondaryButton>
                 </PastIssuesLink>
             </NewsletterButtonContainer>
