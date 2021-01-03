@@ -20,6 +20,9 @@ export const FooterRowContainer = styled.div`
         padding: 0;
         margin: 5% 0 5% 0;
     }
+    @media ${device.mobile} {
+        margin: 0;
+    }
 `
 
 export const FooterSubsectionContainer = styled.div`
