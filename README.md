@@ -19,9 +19,9 @@ cd han-site
 ```
 3. Set up environment variables
 
-In the project directory is a file called `env_example`. This holds all of the necessary environment variables to create this project, including the Prismic access token.
+In the project directory is a file called `env_example`. This holds all of the necessary environment variables to create this project, including the Contentful access token.
 
-Copy the file and add the values to the variables.
+Copy the file twice, name the new files .env.development and .env.production, and add the Contentful API keys to the variables. You can find these API keys in your Contentful space under Settings -> API keys -> HAN-site. You only need to use Space ID and Content Delivery API - access token.
 
 ```sh
 cp env_example .env.development
