@@ -111,9 +111,9 @@ export const CTALabel = styled(HANsubh3)`
     }
 `
 
-export const LargeCTA = ({ header, label, link, theme }) => {
+export const LargeCTA = ({ header, label, link, theme, openNewTab }) => {
     return <>
-        <Link to={link}>
+        <a target={openNewTab ? "_blank" : ""} href={link}>
             <LargeCTAContainer>
                 <SquareBlock theme={theme} />
                 <LargeCTABlock theme={theme}>
@@ -126,7 +126,7 @@ export const LargeCTA = ({ header, label, link, theme }) => {
                     </LargeCTATextContainer>
                 </LargeCTABlock>
             </LargeCTAContainer>
-        </Link>
+        </a>
     </>
 }
 
@@ -191,9 +191,9 @@ export const OverlayCTATextContainer = styled(LargeCTATextContainer)`
     padding-left: 0;
 `
 
-export const LargeOverlayCTA = ({ header, description, theme }) => {
+export const LargeOverlayCTA = ({ header, description, theme, link, openNewTab }) => {
     return <>
-        <Link to="/faq">
+        <a target={openNewTab ? "_blank" : ""} href={link}>
             <OverlayCTAContainer>
                 <OverlaySquareBlock theme={theme} />
                 <OverlayCTABlock theme={theme}>
@@ -208,7 +208,7 @@ export const LargeOverlayCTA = ({ header, description, theme }) => {
                 <AccentBlock theme={theme} />
                 <AccentBlockSmall theme={theme} />
             </OverlayCTAContainer>
-        </Link>
+        </a>
     </>
 }
 

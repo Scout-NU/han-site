@@ -29,9 +29,9 @@ class ForVenturesPage extends React.Component {
             step3Description={venturesPage.step3Description}
           />
           <RequirementsBlock header={venturesPage.requirementsHeader} description={venturesPage.requirementsDescription} requirements={venturesPage.requirementsList}/>
-          <LargeCTA header={venturesPage.applyButtonHeader} label={venturesPage.applyButtonLabel} link={venturesPage.applyButtonLink} theme={theme.yellowCTA} />
+          <LargeCTA header={venturesPage.applyButtonHeader} label={venturesPage.applyButtonLabel} link={venturesPage.applyButtonLink} theme={theme.yellowCTA} openNewTab />
           <FeaturedVenturesBlock heading={venturesPage.pastVenturesHeader} ventures={venturesPage.ventureShowcase} />
-          <LargeOverlayCTA header={venturesPage.finalCTAHeader} description={venturesPage.finalCTADescription} theme={theme.tealCTA} />
+          <LargeOverlayCTA header={venturesPage.finalCTAHeader} description={venturesPage.finalCTADescription} theme={theme.tealCTA} link='/faq'/>
         </BaseMarginContainer>
       </Layout>
     )
