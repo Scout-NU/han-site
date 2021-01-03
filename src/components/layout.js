@@ -23,11 +23,6 @@ const Layout = ({location, children}) => {
         }
       }
       descriptionAboutHan
-      emailAddress {
-        value {
-          value
-        }
-      }
       affiliationText
       damoreMcKimLogo {
         fluid {

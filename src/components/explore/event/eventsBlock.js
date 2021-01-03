@@ -92,7 +92,7 @@ const EventsBlock = ({ title, description, noEvents, events }) => {
             </EventHeaderContainer>
             {events.map((event) => {
                 return (
-                    <Event event={event} />
+                    <Event key={`${event.date}${event.startTime}`} event={event} />
                 )
             })}
             {/* If you want to include past events eventually, feel free to comment this out! */}

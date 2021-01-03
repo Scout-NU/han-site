@@ -19,7 +19,8 @@ import {
   FooterSmallCaption,
   EmailContainer,
   MailtoLink,
-  ConnectContactText
+  ConnectContactText,
+  LoveByScout
 }
   from "./footer-styles"
 
@@ -35,16 +36,16 @@ const Footer = ({ contentfulFooter, contactInfo }) => (
         <FooterContactContainer>
           <ConnectContactText>CONNECT</ConnectContactText>
           <FooterSocialBlock>
-            <a href={contactInfo.instagramLink}><InstagramIcon /></a>
-            <a href={contactInfo.linkedInLink}><LinkedInIcon /></a>
-            <a href={contactInfo.mediumLink}><MediumIcon /></a>
+            <a target="_blank" href={contactInfo.instagramLink}><InstagramIcon /></a>
+            <a target="_blank" href={contactInfo.linkedInLink}><LinkedInIcon /></a>
+            <a target="_blank" href={contactInfo.mediumLink}><MediumIcon /></a>
           </FooterSocialBlock>
         </FooterContactContainer>
         <FooterContactContainerEmail>
           <ConnectContactText>CONTACT</ConnectContactText>
           <EmailContainer>
             <MailtoLink href={"mailto:" + contactInfo.email}>{contactInfo.email}</MailtoLink>
-            </EmailContainer>
+          </EmailContainer>
         </FooterContactContainerEmail>
       </FooterSubsectionContainer>
     </FooterRowContainer>
@@ -60,6 +61,7 @@ const Footer = ({ contentfulFooter, contactInfo }) => (
           <AffiliationImg alt="logo for Mosaic, with the word MOSAIC in gray capital letters and 3 stacked triangles to the left" src={contentfulFooter.mosaicLogo.fluid.src} />
         </AffiliationContainer>
       </FooterSubsectionContainer>
+        <LoveByScout>Made with ♥ by <a target="_blank" href="https://scout.camd.northeastern.edu/">Scout</a></LoveByScout>
     </FooterRowContainer>
   </FooterContainer>
 )

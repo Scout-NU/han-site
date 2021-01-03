@@ -126,11 +126,11 @@ const Event = ({event}) => {
             <HANdescription>{event.location}&nbsp;&nbsp;&nbsp;{startTimeString}–{event.endTime}</HANdescription>
             <HANbody>{event.description.description}
             </HANbody>
-            <Link to={event.registrationLink}>
+            <a target="_blank" href={event.registrationLink}>
                 <SecondaryButton>
                     Register
                 </SecondaryButton>
-            </Link>
+            </a>
             </EventDescription>
     </EventContainer>  
 }

@@ -164,7 +164,7 @@ const Venture = ({ venture }) => {
         </VentureContainer>
         <DescriptionContainer isOpen={open}>
             <VentureDescription>{venture.description.description}</VentureDescription>
-            <a href={venture.website}>
+            <a target="_blank" href={venture.website}>
                 <SecondaryButton>Visit Website</SecondaryButton>
             </a>
         </DescriptionContainer>

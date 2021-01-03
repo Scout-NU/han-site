@@ -73,7 +73,7 @@ const Advisor = ({ advisor }) => {
     </AdvsiorImageContainer>
     <AdvisorDetails>
       <AdvisorName>{advisor.name}</AdvisorName>
-      <a href={advisor.linkedIn}>
+      <a target="_blank" href={advisor.linkedIn}>
         <LinkedInImage src={linkedInIcon} />
       </a>
       {/* <AdvisorTitle>
