@@ -15,11 +15,13 @@ export const FooterRowContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 5% 0 5% 0;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     @media ${device.tablet} {
-        flex-wrap: wrap;
         padding: 0;
         margin: 5% 0 5% 0;
+    }
+    @media ${device.mobile} {
+        margin: 0;
     }
 `
 
@@ -180,11 +182,23 @@ export const ItalicCaption = styled.p`
 
 export const FooterSmallCaption = styled(HANdescription)`
     font-size: 14px;
+    margin: 0;
     color: ${darkGray};
     @media ${device.smLaptop} {
         padding-right: 10%;
     }
     @media ${device.mobile} {
         padding-right: 0%
+    }
+`
+
+export const LoveByScout = styled(FooterSmallCaption) `
+    flex: 1 1 100%;
+    a {
+        color: ${darkGray};
+        text-decoration: underline;
+    }
+    @media ${device.mobile} {
+        padding-bottom: 10%;
     }
 `

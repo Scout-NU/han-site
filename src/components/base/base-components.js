@@ -9,8 +9,8 @@ export const Button = styled.button`
     border: 2.5px solid ${teal};
     color: ${navy};
     background-color: transparent;
-    font-family: sans-serif;
-    font-size: 16px;
+    font-family: "URW DIN", sans-serif;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     padding: 10px 30px;
@@ -30,8 +30,8 @@ export const ArrowButton = styled.button`
     border: none;
     color: ${teal};
     background-color: transparent;
-    font-family: sans-serif;
-    font-size: 16px;
+    font-family: "URW DIN", sans-serif;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0px;
@@ -63,6 +63,7 @@ export const SecondaryButton = (props) => {
 };
 
 export const BaseMarginContainer = styled.div`
+    position: relative;
     max-width: ${size.desktop}px;
     margin-left: ${DESKTOP_MARGIN};
     margin-right: ${DESKTOP_MARGIN};

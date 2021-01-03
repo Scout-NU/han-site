@@ -82,7 +82,7 @@ export const PastVentures = ({ headline, ventures }) => {
             <GoldBar />
             {
                 ventures.map(venture =>
-                        <PortfolioVenture venture={venture}></PortfolioVenture>
+                        <PortfolioVenture key={venture.name} venture={venture}></PortfolioVenture>
                         )
             }
         </PastVenturesContainer>
@@ -126,7 +126,7 @@ export const PortfolioVenture = ({ venture }) => {
     return <>
         <PortfolioVentureContainer>
             <VentureImage src={venture.logo.fluid.src} />
-            <a href={venture.website}>
+            <a target="_blank" href={venture.website}>
                 <SecondaryButton>{venture.name}</SecondaryButton>
             </a>
             <VentureHANbody>{venture.shortTagline}</VentureHANbody>

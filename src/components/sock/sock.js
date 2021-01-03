@@ -17,7 +17,7 @@ export default () => (
         </SockHeaderContainer>
         <SockForm action="https://formspree.io/f/xdopejzj" method="POST">
           <EmailInput placeholder="enter your email address" type="email" name="email"></EmailInput>
-          <Button as="input" type="submit" name="submit"></Button>
+          <Button as="input" type="submit" name="submit" value="Submit"></Button>
         </SockForm>
       </BaseMarginContainer>
 )

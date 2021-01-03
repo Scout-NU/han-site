@@ -8,11 +8,14 @@ import Layout from '../components/layout'
 import EventsBlock from '../components/explore/event/eventsBlock'
 import HeaderBar from '../components/base/header-bar'
 import VentureSignupBlock from '../components/explore/signup'
+import { LargeOverlayCTA, theme } from '../components/get-involved/involved-shared-components'
+import { BaseMarginContainer } from '../components/base/base-components'
 class ExplorePage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const explorePage = get(this, 'props.data.contentfulExplorePage')
     const events = get(this, 'props.data.allContentfulEvent.edges')
+    const mediumLink = get(this, 'props.data.contentfulContactInformation.mediumLink')
 
     return (
       <Layout location={this.props.location}>
@@ -30,6 +33,9 @@ class ExplorePage extends React.Component {
           description={explorePage.studentsSubheader}
           noEvents={explorePage.noEventsMessage}
           events={explorePage.upcomingEvents} />
+        <BaseMarginContainer>
+        <LargeOverlayCTA header={explorePage.blogButtonHeader} description={explorePage.blogButtonLabel} theme={theme.tealCTA} link={mediumLink} openNewTab/>
+        </BaseMarginContainer>
       </Layout>
 
     )
@@ -90,6 +96,9 @@ export const pageQuery = graphql`
         blogButtonHeader
         blogButtonLabel
         noEventsMessage
+      }
+      contentfulContactInformation {
+        mediumLink
       }
       allContentfulEvent(sort: {fields: date}) {
         edges {

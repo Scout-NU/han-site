@@ -127,11 +127,11 @@ const HomepageEvent = ({event, eventHeader}) => {
             <HANdescription>{month} {day} &nbsp;&nbsp;|&nbsp;&nbsp;{event.location}&nbsp;&nbsp;&nbsp;{startTimeString}–{event.endTime}</HANdescription>
             <HANbody>{event.description.description}
             </HANbody>
-            <Link to={event.registrationLink}>
+            <a target="_blank" href={event.registrationLink}>
                 <SecondaryButton>
                     EventBrite
                 </SecondaryButton>
-            </Link>
+            </a>
             </EventDescription>
             <GoldBar/>
         </EventDescriptionContainer>

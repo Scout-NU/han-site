@@ -212,11 +212,11 @@ const Testimonial = ({ carousel, carouselHeader }) => {
                 <HANsubh2>{carousel[index].name}</HANsubh2>
                 <HANsmalldescription>{carousel[index].company}</HANsmalldescription>
             </TestimonialNameTag>
-            <Link to={carousel[index].companyWebsite}>
+            <a target="_blank" href={carousel[index].companyWebsite}>
                 <SecondaryButton>
                     Website
                 </SecondaryButton>
-            </Link>
+            </a>
         </TestimonialInfoBox>
         <CarouselControl>
             <CarouselArrow onClick={leftClick}>

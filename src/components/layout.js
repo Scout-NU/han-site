@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useStaticQuery } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import base from './base.css'
 import Container from './container'
 import Navigation from './navigation/navigation'
@@ -23,11 +23,6 @@ const Layout = ({location, children}) => {
         }
       }
       descriptionAboutHan
-      emailAddress {
-        value {
-          value
-        }
-      }
       affiliationText
       damoreMcKimLogo {
         fluid {
