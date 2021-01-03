@@ -98,14 +98,14 @@ const Alumni = ({ alumni }) => {
         src={alumni.profilePicture.fluid.src}/>
     <AlumniMemberNameBox>
       <AlumniMemberName>{alumni.name}</AlumniMemberName>
-     <a href={alumni.linkedIn}>
+     <a target="_blank" href={alumni.linkedIn}>
        <LinkedInImage src={linkedInIcon}/>
        </a>
     </AlumniMemberNameBox>
     <AlumniMemberTitle>{alumni.yearInHan}</AlumniMemberTitle>
     <TealBar/>
     <HANsubh4>Currently at &nbsp;
-      <CompanyLink href={alumni.currentCompanyLink}>
+      <CompanyLink target="_blank" href={alumni.currentCompanyLink}>
       {alumni.currentCompany}
     </CompanyLink>
     </HANsubh4>

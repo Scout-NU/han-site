@@ -137,7 +137,7 @@ const TeamMember = ({ teamMember }) => {
     
     <TeamMemberNameBox>
       <TeamMemberName>{teamMember.name}</TeamMemberName>
-     <a href={teamMember.linkedIn}>
+     <a target="_blank" href={teamMember.linkedIn}>
        <LinkedInImage src={linkedInIcon}/>
        </a>
     </TeamMemberNameBox>

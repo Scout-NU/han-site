@@ -7,6 +7,8 @@ import Layout from '../components/layout'
 import HeaderBar from '../components/base/header-bar'
 import FaqBlock from '../components/faq/faq-block'
 import FaqGrayBlock from '../components/faq/faq-gray-block'
+import { LargeOverlayCTA , theme} from '../components/get-involved/involved-shared-components'
+import { BaseMarginContainer } from '../components/base/base-components'
 class FAQPage extends React.Component {
     render(){
         const siteTitle = get(this,  'props.data.site.siteMetadata.title')
@@ -27,7 +29,9 @@ class FAQPage extends React.Component {
               <FaqBlock 
               title={faqPage.category3Label} 
               questions={faqPage.category3Questions}/>
-
+              <BaseMarginContainer>
+              <LargeOverlayCTA header={faqPage.finalCTAHeader} description={faqPage.finalCTADescription} theme={theme.tealCTA} />
+              </BaseMarginContainer>
             </Layout>
         )
     }
@@ -65,6 +69,8 @@ export const pageQuery = graphql`
             answer
           }
         }
+        finalCTAHeader
+        finalCTADescription
       }
   }
 `

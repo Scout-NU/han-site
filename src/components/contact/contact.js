@@ -192,7 +192,7 @@ const Contact = (props) => (
             <ContactGroup>
                 <ContactHANdescription color={navy}>{props.linkedInHeader}</ContactHANdescription>
                 <HANsubh4 color={darkGray}>{props.linkedInDescription}</HANsubh4>
-                <LinkBlock href={props.contactInfoLinks.linkedInLink}>
+                <LinkBlock target="_blank" href={props.contactInfoLinks.linkedInLink}>
                     <SocialIcon src={LinkedIn} />
                     <ContactHANbody color={teal}>{props.contactInfoLinks.linkedInLink}</ContactHANbody>
                 </LinkBlock>
@@ -200,7 +200,7 @@ const Contact = (props) => (
             <ContactGroup>
                 <ContactHANdescription color={navy}>{props.newsletterHeader}</ContactHANdescription>
                 <HANsubh4 color={darkGray}>{props.newsletterDescription}</HANsubh4>
-                <LinkBlock href={`https://${props.featuredNewsletter.newsletterFile.file.url}`}>
+                <LinkBlock target="_blank" href={`https://${props.featuredNewsletter.newsletterFile.file.url}`}>
                     <SocialIcon src={Newsletter} />
                     <ContactHANbody color={teal}>{props.featuredNewsletter.title}</ContactHANbody>
                 </LinkBlock>
@@ -209,10 +209,10 @@ const Contact = (props) => (
                 <ContactHANdescription color={navy}>{props.socialMediaHeader}</ContactHANdescription>
                 <HANsubh4 color={darkGray}>{props.socialMediaDescription}</HANsubh4>
                 <SocialContainer>
-                    <a href={props.contactInfoLinks.instagramLink}>
+                    <a target="_blank" href={props.contactInfoLinks.instagramLink}>
                         <SocialIcon src={Instagram} />
                     </a>
-                    <a href={props.contactInfoLinks.mediumLink}>
+                    <a target="_blank" href={props.contactInfoLinks.mediumLink}>
                         <SocialIcon src={Medium} />
                     </a>
                 </SocialContainer>
