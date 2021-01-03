@@ -28,9 +28,9 @@ class ForStudentsPage extends React.Component {
             step3Description={studentsPage.step3Description}
           />
           <RequirementsBlock header={studentsPage.requirementsHeader} description={studentsPage.requirementsDescription} />
-          <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} theme={theme.yellowCTA} />
+          <LargeCTA header={studentsPage.applyButtonHeader} label={studentsPage.applyButtonLabel} link={studentsPage.applyButtonLink} theme={theme.yellowCTA} openNewTab/>
           <FeaturedVenturesBlock heading={studentsPage.pastVenturesHeader} ventures={studentsPage.ventureShowcase} />
-          <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} theme={theme.tealCTA}/>
+          <LargeOverlayCTA header={studentsPage.finalCTAHeader} description={studentsPage.finalCTADescription} theme={theme.tealCTA} link='/faq'/>
         </BaseMarginContainer>
       </Layout>
     )

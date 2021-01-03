@@ -30,7 +30,7 @@ class FAQPage extends React.Component {
               title={faqPage.category3Label} 
               questions={faqPage.category3Questions}/>
               <BaseMarginContainer>
-              <LargeOverlayCTA header={faqPage.finalCTAHeader} description={faqPage.finalCTADescription} theme={theme.tealCTA} />
+              <LargeOverlayCTA header={faqPage.finalCTAHeader} description={faqPage.finalCTADescription} theme={theme.tealCTA} link='/get-involved' />
               </BaseMarginContainer>
             </Layout>
         )

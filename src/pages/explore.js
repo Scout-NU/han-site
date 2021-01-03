@@ -15,6 +15,7 @@ class ExplorePage extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const explorePage = get(this, 'props.data.contentfulExplorePage')
     const events = get(this, 'props.data.allContentfulEvent.edges')
+    const mediumLink = get(this, 'props.data.contentfulContactInformation.mediumLink')
 
     return (
       <Layout location={this.props.location}>
@@ -33,7 +34,7 @@ class ExplorePage extends React.Component {
           noEvents={explorePage.noEventsMessage}
           events={explorePage.upcomingEvents} />
         <BaseMarginContainer>
-        <LargeOverlayCTA header={explorePage.blogButtonHeader} description={explorePage.blogButtonLabel} theme={theme.tealCTA} />
+        <LargeOverlayCTA header={explorePage.blogButtonHeader} description={explorePage.blogButtonLabel} theme={theme.tealCTA} link={mediumLink} openNewTab/>
         </BaseMarginContainer>
       </Layout>
 
@@ -95,6 +96,9 @@ export const pageQuery = graphql`
         blogButtonHeader
         blogButtonLabel
         noEventsMessage
+      }
+      contentfulContactInformation {
+        mediumLink
       }
       allContentfulEvent(sort: {fields: date}) {
         edges {
