@@ -67,7 +67,7 @@ export const SockForm = styled.form `
     display: flex;
     width: 66%;
     align-content: baseline;
-    margin-bottom: 130px;
+    margin-bottom: 180px;
     margin-top: 50px;
     @media ${device.mobile} {
         flex-direction: column;

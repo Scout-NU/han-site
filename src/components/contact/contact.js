@@ -40,6 +40,13 @@ const FAQButton = styled.div`
         width: 100%;
         height: 170px;
     }
+
+    svg path { 
+        fill: transparent; transition: all 0.2s;
+    }
+    &:hover svg path { 
+        fill: ${yellow}; 
+    }
 `
 
 export const FAQLinkButton = styled.button`
@@ -59,12 +66,7 @@ export const FAQLinkButton = styled.button`
         width: 40px;
         height: 40px;
     }
-    svg path { 
-        fill: transparent; transition: all 0.2s;
-    }
-    &:hover svg path { 
-        fill: ${yellow}; 
-    }
+    
 `
 
 const FAQBlockLink = styled.a`
