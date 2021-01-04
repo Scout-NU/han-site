@@ -20,6 +20,13 @@ export const theme = {
     }
 }
 
+export const NoUnderlineLink = styled.a`
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+`
+
 export const LargeCTABlock = styled.div`
     bottom: 0;
     left: 20px;
@@ -59,7 +66,7 @@ export const SquareBlock = styled.div`
 
 export const LargeCTAContainer = styled.div`
     position: relative;
-    margin: 120px auto;
+    margin: 180px auto;
     width: 80%;
     min-height: 120px;
     height: auto;
@@ -113,7 +120,7 @@ export const CTALabel = styled(HANsubh3)`
 
 export const LargeCTA = ({ header, label, link, theme, openNewTab }) => {
     return <>
-        <a target={openNewTab ? "_blank" : ""} href={link}>
+        <NoUnderlineLink target={openNewTab ? "_blank" : ""} href={link}>
             <LargeCTAContainer>
                 <SquareBlock theme={theme} />
                 <LargeCTABlock theme={theme}>
@@ -126,7 +133,7 @@ export const LargeCTA = ({ header, label, link, theme, openNewTab }) => {
                     </LargeCTATextContainer>
                 </LargeCTABlock>
             </LargeCTAContainer>
-        </a>
+        </NoUnderlineLink>
     </>
 }
 
@@ -134,7 +141,7 @@ export const OverlayCTAContainer = styled.div`
     position: relative;
     width: 100%;
     height: auto;
-    margin: 140px auto;
+    margin: 200px auto;
     @media ${device.mobile} {
         margin: 60px auto;
     }
@@ -191,9 +198,10 @@ export const OverlayCTATextContainer = styled(LargeCTATextContainer)`
     padding-left: 0;
 `
 
+
 export const LargeOverlayCTA = ({ header, description, theme, link, openNewTab }) => {
     return <>
-        <a target={openNewTab ? "_blank" : ""} href={link}>
+        <NoUnderlineLink target={openNewTab ? "_blank" : ""} href={link}>
             <OverlayCTAContainer>
                 <OverlaySquareBlock theme={theme} />
                 <OverlayCTABlock theme={theme}>
@@ -208,7 +216,7 @@ export const LargeOverlayCTA = ({ header, description, theme, link, openNewTab }
                 <AccentBlock theme={theme} />
                 <AccentBlockSmall theme={theme} />
             </OverlayCTAContainer>
-        </a>
+        </NoUnderlineLink>
     </>
 }
 
