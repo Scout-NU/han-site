@@ -37,8 +37,7 @@ const Footer = ({ contentfulFooter, contactInfo }) => (
           <ConnectContactText>CONNECT</ConnectContactText>
           <FooterSocialBlock>
             <a target="_blank" href={contactInfo.instagramLink}><InstagramIcon /></a>
-            <a target="_blank" href={contactInfo.linkedInLink}><LinkedInIcon /></a>
-            <a target="_blank" href={contactInfo.mediumLink}><MediumIcon /></a>
+            <a style={{paddingLeft: 40}} target="_blank" href={contactInfo.linkedInLink}><LinkedInIcon /></a>
           </FooterSocialBlock>
         </FooterContactContainer>
         <FooterContactContainerEmail>
