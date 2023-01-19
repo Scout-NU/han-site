@@ -102,7 +102,7 @@ const DropdownIcon = styled.div`
     }
 `
 
-const DescriptionContainer = styled.div`
+const DescriptionContainer = styled.div` 
     @media ${device.mobile} {
         overflow: hidden;
         transition: all 0.2s;
@@ -166,7 +166,7 @@ const Venture = ({ venture }) => {
         </VentureContainer>
         <DescriptionContainer isOpen={open}>
             <VentureDescription>{venture.description.description}</VentureDescription>
-            <a target="_blank" href={venture.website}>
+            <a target="_blank" href={venture.website} style={{marginRight: 200}}>
                 <SecondaryButton>Visit Website</SecondaryButton>
             </a>
             {venture.onePager && 
