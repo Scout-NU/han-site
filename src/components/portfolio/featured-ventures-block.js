@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { SecondaryButton } from "../base/base-components"
+import { OnePagerButton, SecondaryButton } from "../base/base-components"
 import { teal, lightGray, yellow } from "../base/colors"
 import { device, size } from "../base/device"
 import { HANbody, HANh2, HANsubh2 } from "../base/fonts"
@@ -152,6 +152,8 @@ const Venture = ({ venture }) => {
         }
     }, [width]);
 
+    console.log(venture)
+
     return <VentureBlockContainer>
         <FeaturedVentureImage src={venture.logo.fluid.src} />
         <VentureContainer onClick={e => setOpen(!open)} >
@@ -167,6 +169,11 @@ const Venture = ({ venture }) => {
             <a target="_blank" href={venture.website}>
                 <SecondaryButton>Visit Website</SecondaryButton>
             </a>
+            {venture.onePager && 
+                <a target="_blank" href={venture.onePager}>
+                    <OnePagerButton>Learn More</OnePagerButton>
+                </a>
+            }
         </DescriptionContainer>
         <TealBar />
     </VentureBlockContainer>

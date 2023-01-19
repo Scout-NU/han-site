@@ -49,6 +49,7 @@ export const pageQuery = graphql`
               src
             }
           }
+          onePager
         }
         pastVenturesSubheader
         pastVentures {

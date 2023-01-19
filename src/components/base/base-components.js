@@ -4,6 +4,7 @@ import ArrowIconSVG from '../../images/arrowIcon'
 import React from 'react';
 import { DESKTOP_MARGIN, LAPTOP_MARGIN, TABLET_MARGIN, MOBILE_MARGIN } from "./constants"
 import { device, size } from "./device"
+import PaperIconSVG from "../../images/paper-icon";
 
 export const Button = styled.button`
     border: 2.5px solid ${teal};
@@ -58,6 +59,17 @@ export const SecondaryButton = (props) => {
             {text}{' '}
             {children}
             <ArrowIconSVG />
+        </ArrowButton>
+    );
+};
+
+export const OnePagerButton = (props) => {
+    const { text, children, ...rest } = props;
+    return (
+        <ArrowButton>
+            {text}{' '}
+            {children}
+            <PaperIconSVG />
         </ArrowButton>
     );
 };
