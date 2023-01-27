@@ -722,6 +722,7 @@ type ContentfulVenture implements Node @derivedTypes @dontInfer {
   year: Date @dateformat
   website: String
   logo: ContentfulAsset @link(by: "id", from: "logo___NODE")
+  onePager: String
   portfolio_page: [ContentfulPortfolioPage] @link(by: "id", from: "portfolio page___NODE") @proxy(from: "portfolio page___NODE")
   involved_venture_page: [ContentfulInvolvedVenturePage] @link(by: "id", from: "involved venture page___NODE") @proxy(from: "involved venture page___NODE")
   involved_student_page: [ContentfulInvolvedStudentPage] @link(by: "id", from: "involved student page___NODE") @proxy(from: "involved student page___NODE")

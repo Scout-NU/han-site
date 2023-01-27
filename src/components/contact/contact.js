@@ -214,9 +214,6 @@ const Contact = (props) => (
                     <a target="_blank" href={props.contactInfoLinks.instagramLink}>
                         <SocialIcon src={Instagram} />
                     </a>
-                    <a target="_blank" href={props.contactInfoLinks.mediumLink}>
-                        <SocialIcon src={Medium} />
-                    </a>
                 </SocialContainer>
             </ContactGroup>
             <FAQButton>

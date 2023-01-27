@@ -77,7 +77,6 @@ export const FooterContactContainerEmail = styled(FooterContactContainer)`
 
 export const FooterSocialBlock = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     padding: 30px 0 30px 0;
     width: 70%;

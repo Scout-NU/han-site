@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { SecondaryButton } from "../base/base-components"
+import { OnePagerButton, SecondaryButton } from "../base/base-components"
 import { teal, lightGray, yellow } from "../base/colors"
 import { device, size } from "../base/device"
 import { HANbody, HANh2, HANsubh2 } from "../base/fonts"
@@ -102,7 +102,7 @@ const DropdownIcon = styled.div`
     }
 `
 
-const DescriptionContainer = styled.div`
+const DescriptionContainer = styled.div` 
     @media ${device.mobile} {
         overflow: hidden;
         transition: all 0.2s;
@@ -152,6 +152,8 @@ const Venture = ({ venture }) => {
         }
     }, [width]);
 
+    console.log(venture)
+
     return <VentureBlockContainer>
         <FeaturedVentureImage src={venture.logo.fluid.src} />
         <VentureContainer onClick={e => setOpen(!open)} >
@@ -164,9 +166,14 @@ const Venture = ({ venture }) => {
         </VentureContainer>
         <DescriptionContainer isOpen={open}>
             <VentureDescription>{venture.description.description}</VentureDescription>
-            <a target="_blank" href={venture.website}>
+            <a target="_blank" href={venture.website} style={{marginRight: 200}}>
                 <SecondaryButton>Visit Website</SecondaryButton>
             </a>
+            {venture.onePager && 
+                <a target="_blank" href={venture.onePager}>
+                    <OnePagerButton>Learn More</OnePagerButton>
+                </a>
+            }
         </DescriptionContainer>
         <TealBar />
     </VentureBlockContainer>
