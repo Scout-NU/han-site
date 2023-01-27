@@ -186,13 +186,13 @@ export const HANbody = styled.p`
 
 export const HANSpecialBody = styled.p`
   font-family: "HK Grotesk", sans-serif;
-  font-size: 22px;
+  font-size: 1.3vw;
   line-height: 34px;
   color: ${props => (props.color ? props.color : black)};
 
 
   @media ${device.tablet} {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 33px;
   }
   @media ${device.mobile} {

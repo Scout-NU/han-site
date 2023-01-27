@@ -214,7 +214,7 @@ const Testimonial = ({ carousel, carouselHeader }) => {
             </TestimonialNameTag>
             <a target="_blank" href={carousel[index].companyWebsite}>
                 <SecondaryButton>
-                    Website
+                    Venture Website
                 </SecondaryButton>
             </a>
         </TestimonialInfoBox>
