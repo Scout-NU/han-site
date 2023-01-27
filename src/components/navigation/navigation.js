@@ -54,7 +54,7 @@ export const NavLinkGroup = styled.div`
       top: 0;
       right: 0;
       width: 55vw;
-      justify-content: center;
+      justify-content: left;
       transition: all 0.2s;
       max-height: ${ props => (props.isOpen ? '500px': '0px')};
       padding: ${ props => (props.isOpen ? '60px 40px': '0px 40px')};
@@ -66,6 +66,7 @@ export const NavLinkGroup = styled.div`
 
   @media ${device.mobile} {
     width: 100%;
+    justify-content: left;
   }
 
   @media (max-width: 360px) {
@@ -160,7 +161,6 @@ const Navigation = () => {
       <NavLinkGroup isOpen={open}>
         <NavDropdown menuName="Involved"
                       listContents={GET_INVOLVED_LINKS}/>
-         <NavLink to="/explore">Explore</NavLink>
         <NavDropdown menuName="People" 
                       listContents={OUR_TEAM_LINKS}/>
          <NavLink to="/portfolio">Portfolio</NavLink>

@@ -112,7 +112,6 @@ const Hamburger = () => {
                 <MenuContentColumn>
                     <HamburgerDropdown menuName="Involved"
                       listContents={GET_INVOLVED_LINKS}/>
-                    <HamburgerLink to="/explore">Explore</HamburgerLink>
                     <HamburgerLink to="/contact">Contact</HamburgerLink>
                 </MenuContentColumn>
                 <MenuContentColumn>
