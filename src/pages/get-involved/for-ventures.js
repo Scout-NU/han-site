@@ -12,7 +12,8 @@ class ForVenturesPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const venturesPage = get(this, 'props.data.contentfulInvolvedVenturePage')
-
+    // This code holds the featured venture block if we ever want to re-add it. 
+    // <FeaturedVenturesBlock heading={investorsPage.pastVenturesHeader} ventures={investorsPage.ventureShowcase} />
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
@@ -30,7 +31,6 @@ class ForVenturesPage extends React.Component {
           />
           <RequirementsBlock header={venturesPage.requirementsHeader} description={venturesPage.requirementsDescription} requirements={venturesPage.requirementsList}/>
           <LargeCTA header={venturesPage.applyButtonHeader} label={venturesPage.applyButtonLabel} link={venturesPage.applyButtonLink} theme={theme.yellowCTA} openNewTab />
-          <FeaturedVenturesBlock heading={venturesPage.pastVenturesHeader} ventures={venturesPage.ventureShowcase} />
           <LargeOverlayCTA header={venturesPage.finalCTAHeader} description={venturesPage.finalCTADescription} theme={theme.tealCTA} link='/faq'/>
         </BaseMarginContainer>
       </Layout>

@@ -29,7 +29,6 @@ class ForInvestorsPage extends React.Component {
             step3Description={investorsPage.step3Description}
           />
           <LargeCTA header={investorsPage.applyButtonHeader} label={investorsPage.applyButtonLabel} link="/contact" theme={theme.tealCTA}/>
-          <FeaturedVenturesBlock heading={investorsPage.pastVenturesHeader} ventures={investorsPage.ventureShowcase} />
           <LargeOverlayCTA header={investorsPage.finalCTAHeader} description={investorsPage.finalCTADescription} theme={theme.yellowCTA} link='/faq'/>
         </BaseMarginContainer>
       </Layout>
